@@ -1,0 +1,50 @@
+# ==========================================
+# WOS-Ultimate Git Ignore
+# ==========================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+
+# PyInstaller
+*.spec
+
+desktop/build/*
+desktop/dist/*
+
+# Runtime
+desktop/cache/*
+desktop/logs/*
+desktop/backup/*
+
+# Keep folder structure
+!desktop/cache/.gitkeep
+!desktop/logs/.gitkeep
+!desktop/backup/.gitkeep
+
+# Node
+web/node_modules/
+web/.next/
+web/out/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
