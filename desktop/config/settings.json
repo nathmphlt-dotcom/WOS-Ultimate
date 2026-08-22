@@ -1,0 +1,7 @@
+{
+  "application": {
+    "name": "WOS — Windows Optimizer Suite",
+    "version": "0.1.0",
+    "safe_mode_default": true
+  }
+}
