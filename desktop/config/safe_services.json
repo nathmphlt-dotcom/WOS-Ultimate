@@ -1,0 +1,13 @@
+{
+  "safe": [],
+  "optional": [],
+  "do_not_touch": [
+    "WinDefend",
+    "wuauserv",
+    "BITS",
+    "RpcSs",
+    "DcomLaunch",
+    "PlugPlay",
+    "EventLog"
+  ]
+}
