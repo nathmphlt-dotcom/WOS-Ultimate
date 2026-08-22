@@ -1,0 +1,41 @@
+{
+  "project": {
+    "name": "WOS-Ultimate",
+    "display_name": "WOS — Windows Optimizer Suite",
+    "version": "0.1.0"
+  },
+  "platform": {
+    "supported": [
+      "Windows 10",
+      "Windows 11"
+    ]
+  },
+  "desktop": {
+    "language": "Python",
+    "minimum_python": "3.13",
+    "gui": "PySide6",
+    "process_monitor": "psutil",
+    "packaging": "PyInstaller"
+  },
+  "backend": {
+    "controller": "Python",
+    "command": [
+      "CMD",
+      "PowerShell"
+    ],
+    "registry": "reg.exe / Registry APIs"
+  },
+  "safety": {
+    "default_mode": "SAFE",
+    "backup_before_change": true,
+    "verify_after_change": true,
+    "rollback_on_verification_failure": true,
+    "logging_required": true
+  },
+  "web": {
+    "purpose": "UI Preview",
+    "framework": "Next.js",
+    "deployment": "Vercel",
+    "can_modify_windows": false
+  }
+}
