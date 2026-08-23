@@ -1312,3 +1312,250 @@ button {
     gap: 3px;
   }
 }
+/* =========================================================
+   WOS DESIGN SYSTEM — PART 1.2
+   ========================================================= */
+
+:root {
+  --wos-background: #07080d;
+  --wos-surface: #11121b;
+  --wos-surface-2: #171923;
+
+  --wos-primary: #8c42ff;
+  --wos-primary-soft: rgba(140, 66, 255, 0.12);
+
+  --wos-secondary: #00dcff;
+
+  --wos-success: #35e69b;
+  --wos-warning: #ffb45d;
+  --wos-danger: #ff5d72;
+
+  --wos-text: #f5f7ff;
+  --wos-muted: #707588;
+  --wos-subtle: #505568;
+
+  --wos-border: rgba(255, 255, 255, 0.065);
+
+  --wos-radius-sm: 8px;
+  --wos-radius-md: 12px;
+  --wos-radius-lg: 16px;
+  --wos-radius-xl: 20px;
+
+  --wos-space-1: 4px;
+  --wos-space-2: 8px;
+  --wos-space-3: 12px;
+  --wos-space-4: 16px;
+  --wos-space-5: 20px;
+  --wos-space-6: 24px;
+  --wos-space-7: 32px;
+  --wos-space-8: 40px;
+  --wos-space-9: 48px;
+}
+
+/* GLASS CARD */
+
+.wos-glass-card {
+  border: 1px solid var(--wos-border);
+  background: rgba(17, 18, 27, 0.72);
+  border-radius: var(--wos-radius-lg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 20px 50px rgba(0, 0, 0, 0.16);
+}
+
+/* BUTTON SYSTEM */
+
+.wos-button {
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--wos-radius-md);
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.wos-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.wos-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.wos-button-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #8c42ff,
+      #6625dd
+    );
+  box-shadow:
+    0 10px 30px rgba(124, 45, 255, 0.28);
+}
+
+.wos-button-secondary {
+  color: #b3b6c6;
+  border: 1px solid var(--wos-border);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.wos-button-success {
+  background: #16895d;
+}
+
+.wos-button-warning {
+  background: #9a601e;
+}
+
+.wos-button-danger {
+  background: #9d3045;
+}
+
+/* STATUS BADGE */
+
+.wos-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--wos-muted);
+}
+
+.status-success,
+.status-optimized {
+  color: var(--wos-success);
+}
+
+.status-success .status-dot,
+.status-optimized .status-dot {
+  background: var(--wos-success);
+  box-shadow: 0 0 8px var(--wos-success);
+}
+
+.status-running {
+  color: var(--wos-secondary);
+}
+
+.status-running .status-dot {
+  background: var(--wos-secondary);
+  box-shadow: 0 0 8px var(--wos-secondary);
+}
+
+.status-warning {
+  color: var(--wos-warning);
+}
+
+.status-warning .status-dot {
+  background: var(--wos-warning);
+}
+
+.status-failed {
+  color: var(--wos-danger);
+}
+
+.status-failed .status-dot {
+  background: var(--wos-danger);
+}
+
+.status-skipped,
+.status-unsupported,
+.status-waiting {
+  color: var(--wos-muted);
+}
+
+/* COMPONENT OVERRIDES */
+
+.wos-stat-card {
+  min-height: 155px;
+  padding: 17px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.wos-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(140, 66, 255, 0.25);
+}
+
+.wos-action-card {
+  min-height: 125px;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.wos-action-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.action-card-button {
+  width: 100%;
+  min-height: 125px;
+  padding: 18px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.action-card-button h3 {
+  margin: 13px 0 4px;
+  font-size: 12px;
+}
+
+.action-card-button p {
+  margin: 0;
+  color: var(--wos-muted);
+  font-size: 9px;
+}
+
+/* FOCUS ACCESSIBILITY */
+
+.wos-button:focus-visible,
+.nav-item:focus-visible,
+.icon-button:focus-visible,
+.action-card-button:focus-visible {
+  outline: 2px solid var(--wos-secondary);
+  outline-offset: 2px;
+}
+
+/* REDUCE MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  }
