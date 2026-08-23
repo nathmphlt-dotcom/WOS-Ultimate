@@ -1,85 +1,74 @@
 "use client"
 
-import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { WOS_PAGES } from "../config/pages"
+import { useLanguage } from "../context/LanguageContext"
 
-type NavigationProps = {
-  collapsed?: boolean
-}
+const navigationItems = [
+  {
+    href: "/",
+    key: "navigation.dashboard",
+    icon: "⌂",
+  },
+  {
+    href: "/optimizer",
+    key: "navigation.optimizer",
+    icon: "⚡",
+  },
+  {
+    href: "/scanner",
+    key: "navigation.scanner",
+    icon: "◉",
+  },
+  {
+    href: "/security",
+    key: "navigation.security",
+    icon: "◆",
+  },
+  {
+    href: "/fivem",
+    key: "navigation.fivem",
+    icon: "◈",
+  },
+  {
+    href: "/settings",
+    key: "navigation.settings",
+    icon: "⚙",
+  },
+]
 
-const categoryTitles = {
-  main: "MAIN",
-  gaming: "GAMING",
-  system: "SYSTEM",
-  tools: "TOOLS",
-}
-
-export default function Navigation({
-  collapsed = false,
-}: NavigationProps) {
+export default function Navigation() {
   const pathname = usePathname()
-
-  const categories = ["main", "gaming", "system", "tools"] as const
+  const { t } = useLanguage()
 
   return (
-    <nav
-      className={`wos-navigation ${
-        collapsed ? "is-collapsed" : ""
-      }`}
-    >
-      <div className="wos-navigation-inner">
-        {categories.map((category) => {
-          const pages = WOS_PAGES.filter(
-            (page) => page.category === category
-          )
+    <nav className="wos-navigation">
 
-          return (
-            <div
-              className="wos-navigation-group"
-              key={category}
-            >
-              {!collapsed && (
-                <div className="wos-navigation-label">
-                  {categoryTitles[category]}
-                </div>
-              )}
+      {navigationItems.map((item) => {
+        const active =
+          pathname === item.href
 
-              {pages.map((page) => {
-                const active =
-                  pathname === page.path ||
-                  pathname.startsWith(`${page.path}/`)
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={
+              active
+                ? "wos-nav-item active"
+                : "wos-nav-item"
+            }
+          >
+            <span className="wos-nav-icon">
+              {item.icon}
+            </span>
 
-                return (
-                  <Link
-                    href={page.path}
-                    key={page.id}
-                    className={`wos-navigation-item ${
-                      active ? "active" : ""
-                    }`}
-                    title={collapsed ? page.title : undefined}
-                  >
-                    <span className="wos-navigation-icon">
-                      {page.icon}
-                    </span>
+            <span className="wos-nav-label">
+              {t(item.key)}
+            </span>
+          </Link>
+        )
+      })}
 
-                    {!collapsed && (
-                      <span className="wos-navigation-text">
-                        {page.title}
-                      </span>
-                    )}
-
-                    {active && (
-                      <span className="wos-navigation-active-line" />
-                    )}
-                  </Link>
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
     </nav>
   )
 }
