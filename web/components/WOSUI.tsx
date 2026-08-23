@@ -77,7 +77,8 @@ function WOSContent({
 
             <span>
               {t(
-                "status.systemReady"
+                "status.systemReady",
+                "SYSTEM READY"
               )}
             </span>
 
@@ -105,7 +106,8 @@ function WOSContent({
 
           <span>
             {t(
-              "footer.wosUltimate"
+              "footer.wosUltimate",
+              "WOS Ultimate"
             )}
           </span>
 
@@ -115,13 +117,15 @@ function WOSContent({
 
           <span>
             {t(
-              "footer.languageSystem"
+              "footer.languageSystem",
+              "Language System Online"
             )}
           </span>
 
           <span>
             {t(
-              "footer.securityContext"
+              "footer.securityContext",
+              "Security Context Online"
             )}
           </span>
 
@@ -155,4 +159,4 @@ export default function WOSUI({
 
     </LanguageProvider>
   )
-      }
+    }
