@@ -1,104 +1,201 @@
 "use client"
 
-import {
+import React, {
   createContext,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type ReactNode,
 } from "react"
-
-import {
-  DEFAULT_LANGUAGE,
-  type Language,
-} from "../config/languages"
 
 import th from "../locales/th"
 import en from "../locales/en"
 
-const translations = {
-  th,
-  en,
-}
+export type Language = "th" | "en"
 
-type LanguageContextValue = {
+type TranslationValue =
+  | string
+  | Record<string, unknown>
+
+type LanguageDictionary = Record<
+  string,
+  TranslationValue
+>
+
+type LanguageContextType = {
   language: Language
   setLanguage: (language: Language) => void
-  t: (key: string) => string
+  toggleLanguage: () => void
+  t: (key: string, fallback?: string) => string
 }
 
 const LanguageContext =
-  createContext<LanguageContextValue | null>(null)
+  createContext<LanguageContextType | undefined>(
+    undefined
+  )
 
-function getTranslation(
-  object: any,
-  path: string
-): string {
-  const result = path
+const dictionaries: Record<
+  Language,
+  LanguageDictionary
+> = {
+  th: th as LanguageDictionary,
+  en: en as LanguageDictionary,
+}
+
+function getNestedValue(
+  dictionary: LanguageDictionary,
+  key: string
+): unknown {
+  return key
     .split(".")
-    .reduce(
-      (current, key) => current?.[key],
-      object
-    )
+    .reduce<unknown>((current, part) => {
+      if (
+        current &&
+        typeof current === "object" &&
+        part in current
+      ) {
+        return (
+          current as Record<string, unknown>
+        )[part]
+      }
 
-  return typeof result === "string"
-    ? result
-    : path
+      return undefined
+    }, dictionary)
+}
+
+function resolveTranslation(
+  dictionary: LanguageDictionary,
+  key: string
+): string | undefined {
+  const value = getNestedValue(
+    dictionary,
+    key
+  )
+
+  return typeof value === "string"
+    ? value
+    : undefined
 }
 
 export function LanguageProvider({
   children,
 }: {
-  children: ReactNode
+  children: React.ReactNode
 }) {
   const [language, setLanguageState] =
-    useState<Language>(DEFAULT_LANGUAGE)
+    useState<Language>("en")
+
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    const saved =
-      window.localStorage.getItem(
-        "wos-language"
-      ) as Language | null
+    try {
+      const saved =
+        window.localStorage.getItem(
+          "wos-language"
+        )
 
-    if (saved === "th" || saved === "en") {
-      setLanguageState(saved)
+      if (
+        saved === "th" ||
+        saved === "en"
+      ) {
+        setLanguageState(saved)
+      }
+    } catch {
+      // Ignore localStorage errors
     }
+
+    setReady(true)
   }, [])
 
-  const setLanguage = (next: Language) => {
-    setLanguageState(next)
+  const setLanguage = (
+    nextLanguage: Language
+  ) => {
+    setLanguageState(nextLanguage)
 
-    window.localStorage.setItem(
-      "wos-language",
-      next
+    try {
+      window.localStorage.setItem(
+        "wos-language",
+        nextLanguage
+      )
+    } catch {
+      // Ignore localStorage errors
+    }
+
+    document.documentElement.lang =
+      nextLanguage === "th"
+        ? "th"
+        : "en"
+  }
+
+  const toggleLanguage = () => {
+    setLanguage(
+      language === "th"
+        ? "en"
+        : "th"
     )
   }
+
+  const t = (
+    key: string,
+    fallback?: string
+  ) => {
+    const current =
+      resolveTranslation(
+        dictionaries[language],
+        key
+      )
+
+    if (current !== undefined) {
+      return current
+    }
+
+    const english =
+      resolveTranslation(
+        dictionaries.en,
+        key
+      )
+
+    if (english !== undefined) {
+      return english
+    }
+
+    return (
+      fallback ??
+      key
+    )
+  }
+
+  useEffect(() => {
+    if (!ready) return
+
+    document.documentElement.lang =
+      language === "th"
+        ? "th"
+        : "en"
+  }, [language, ready])
 
   const value = useMemo(
     () => ({
       language,
-
       setLanguage,
-
-      t: (key: string) =>
-        getTranslation(
-          translations[language],
-          key
-        ),
+      toggleLanguage,
+      t,
     }),
     [language]
   )
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider
+      value={value}
+    >
       {children}
     </LanguageContext.Provider>
   )
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext)
+  const context =
+    useContext(LanguageContext)
 
   if (!context) {
     throw new Error(
@@ -107,4 +204,4 @@ export function useLanguage() {
   }
 
   return context
-                                             }
+        }
