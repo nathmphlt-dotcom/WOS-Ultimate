@@ -3,18 +3,12 @@
 import React from "react"
 
 import Navigation from "./Navigation"
-import LanguageSwitcher from "./LanguageSwitcher"
-
 import { SecurityProvider } from "./security/SecurityContext"
 
 import {
   LanguageProvider,
   useLanguage,
-} from "./i18n/LanguageContext"
-
-/* =========================================================
-   WOS CONTENT
-   ========================================================= */
+} from "../context/LanguageContext"
 
 function WOSContent({
   children,
@@ -26,10 +20,6 @@ function WOSContent({
   return (
     <div className="wos-shell">
 
-      {/* ===================================================
-          SIDEBAR
-          =================================================== */}
-
       <aside className="wos-sidebar">
 
         <div className="wos-brand">
@@ -39,15 +29,11 @@ function WOSContent({
           </div>
 
           <div className="wos-brand-text">
-
-            <strong>
-              WOS
-            </strong>
+            <strong>WOS</strong>
 
             <span>
               ULTIMATE
             </span>
-
           </div>
 
         </div>
@@ -56,15 +42,7 @@ function WOSContent({
 
       </aside>
 
-      {/* ===================================================
-          MAIN
-          =================================================== */}
-
       <main className="wos-main">
-
-        {/* =================================================
-            TOPBAR
-            ================================================= */}
 
         <header className="wos-topbar">
 
@@ -72,34 +50,17 @@ function WOSContent({
             WINDOWS OPTIMIZER SUITE
           </div>
 
-          <div className="wos-topbar-actions">
+          <div className="wos-system-status">
 
-            {/* LANGUAGE */}
+            <span className="wos-status-dot" />
 
-            <LanguageSwitcher />
-
-            {/* SYSTEM STATUS */}
-
-            <div className="wos-system-status">
-
-              <span className="wos-status-dot" />
-
-              <span>
-                {t(
-                  "status.systemReady",
-                  "SYSTEM READY"
-                )}
-              </span>
-
-            </div>
+            <span>
+              {t("status.systemReady")}
+            </span>
 
           </div>
 
         </header>
-
-        {/* =================================================
-            PAGE CONTENT
-            ================================================= */}
 
         <section className="wos-content">
 
@@ -109,17 +70,10 @@ function WOSContent({
 
         </section>
 
-        {/* =================================================
-            STATUS BAR
-            ================================================= */}
-
         <footer className="wos-statusbar">
 
           <span>
-            {t(
-              "footer.wosUltimate",
-              "WOS Ultimate"
-            )}
+            {t("footer.wosUltimate")}
           </span>
 
           <span>
@@ -127,17 +81,11 @@ function WOSContent({
           </span>
 
           <span>
-            {t(
-              "footer.languageSystem",
-              "Language System Online"
-            )}
+            {t("footer.languageSystem")}
           </span>
 
           <span>
-            {t(
-              "footer.securityContext",
-              "Security Context Online"
-            )}
+            {t("footer.securityContext")}
           </span>
 
         </footer>
@@ -147,10 +95,6 @@ function WOSContent({
     </div>
   )
 }
-
-/* =========================================================
-   WOS UI ROOT
-   ========================================================= */
 
 export default function WOSUI({
   children,
@@ -170,4 +114,4 @@ export default function WOSUI({
 
     </LanguageProvider>
   )
-          }
+}
