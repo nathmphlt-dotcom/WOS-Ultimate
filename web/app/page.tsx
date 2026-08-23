@@ -1,231 +1,662 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
+import {
+  Activity,
+  ArrowUpRight,
+  Cpu,
+  Gauge,
+  Gamepad2,
+  HardDrive,
+  MemoryStick,
+  Monitor,
+  Network,
+  Power,
+  Rocket,
+  Settings,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+import { useState } from "react";
 
 const stats = [
   {
-    label: "CPU USAGE",
-    value: "32",
-    unit: "%",
-    icon: "◒",
-    progress: 32,
+    label: "CPU LOAD",
+    value: "32%",
+    meta: "Optimal",
+    icon: Cpu,
+    type: "positive",
   },
   {
-    label: "RAM USAGE",
-    value: "48",
-    unit: "%",
-    icon: "▤",
-    progress: 48,
+    label: "GPU LOAD",
+    value: "47%",
+    meta: "RTX detected",
+    icon: Monitor,
+    type: "positive",
   },
   {
-    label: "GPU USAGE",
-    value: "67",
-    unit: "%",
-    icon: "◈",
-    progress: 67,
+    label: "MEMORY",
+    value: "61%",
+    meta: "9.8 / 16 GB",
+    icon: MemoryStick,
+    type: "positive",
   },
   {
-    label: "SYSTEM HEALTH",
-    value: "98",
-    unit: "%",
-    icon: "◆",
-    progress: 98,
+    label: "FPS",
+    value: "144",
+    meta: "+18% estimated",
+    icon: Gauge,
+    type: "positive",
   },
-]
+];
 
-const actions = [
+const optimizations = [
   {
-    title: "Optimize Windows",
-    description: "Apply safe system optimizations",
-    icon: "⚡",
-    href: "/optimizer",
-    accent: "purple",
+    title: "Gaming Performance",
+    description: "Prepare Windows for maximum gaming performance.",
+    icon: Gamepad2,
   },
   {
-    title: "System Scanner",
-    description: "Scan Windows for optimization issues",
-    icon: "◉",
-    href: "/scanner",
-    accent: "cyan",
+    title: "Background Processes",
+    description: "Reduce unnecessary background activity.",
+    icon: Activity,
   },
   {
-    title: "Gaming Boost",
-    description: "Prepare Windows for gaming",
-    icon: "▶",
-    href: "/gaming",
-    accent: "green",
+    title: "Input Latency",
+    description: "Optimize responsiveness for competitive gaming.",
+    icon: Zap,
   },
   {
-    title: "FiveM Optimizer",
-    description: "Optimize your FiveM gaming environment",
-    icon: "◈",
-    href: "/fivem",
-    accent: "orange",
+    title: "Network Performance",
+    description: "Apply safe network performance optimizations.",
+    icon: Network,
   },
-]
+];
 
-export default function DashboardPage() {
+export default function Home() {
+  const [boosting, setBoosting] = useState(false);
+  const [optimized, setOptimized] = useState(false);
+
+  const handleBoost = () => {
+    setBoosting(true);
+
+    setTimeout(() => {
+      setBoosting(false);
+      setOptimized(true);
+    }, 1800);
+  };
+
   return (
-    <div className="wos-page-transition">
-      <section className="wos-page-header">
-        <div className="wos-page-title-row">
-          <div>
-            <div className="page-kicker">
-              SYSTEM OVERVIEW
+    <main className="wos-app">
+      <div className="wos-shell">
+
+        {/* =====================================================
+            SIDEBAR
+        ===================================================== */}
+
+        <aside className="wos-sidebar">
+          <div className="wos-logo">
+            <div className="wos-logo-mark">
+              <Sparkles size={19} />
             </div>
 
-            <h1>Dashboard</h1>
-
-            <p>
-              Windows Optimizer Suite control center
-            </p>
+            <div>
+              <div className="wos-logo-text">WOS</div>
+              <div className="wos-logo-subtitle">
+                WINDOWS OPTIMIZER
+              </div>
+            </div>
           </div>
 
-          <span className="wos-page-badge">
-            ONLINE
-          </span>
-        </div>
-      </section>
+          <nav className="wos-nav">
 
-      <section className="hero-card">
-        <div className="hero-content">
-          <div className="hero-badge">
-            <span />
-            SYSTEM READY
-          </div>
+            <div className="wos-nav-section">
+              <div className="wos-nav-title">
+                Command
+              </div>
 
-          <h2>
-            Optimize your{" "}
-            <strong>Windows Experience</strong>
-          </h2>
+              <button className="wos-nav-item active">
+                <span className="wos-nav-icon">
+                  <Gauge size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Dashboard
+                </span>
+              </button>
 
-          <p>
-            WOS Ultimate provides a centralized
-            CyberGlass control center for Windows
-            optimization, gaming performance,
-            network tuning and system maintenance.
-          </p>
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Activity size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Performance
+                </span>
+              </button>
 
-          <div className="hero-buttons">
-            <Link
-              href="/optimizer"
-              className="wos-button primary"
-            >
-              ⚡ Optimize Now
-            </Link>
-
-            <Link
-              href="/scanner"
-              className="wos-button secondary"
-            >
-              ◉ Scan System
-            </Link>
-          </div>
-        </div>
-
-        <div className="hero-orb">
-          <div className="orb-core">
-            <span>WOS</span>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="section-heading">
-          <div>
-            <div className="section-kicker">
-              SYSTEM MONITOR
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Rocket size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  FPS Boost
+                </span>
+                <span className="wos-nav-badge">
+                  PRO
+                </span>
+              </button>
             </div>
 
-            <h2>Live Performance</h2>
-          </div>
+            <div className="wos-nav-section">
+              <div className="wos-nav-title">
+                Gaming
+              </div>
 
-          <div className="live-status">
-            <span />
-            LIVE
-          </div>
-        </div>
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Gamepad2 size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Game Mode
+                </span>
+              </button>
 
-        <div className="stats-grid">
-          {stats.map((stat) => (
-            <div
-              className="wos-glass-card wos-stat-card"
-              key={stat.label}
-            >
-              <div className="stat-top">
-                <div className="stat-icon">
-                  {stat.icon}
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Network size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Network
+                </span>
+              </button>
+            </div>
+
+            <div className="wos-nav-section">
+              <div className="wos-nav-title">
+                System
+              </div>
+
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Cpu size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Processes
+                </span>
+              </button>
+
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <HardDrive size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Storage
+                </span>
+              </button>
+
+              <button className="wos-nav-item">
+                <span className="wos-nav-icon">
+                  <Settings size={17} />
+                </span>
+                <span className="wos-nav-label">
+                  Settings
+                </span>
+              </button>
+            </div>
+          </nav>
+
+          <div className="wos-sidebar-footer">
+            <div className="wos-system-chip">
+              <span className="wos-status-dot" />
+
+              <div className="wos-system-text">
+                <div className="wos-system-name">
+                  System Online
+                </div>
+
+                <div className="wos-system-state">
+                  WOS CORE READY
                 </div>
               </div>
+            </div>
+          </div>
+        </aside>
 
-              <div className="stat-title">
-                {stat.label}
+        {/* =====================================================
+            TOPBAR
+        ===================================================== */}
+
+        <header className="wos-topbar">
+          <div className="wos-topbar-left">
+            <div className="wos-breadcrumb">
+              WOS / <strong>Command Center</strong>
+            </div>
+
+            <div className="wos-live">
+              <span className="wos-live-dot" />
+              SYSTEM ONLINE
+            </div>
+          </div>
+
+          <div className="wos-topbar-right">
+            <button className="wos-icon-button">
+              <ShieldCheck size={16} />
+            </button>
+
+            <button className="wos-icon-button">
+              <Settings size={16} />
+            </button>
+          </div>
+        </header>
+
+        {/* =====================================================
+            MAIN
+        ===================================================== */}
+
+        <section className="wos-main">
+          <div className="wos-content">
+
+            {/* PAGE HEADER */}
+
+            <div className="wos-page-header">
+              <div>
+                <div className="wos-page-eyebrow">
+                  <Activity size={12} />
+                  COMMAND CENTER
+                </div>
+
+                <h1 className="wos-page-title">
+                  System Overview
+                </h1>
+
+                <p className="wos-page-description">
+                  Monitor your system and prepare Windows for
+                  a faster, smoother gaming experience.
+                </p>
               </div>
+            </div>
 
-              <div className="stat-value">
-                {stat.value}
-                <span>{stat.unit}</span>
-              </div>
+            {/* =================================================
+                COMMAND CENTER HERO
+            ================================================= */}
 
-              <div className="stat-line">
+            <section className="wos-command-center">
+              <div className="wos-command-content">
+
+                <div className="wos-page-eyebrow">
+                  <Sparkles size={12} />
+                  PREMIUM GAMING OS
+                </div>
+
+                <h2 className="wos-command-title">
+                  Take Control.
+                  <br />
+                  <span>Unlock Performance.</span>
+                </h2>
+
+                <p className="wos-command-description">
+                  WOS analyzes your gaming environment and
+                  provides a centralized command center for
+                  performance optimization.
+                </p>
+
                 <div
                   style={{
-                    width: `${stat.progress}%`,
+                    display: "flex",
+                    gap: 9,
+                    marginTop: 20,
+                    flexWrap: "wrap",
                   }}
-                />
+                >
+                  <button
+                    className="wos-button wos-button-primary"
+                    onClick={handleBoost}
+                    disabled={boosting}
+                  >
+                    <Power size={14} />
+
+                    {boosting
+                      ? "OPTIMIZING..."
+                      : optimized
+                        ? "SYSTEM OPTIMIZED"
+                        : "BOOST NOW"}
+                  </button>
+
+                  <button className="wos-button wos-button-secondary">
+                    <Activity size={14} />
+                    VIEW DETAILS
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            </section>
 
-      <section>
-        <div className="section-heading">
-          <div>
-            <div className="section-kicker">
-              QUICK ACTIONS
-            </div>
+            {/* =================================================
+                SYSTEM STATS
+            ================================================= */}
 
-            <h2>Optimization Center</h2>
-          </div>
-        </div>
-
-        <div className="actions-grid">
-          {actions.map((action) => (
-            <Link
-              href={action.href}
-              key={action.title}
-              className={`wos-glass-card wos-action-card accent-${action.accent}`}
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-              }}
+            <div
+              className="wos-grid wos-grid-4"
+              style={{ marginTop: 14 }}
             >
-              <div className="action-card-button">
-                <div className="action-icon">
-                  {action.icon}
+              {stats.map((stat) => {
+                const Icon = stat.icon;
+
+                return (
+                  <div
+                    className="wos-stat-card"
+                    key={stat.label}
+                  >
+                    <div className="wos-stat-header">
+                      <span className="wos-stat-label">
+                        {stat.label}
+                      </span>
+
+                      <span className="wos-stat-icon">
+                        <Icon size={15} />
+                      </span>
+                    </div>
+
+                    <div className="wos-stat-value">
+                      {stat.value}
+                    </div>
+
+                    <div className="wos-stat-meta">
+                      <span className="wos-stat-positive">
+                        ●
+                      </span>
+
+                      {stat.meta}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* =================================================
+                MAIN PERFORMANCE GRID
+            ================================================= */}
+
+            <div
+              className="wos-grid-main"
+              style={{ marginTop: 14 }}
+            >
+
+              {/* PERFORMANCE */}
+
+              <section className="wos-panel">
+                <div className="wos-panel-header">
+                  <div>
+                    <div className="wos-panel-title">
+                      System Performance
+                    </div>
+
+                    <div className="wos-panel-subtitle">
+                      Live resource utilization
+                    </div>
+                  </div>
+
+                  <span className="wos-status wos-status-success">
+                    OPTIMAL
+                  </span>
                 </div>
 
-                <h3>{action.title}</h3>
+                <div className="wos-panel-body">
 
-                <p>{action.description}</p>
+                  <div className="wos-metric">
+                    <div className="wos-metric-top">
+                      <span className="wos-metric-name">
+                        CPU
+                      </span>
+
+                      <span className="wos-metric-value">
+                        32%
+                      </span>
+                    </div>
+
+                    <div className="wos-meter">
+                      <div
+                        className="wos-meter-fill"
+                        style={{ width: "32%" }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="wos-metric">
+                    <div className="wos-metric-top">
+                      <span className="wos-metric-name">
+                        GPU
+                      </span>
+
+                      <span className="wos-metric-value">
+                        47%
+                      </span>
+                    </div>
+
+                    <div className="wos-meter">
+                      <div
+                        className="wos-meter-fill cyan"
+                        style={{ width: "47%" }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="wos-metric">
+                    <div className="wos-metric-top">
+                      <span className="wos-metric-name">
+                        MEMORY
+                      </span>
+
+                      <span className="wos-metric-value">
+                        61%
+                      </span>
+                    </div>
+
+                    <div className="wos-meter">
+                      <div
+                        className="wos-meter-fill green"
+                        style={{ width: "61%" }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="wos-metric">
+                    <div className="wos-metric-top">
+                      <span className="wos-metric-name">
+                        DISK
+                      </span>
+
+                      <span className="wos-metric-value">
+                        14%
+                      </span>
+                    </div>
+
+                    <div className="wos-meter">
+                      <div
+                        className="wos-meter-fill orange"
+                        style={{ width: "14%" }}
+                      />
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+
+              {/* QUICK STATUS */}
+
+              <section className="wos-panel">
+                <div className="wos-panel-header">
+                  <div>
+                    <div className="wos-panel-title">
+                      System Status
+                    </div>
+
+                    <div className="wos-panel-subtitle">
+                      WOS health monitor
+                    </div>
+                  </div>
+                </div>
+
+                <div className="wos-panel-body">
+
+                  <div
+                    className="wos-optimization"
+                    style={{ marginBottom: 9 }}
+                  >
+                    <div className="wos-optimization-icon">
+                      <ShieldCheck size={18} />
+                    </div>
+
+                    <div className="wos-optimization-content">
+                      <div className="wos-optimization-title">
+                        Protection
+                      </div>
+
+                      <div className="wos-optimization-description">
+                        System safeguards active
+                      </div>
+                    </div>
+
+                    <span className="wos-status wos-status-success">
+                      OK
+                    </span>
+                  </div>
+
+                  <div
+                    className="wos-optimization"
+                    style={{ marginBottom: 9 }}
+                  >
+                    <div className="wos-optimization-icon">
+                      <Network size={18} />
+                    </div>
+
+                    <div className="wos-optimization-content">
+                      <div className="wos-optimization-title">
+                        Network
+                      </div>
+
+                      <div className="wos-optimization-description">
+                        Connection stable
+                      </div>
+                    </div>
+
+                    <span className="wos-status wos-status-success">
+                      18ms
+                    </span>
+                  </div>
+
+                  <div className="wos-optimization">
+                    <div className="wos-optimization-icon">
+                      <Rocket size={18} />
+                    </div>
+
+                    <div className="wos-optimization-content">
+                      <div className="wos-optimization-title">
+                        Optimizer
+                      </div>
+
+                      <div className="wos-optimization-description">
+                        Ready for optimization
+                      </div>
+                    </div>
+
+                    <span className="wos-status wos-status-neutral">
+                      READY
+                    </span>
+                  </div>
+
+                </div>
+              </section>
+            </div>
+
+            {/* =================================================
+                QUICK OPTIMIZATION
+            ================================================= */}
+
+            <section
+              className="wos-panel"
+              style={{ marginTop: 14 }}
+            >
+              <div className="wos-panel-header">
+                <div>
+                  <div className="wos-panel-title">
+                    Quick Optimization
+                  </div>
+
+                  <div className="wos-panel-subtitle">
+                    Safe performance modules
+                  </div>
+                </div>
+
+                <span className="wos-tech">
+                  {optimized
+                    ? "OPTIMIZATION COMPLETE"
+                    : "READY"}
+                </span>
               </div>
-            </Link>
-          ))}
-        </div>
-      </section>
 
-      <footer className="system-footer">
-        <div>
-          <span className="footer-dot" />
-          WOS SYSTEM ONLINE
-        </div>
+              <div className="wos-panel-body">
 
-        <div>
-          WINDOWS OPTIMIZER SUITE
-        </div>
-      </footer>
-    </div>
-  )
+                <div
+                  className="wos-grid wos-grid-2"
+                >
+                  {optimizations.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        className="wos-optimization"
+                        key={item.title}
+                      >
+                        <div className="wos-optimization-icon">
+                          <Icon size={18} />
+                        </div>
+
+                        <div className="wos-optimization-content">
+                          <div className="wos-optimization-title">
+                            {item.title}
+                          </div>
+
+                          <div className="wos-optimization-description">
+                            {item.description}
+                          </div>
+                        </div>
+
+                        <button className="wos-icon-button">
+                          <ArrowUpRight size={14} />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+
+              </div>
+            </section>
+
+            {/* =================================================
+                FOOTER SYSTEM INFO
+            ================================================= */}
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: 12,
+                padding: "20px 4px 5px",
+                flexWrap: "wrap",
+              }}
+            >
+              <span className="wos-tech">
+                WOS CORE • COMMAND CENTER
+              </span>
+
+              <span className="wos-tech">
+                WINDOWS OPTIMIZER SUITE
+              </span>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </main>
+  );
 }
