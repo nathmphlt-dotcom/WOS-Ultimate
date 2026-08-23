@@ -3,140 +3,74 @@
 /* =========================================================
    WOS ULTIMATE
    GLOBAL DESIGN SYSTEM
-   PART 1/6
-   BASE / RESET / VARIABLES
+   CyberGlass / Cyber Purple
    ========================================================= */
 
 :root {
-  /* ---------- BACKGROUND ---------- */
-
   --wos-bg: #07080d;
-  --wos-bg-deep: #05060a;
-  --wos-bg-soft: #0a0c12;
-
-  /* ---------- SURFACE ---------- */
-
-  --wos-panel: #0d0f17;
-  --wos-panel-2: #11131c;
-  --wos-card: #151823;
-  --wos-card-2: #191c28;
-
-  /* ---------- PURPLE ---------- */
+  --wos-bg-2: #090a0f;
+  --wos-panel: #10121a;
+  --wos-card: #171923;
 
   --wos-purple: #8c42ff;
   --wos-purple-dark: #6426d9;
-  --wos-purple-deep: #43179e;
-  --wos-purple-light: #b178ff;
-
-  /* ---------- ACCENTS ---------- */
+  --wos-purple-light: #a66cff;
 
   --wos-cyan: #00dcff;
   --wos-green: #35e69b;
   --wos-orange: #ffb45d;
   --wos-red: #ff5d72;
 
-  /* ---------- TEXT ---------- */
-
   --wos-text: #f5f7ff;
-  --wos-text-soft: #d9dce8;
-  --wos-muted: #777c8e;
-  --wos-muted-2: #5d6273;
-  --wos-muted-3: #454a5a;
+  --wos-muted: #777986;
+  --wos-muted-2: #555a6d;
 
-  /* ---------- BORDERS ---------- */
+  --wos-border:
+    rgba(255, 255, 255, 0.065);
 
-  --wos-border: rgba(255, 255, 255, 0.065);
-  --wos-border-soft: rgba(255, 255, 255, 0.04);
-  --wos-border-purple: rgba(140, 66, 255, 0.2);
-
-  /* ---------- RADIUS ---------- */
-
-  --wos-radius-sm: 9px;
-  --wos-radius-md: 12px;
-  --wos-radius-lg: 16px;
-  --wos-radius-xl: 20px;
-  --wos-radius-2xl: 24px;
-
-  /* ---------- SHADOW ---------- */
-
-  --wos-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.22);
-
-  --wos-purple-glow:
-    0 0 30px rgba(140, 66, 255, 0.18);
+  --wos-radius-sm: 10px;
+  --wos-radius-md: 14px;
+  --wos-radius-lg: 18px;
+  --wos-radius-xl: 22px;
 }
-
 
 /* =========================================================
    RESET
    ========================================================= */
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
-
 html {
-  width: 100%;
+  margin: 0;
+  padding: 0;
   min-height: 100%;
 
-  margin: 0;
-  padding: 0;
-
-  background: var(--wos-bg);
-
-  color-scheme: dark;
+  background:
+    var(--wos-bg);
 }
 
-
 body {
-  width: 100%;
-  min-height: 100vh;
-
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 
   color: var(--wos-text);
 
   background:
     radial-gradient(
-      circle at 82% 8%,
-      rgba(126, 45, 255, 0.10),
+      circle at 80% 5%,
+      rgba(126, 45, 255, 0.09),
       transparent 28%
     ),
     radial-gradient(
-      circle at 18% 88%,
+      circle at 20% 90%,
       rgba(0, 220, 255, 0.035),
       transparent 25%
     ),
-    linear-gradient(
-      180deg,
-      #07080d 0%,
-      #080910 100%
-    );
+    var(--wos-bg);
 
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  font-size: 14px;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-body,
-button,
-input,
-textarea,
-select {
   font-family:
     "Inter",
     system-ui,
@@ -146,81 +80,20 @@ select {
     sans-serif;
 }
 
-
 button,
 input,
-textarea,
-select {
+select,
+textarea {
   font: inherit;
 }
-
 
 button {
   cursor: pointer;
 }
 
-
-button:focus,
-button:focus-visible,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-}
-
-
 a {
   color: inherit;
-  text-decoration: none;
 }
-
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-}
-
-
-::selection {
-  color: #ffffff;
-
-  background:
-    rgba(140, 66, 255, 0.45);
-}
-
-
-/* =========================================================
-   REMOVE BROWSER DEFAULT BUTTON STYLING
-   ========================================================= */
-
-button {
-  border: 0;
-
-  margin: 0;
-  padding: 0;
-
-  color: inherit;
-
-  background: transparent;
-
-  appearance: none;
-  -webkit-appearance: none;
-
-  -webkit-tap-highlight-color: transparent;
-}
-
 
 /* =========================================================
    SCROLLBAR
@@ -231,116 +104,24 @@ button {
   height: 6px;
 }
 
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
 
 ::-webkit-scrollbar-thumb {
   border-radius: 999px;
 
   background:
-    rgba(140, 66, 255, 0.32);
+    rgba(140, 66, 255, 0.35);
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
   background:
-    rgba(140, 66, 255, 0.58);
+    rgba(140, 66, 255, 0.6);
 }
 
-
 /* =========================================================
-   ROOT APP
-   ========================================================= */
-
-#__next {
-  width: 100%;
-  min-height: 100vh;
-}
-
-
-/* =========================================================
-   GLOBAL GLASS UTILITY
-   ========================================================= */
-
-.wos-glass {
-  border:
-    1px solid var(--wos-border);
-
-  background:
-    rgba(14, 16, 24, 0.72);
-
-  backdrop-filter:
-    blur(24px);
-
-  -webkit-backdrop-filter:
-    blur(24px);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025),
-
-    var(--wos-shadow);
-}
-
-
-/* =========================================================
-   GLOBAL PURPLE GLOW
-   ========================================================= */
-
-.wos-purple-glow {
-  box-shadow:
-    0 0 35px
-    rgba(140, 66, 255, 0.16);
-}
-
-
-/* =========================================================
-   GLOBAL DISABLED STATE
-   ========================================================= */
-
-button:disabled {
-  cursor: not-allowed;
-}
-
-
-/* =========================================================
-   PAGE TRANSITION
-   ========================================================= */
-
-.wos-page-transition {
-  animation:
-    wos-page-enter
-    220ms ease both;
-}
-
-
-@keyframes wos-page-enter {
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(7px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-}
-/* =========================================================
-   WOS ULTIMATE
-   PART 2/6
-   SHELL / SIDEBAR / NAVIGATION
-   ========================================================= */
-
-
-/* =========================================================
-   WOS SHELL
+   SHELL
    ========================================================= */
 
 .wos-shell {
@@ -355,27 +136,20 @@ button:disabled {
 
   background:
     radial-gradient(
-      circle at 82% 8%,
-      rgba(126, 45, 255, 0.075),
+      circle at 80% 10%,
+      rgba(125, 45, 255, 0.08),
       transparent 28%
     ),
     radial-gradient(
-      circle at 20% 90%,
-      rgba(0, 220, 255, 0.025),
+      circle at 25% 85%,
+      rgba(0, 229, 255, 0.035),
       transparent 25%
     ),
     var(--wos-bg);
 }
 
-
-/* =========================================================
-   MAIN
-   ========================================================= */
-
 .wos-main {
   flex: 1;
-
-  width: calc(100% - 250px);
 
   min-width: 0;
   min-height: 100vh;
@@ -384,12 +158,8 @@ button:disabled {
   flex-direction: column;
 
   position: relative;
-
   z-index: 2;
-
-  overflow: hidden;
 }
-
 
 /* =========================================================
    SIDEBAR
@@ -400,26 +170,13 @@ button:disabled {
   min-width: 250px;
   min-height: 100vh;
 
-  position: relative;
-
-  z-index: 20;
-
-  padding:
-    22px 14px;
-
-  overflow-y: auto;
-  overflow-x: hidden;
+  padding: 22px 14px;
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(10, 11, 18, 0.96),
-      rgba(7, 8, 13, 0.94)
-    );
+    rgba(10, 11, 18, 0.9);
 
   border-right:
-    1px solid
-    rgba(255, 255, 255, 0.055);
+    1px solid var(--wos-border);
 
   backdrop-filter:
     blur(28px);
@@ -427,48 +184,12 @@ button:disabled {
   -webkit-backdrop-filter:
     blur(28px);
 
-  box-shadow:
-    15px 0 50px
-    rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 10;
 }
-
-
-/* =========================================================
-   SIDEBAR EDGE GLOW
-   ========================================================= */
-
-.wos-sidebar::after {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  right: -1px;
-
-  width: 1px;
-  height: 100%;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(140, 66, 255, 0.18),
-      transparent
-    );
-}
-
-
-/* =========================================================
-   BRAND
-   ========================================================= */
 
 .wos-brand {
-  width: 100%;
-
   display: flex;
-
   align-items: center;
 
   gap: 12px;
@@ -477,28 +198,13 @@ button:disabled {
     4px 10px 26px;
 }
 
-
-/* =========================================================
-   BRAND MARK
-   ========================================================= */
-
 .wos-brand-mark {
   width: 40px;
   height: 40px;
-
   min-width: 40px;
 
   display: grid;
-
   place-items: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  border:
-    1px solid
-    rgba(166, 108, 255, 0.24);
 
   border-radius: 12px;
 
@@ -507,55 +213,22 @@ button:disabled {
   background:
     linear-gradient(
       135deg,
-      #9148ff 0%,
-      #6c2cde 50%,
-      #4d1ab5 100%
+      #8e42ff,
+      #5420cf
     );
 
   box-shadow:
     0 0 28px
-    rgba(122, 46, 255, 0.38),
-
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.18);
+    rgba(122, 46, 255, 0.45);
 
   font-size: 20px;
   font-weight: 900;
-
-  letter-spacing: -1px;
 }
-
-
-.wos-brand-mark::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.16),
-      transparent 42%
-    );
-}
-
-
-/* =========================================================
-   BRAND TEXT
-   ========================================================= */
 
 .wos-brand-text {
-  min-width: 0;
-
   display: flex;
-
   flex-direction: column;
 }
-
 
 .wos-brand-text strong {
   color: #ffffff;
@@ -563,112 +236,73 @@ button:disabled {
   font-size: 17px;
   font-weight: 900;
 
-  line-height: 1;
-
   letter-spacing: 2px;
 }
-
 
 .wos-brand-text span {
-  margin-top: 5px;
+  margin-top: 2px;
 
-  color: #777b8b;
+  color: #8d8f9a;
 
-  font-size: 8px;
-  font-weight: 700;
-
-  line-height: 1;
+  font-size: 9px;
 
   letter-spacing: 2px;
 }
 
-
 /* =========================================================
-   NAVIGATION ROOT
+   NAVIGATION
    ========================================================= */
 
 .wos-navigation {
   width: 100%;
 }
 
-
 .wos-navigation-inner {
-  width: 100%;
-
   display: flex;
-
   flex-direction: column;
 
   gap: 18px;
 }
 
-
-/* =========================================================
-   NAVIGATION GROUP
-   ========================================================= */
-
 .wos-navigation-group {
-  width: 100%;
-
   display: flex;
-
   flex-direction: column;
 
   gap: 4px;
 }
 
-
-/* =========================================================
-   NAVIGATION CATEGORY LABEL
-   ========================================================= */
-
 .wos-navigation-label {
-  min-height: 18px;
-
   padding:
     0 12px 7px;
 
-  color:
-    #626778;
+  color: #656875;
 
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
 
-  line-height: 1;
-
   letter-spacing: 1.8px;
-
-  text-transform: uppercase;
 }
 
-
-/* =========================================================
-   NAVIGATION ITEM
-   ========================================================= */
-
 .wos-navigation-item {
+  position: relative;
+
   width: 100%;
   min-height: 42px;
 
   display: flex;
-
   align-items: center;
 
   gap: 12px;
-
-  position: relative;
 
   padding:
     0 12px;
 
   border:
-    1px solid
-    transparent;
+    1px solid transparent;
 
   border-radius: 11px;
 
-  color:
-    #858999;
+  color: #8e909c;
 
   background:
     transparent;
@@ -676,19 +310,17 @@ button:disabled {
   text-decoration: none;
 
   transition:
-    color 180ms ease,
     background 180ms ease,
-    border-color 180ms ease,
+    color 180ms ease,
     transform 180ms ease,
-    box-shadow 180ms ease;
+    border-color 180ms ease;
 }
-
 
 .wos-navigation-item:hover {
   color: #ffffff;
 
   background:
-    rgba(255, 255, 255, 0.038);
+    rgba(255, 255, 255, 0.045);
 
   border-color:
     rgba(255, 255, 255, 0.045);
@@ -697,119 +329,81 @@ button:disabled {
     translateX(2px);
 }
 
-
 .wos-navigation-item.active {
   color: #ffffff;
 
   background:
     linear-gradient(
       90deg,
-      rgba(126, 45, 255, 0.20),
-      rgba(126, 45, 255, 0.045)
+      rgba(126, 45, 255, 0.22),
+      rgba(126, 45, 255, 0.06)
     );
 
   border-color:
     rgba(140, 66, 255, 0.16);
 
   box-shadow:
-    inset 2px 0 0
-    var(--wos-purple),
-
+    inset 2px 0 0 var(--wos-purple),
     0 8px 30px
-    rgba(126, 45, 255, 0.055);
+    rgba(126, 45, 255, 0.06);
 }
-
-
-/* =========================================================
-   NAVIGATION ICON
-   ========================================================= */
 
 .wos-navigation-icon {
   width: 20px;
   min-width: 20px;
 
-  height: 20px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  color:
-    #777c8e;
+  color: #888da2;
 
   font-size: 15px;
-
   line-height: 1;
 
   text-align: center;
-
-  transition:
-    color 180ms ease,
-    filter 180ms ease;
 }
-
 
 .wos-navigation-item:hover
 .wos-navigation-icon {
-  color:
-    #ffffff;
+  color: #ffffff;
 }
-
 
 .wos-navigation-item.active
 .wos-navigation-icon {
   color:
     var(--wos-purple-light);
 
-  filter:
-    drop-shadow(
-      0 0 7px
-      rgba(166, 108, 255, 0.42)
-    );
+  text-shadow:
+    0 0 12px
+    rgba(166, 108, 255, 0.45);
 }
-
-
-/* =========================================================
-   NAVIGATION TEXT
-   ========================================================= */
 
 .wos-navigation-text {
   flex: 1;
-
   min-width: 0;
 
   overflow: hidden;
-
-  color: inherit;
 
   white-space: nowrap;
 
   text-overflow: ellipsis;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-
-  line-height: 1.2;
 }
-
-
-/* =========================================================
-   ACTIVE LINE
-   ========================================================= */
 
 .wos-navigation-active-line {
   position: absolute;
 
   left: 0;
-
   top: 9px;
   bottom: 9px;
 
   width: 3px;
 
   border-radius:
-    0 5px 5px 0;
+    0 4px 4px 0;
 
   background:
     var(--wos-purple);
@@ -819,233 +413,79 @@ button:disabled {
     rgba(122, 46, 255, 0.8);
 }
 
-
-/* =========================================================
-   COLLAPSED NAVIGATION
-   ========================================================= */
-
 .wos-navigation.is-collapsed
 .wos-navigation-item {
   justify-content: center;
 
-  padding:
-    0;
+  padding: 0;
 }
-
 
 .wos-navigation.is-collapsed
 .wos-navigation-text {
   display: none;
 }
 
-
 .wos-navigation.is-collapsed
 .wos-navigation-active-line {
   left: auto;
-
   right: 0;
 }
-
-
-/* =========================================================
-   COLLAPSED ICON
-   ========================================================= */
-
-.wos-navigation.is-collapsed
-.wos-navigation-icon {
-  width: 22px;
-  min-width: 22px;
-}
-
-
-/* =========================================================
-   SIDEBAR RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .wos-sidebar {
-    width: 220px;
-    min-width: 220px;
-  }
-
-  .wos-main {
-    width: calc(100% - 220px);
-  }
-
-}
-
-
-@media (max-width: 700px) {
-
-  .wos-sidebar {
-    width: 70px;
-    min-width: 70px;
-
-    padding:
-      18px 9px;
-  }
-
-  .wos-main {
-    width: calc(100% - 70px);
-  }
-
-  .wos-brand {
-    justify-content: center;
-
-    padding:
-      4px 0 22px;
-  }
-
-  .wos-brand-text {
-    display: none;
-  }
-
-  .wos-navigation-label {
-    display: none;
-  }
-
-  .wos-navigation-item {
-    justify-content: center;
-
-    padding: 0;
-  }
-
-  .wos-navigation-text {
-    display: none;
-  }
-
-  .wos-navigation-active-line {
-    left: auto;
-    right: 0;
-  }
-
-}
-/* =========================================================
-   WOS ULTIMATE
-   PART 3/6
-   TOPBAR / LANGUAGE SWITCHER
-   ========================================================= */
-
 
 /* =========================================================
    TOPBAR
    ========================================================= */
 
 .wos-topbar {
-  width: 100%;
   height: 68px;
   min-height: 68px;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
-  gap: 20px;
 
   padding:
     0 28px;
 
-  position: relative;
-
-  z-index: 15;
-
   border-bottom:
     1px solid
-    rgba(255, 255, 255, 0.055);
+    rgba(255, 255, 255, 0.06);
 
   background:
-    rgba(8, 9, 15, 0.76);
+    rgba(9, 10, 15, 0.72);
 
   backdrop-filter:
-    blur(24px);
+    blur(20px);
 
   -webkit-backdrop-filter:
-    blur(24px);
+    blur(20px);
 }
 
-
-/* =========================================================
-   TOPBAR TITLE
-   ========================================================= */
-
 .wos-topbar-title {
-  min-width: 0;
+  color: #777986;
 
-  overflow: hidden;
-
-  color:
-    #777b8b;
-
-  white-space: nowrap;
-
-  text-overflow: ellipsis;
-
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 800;
-
-  line-height: 1;
 
   letter-spacing: 2px;
 }
 
-
-/* =========================================================
-   TOPBAR ACTIONS
-   ========================================================= */
-
-.wos-topbar-actions {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-end;
-
-  gap: 12px;
-
-  min-width: 0;
-
-  margin-left: auto;
-}
-
-
-/* =========================================================
-   SYSTEM STATUS
-   ========================================================= */
-
 .wos-system-status {
-  display: inline-flex;
-
+  display: flex;
   align-items: center;
 
   gap: 8px;
 
-  flex-shrink: 0;
+  color: #858794;
 
-  color:
-    #858999;
-
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-
-  line-height: 1;
-
-  white-space: nowrap;
 }
-
-
-/* =========================================================
-   SYSTEM STATUS DOT
-   ========================================================= */
 
 .wos-status-dot {
   width: 7px;
   height: 7px;
 
-  min-width: 7px;
-
-  display: block;
+  flex-shrink: 0;
 
   border-radius: 50%;
 
@@ -1054,495 +494,42 @@ button:disabled {
 
   box-shadow:
     0 0 10px
-    rgba(53, 230, 155, 0.82);
+    rgba(54, 213, 118, 0.8);
 }
-
 
 /* =========================================================
-   LANGUAGE BOX
-   ---------------------------------------------------------
-   THIS MATCHES Navigation.tsx
-   ========================================================= */
-
-.wos-language-box {
-  width: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 7px;
-
-  margin-bottom: 2px;
-
-  padding:
-    0 2px;
-}
-
-
-/* =========================================================
-   LANGUAGE LABEL
-   ========================================================= */
-
-.wos-language-label {
-  padding:
-    0 10px;
-
-  color:
-    #626778;
-
-  font-size: 8px;
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: 1.7px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   LANGUAGE SWITCHER OUTER
-   ========================================================= */
-
-.wos-language-switcher {
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 4px;
-
-  padding:
-    4px;
-
-  position: relative;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.075);
-
-  border-radius:
-    12px;
-
-  background:
-    rgba(7, 8, 13, 0.92);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.035),
-
-    0 10px 30px
-    rgba(0, 0, 0, 0.24);
-
-  backdrop-filter:
-    blur(24px);
-
-  -webkit-backdrop-filter:
-    blur(24px);
-
-  isolation: isolate;
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON
-   ---------------------------------------------------------
-   IMPORTANT:
-   This class matches Navigation.tsx exactly.
-   ========================================================= */
-
-.wos-language-button {
-  flex: 1;
-
-  width: 50%;
-  min-width: 0;
-
-  min-height: 36px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 6px;
-
-  position: relative;
-
-  padding:
-    0 8px;
-
-  border:
-    1px solid
-    transparent;
-
-  border-radius:
-    9px;
-
-  outline: none;
-
-  color:
-    #777b8c;
-
-  background:
-    transparent !important;
-
-  box-shadow:
-    none;
-
-  font-family:
-    "Inter",
-    system-ui,
-    sans-serif;
-
-  font-size: 9px;
-  font-weight: 800;
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  appearance: none !important;
-
-  -webkit-appearance: none !important;
-
-  transition:
-    color 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-
-/* =========================================================
-   FORCE REMOVE BROWSER WHITE BUTTON
-   ========================================================= */
-
-.wos-language-button,
-.wos-language-button:active,
-.wos-language-button:focus,
-.wos-language-button:focus-visible {
-  background-color:
-    transparent !important;
-
-  color:
-    #777b8c;
-
-  outline:
-    none !important;
-
-  -webkit-appearance:
-    none !important;
-
-  appearance:
-    none !important;
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON HOVER
-   ========================================================= */
-
-.wos-language-button:hover {
-  color:
-    #ffffff;
-
-  background:
-    rgba(255, 255, 255, 0.045) !important;
-
-  border-color:
-    rgba(255, 255, 255, 0.055);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025);
-
-  transform:
-    translateY(-1px);
-}
-
-
-/* =========================================================
-   ACTIVE LANGUAGE
-   ========================================================= */
-
-.wos-language-button.active {
-  color:
-    #ffffff !important;
-
-  border-color:
-    rgba(166, 108, 255, 0.25);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(140, 66, 255, 0.34),
-      rgba(98, 38, 214, 0.16)
-    ) !important;
-
-  box-shadow:
-    0 0 20px
-    rgba(140, 66, 255, 0.16),
-
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.045),
-
-    inset 0 0 15px
-    rgba(166, 108, 255, 0.055);
-}
-
-
-/* =========================================================
-   ACTIVE HOVER
-   ========================================================= */
-
-.wos-language-button.active:hover {
-  color:
-    #ffffff !important;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(140, 66, 255, 0.42),
-      rgba(98, 38, 214, 0.20)
-    ) !important;
-
-  border-color:
-    rgba(166, 108, 255, 0.34);
-
-  box-shadow:
-    0 0 25px
-    rgba(140, 66, 255, 0.22),
-
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.06);
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON PRESS
-   ========================================================= */
-
-.wos-language-button:active {
-  transform:
-    translateY(0) scale(0.97);
-}
-
-
-/* =========================================================
-   LANGUAGE FLAG
-   ========================================================= */
-
-.wos-language-flag {
-  width: 20px;
-  min-width: 20px;
-
-  height: 20px;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  font-size: 13px;
-
-  line-height: 1;
-
-  filter:
-    drop-shadow(
-      0 2px 5px
-      rgba(0, 0, 0, 0.3)
-    );
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON TEXT
-   ========================================================= */
-
-.wos-language-button > span:not(.wos-language-flag) {
-  overflow: hidden;
-
-  white-space: nowrap;
-
-  text-overflow: ellipsis;
-}
-
-
-/* =========================================================
-   EXTRA HARD OVERRIDE
-   ---------------------------------------------------------
-   ป้องกัน browser / global button CSS
-   กลับมาทำปุ่มเป็นสีขาว
-   ========================================================= */
-
-.wos-navigation
-.wos-language-box
-.wos-language-switcher
-.wos-language-button {
-  background-color:
-    transparent !important;
-
-  color:
-    #777b8c;
-
-  appearance:
-    none !important;
-
-  -webkit-appearance:
-    none !important;
-}
-
-
-.wos-navigation
-.wos-language-box
-.wos-language-switcher
-.wos-language-button.active {
-  color:
-    #ffffff !important;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(140, 66, 255, 0.34),
-      rgba(98, 38, 214, 0.16)
-    ) !important;
-}
-
-
-/* =========================================================
-   MOBILE LANGUAGE SWITCHER
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-  .wos-language-button {
-    min-height: 34px;
-
-    padding:
-      0 6px;
-
-    font-size: 8px;
-  }
-
-  .wos-language-flag {
-    width: 18px;
-    min-width: 18px;
-
-    height: 18px;
-
-    font-size: 12px;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  .wos-topbar {
-    height: 60px;
-    min-height: 60px;
-
-    padding:
-      0 12px;
-  }
-
-  .wos-topbar-title {
-    max-width: 130px;
-
-    font-size: 7px;
-
-    letter-spacing: 1.2px;
-  }
-
-  .wos-system-status {
-    display: none;
-  }
-
-}
-/* =========================================================
-   WOS ULTIMATE
-   PART 4 / 6
-   CONTENT + PAGE HEADER + GLASS CARDS + BUTTONS
-   ========================================================= */
-
-/* =========================================================
-   MAIN CONTENT
+   CONTENT
    ========================================================= */
 
 .wos-content {
   flex: 1;
+
   min-width: 0;
-  min-height: 0;
 
   padding: 32px;
 
   overflow-x: hidden;
   overflow-y: auto;
-
-  position: relative;
 }
-
-.wos-content::before {
-  content: "";
-
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  top: -180px;
-  right: -160px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(140, 66, 255, 0.055),
-      transparent 68%
-    );
-
-  pointer-events: none;
-}
-
-/* =========================================================
-   PAGE TRANSITION
-   ========================================================= */
 
 .wos-page-transition {
-  width: 100%;
-  min-width: 0;
-
-  position: relative;
-  z-index: 2;
-
   animation:
     wos-page-enter
     220ms ease both;
 }
 
 @keyframes wos-page-enter {
-
   from {
     opacity: 0;
-
     transform:
       translateY(7px);
   }
 
   to {
     opacity: 1;
-
     transform:
       translateY(0);
   }
-
 }
 
 /* =========================================================
@@ -1550,129 +537,56 @@ button:disabled {
    ========================================================= */
 
 .wos-page-header {
-  width: 100%;
-
-  margin:
-    0 0 28px;
+  margin-bottom: 28px;
 }
 
 .wos-page-title-row {
   display: flex;
-
   align-items: center;
 
   gap: 12px;
-
-  min-width: 0;
 }
 
 .wos-page-header h1 {
   margin: 0;
 
-  color:
-    var(--wos-text);
+  color: #ffffff;
 
   font-size: 30px;
-
-  font-weight: 800;
-
   line-height: 1.1;
 
   letter-spacing: -0.8px;
 }
 
 .wos-page-header p {
-  max-width: 720px;
+  margin: 9px 0 0;
 
-  margin:
-    9px 0 0;
-
-  color:
-    var(--wos-muted);
+  color: #777986;
 
   font-size: 13px;
 
-  font-weight: 400;
-
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .wos-page-badge {
-  flex-shrink: 0;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 24px;
-
   padding:
-    0 9px;
+    5px 9px;
 
   border:
     1px solid
-    rgba(140, 66, 255, 0.28);
+    rgba(122, 46, 255, 0.28);
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  color:
-    #bd98ff;
+  color: #b98cff;
 
   background:
-    rgba(140, 66, 255, 0.09);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025);
+    rgba(122, 46, 255, 0.1);
 
   font-size: 8px;
-
   font-weight: 800;
 
   letter-spacing: 1.2px;
-
-  white-space: nowrap;
-}
-
-/* =========================================================
-   PAGE KICKER
-   ========================================================= */
-
-.page-kicker,
-.section-kicker {
-  color:
-    #696e82;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: 1.8px;
-
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   PAGE GRID
-   ========================================================= */
-
-.wos-page-grid {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap: 16px;
 }
 
 /* =========================================================
@@ -1680,10 +594,6 @@ button:disabled {
    ========================================================= */
 
 .wos-glass-card {
-  position: relative;
-
-  overflow: hidden;
-
   border:
     1px solid
     var(--wos-border);
@@ -1692,11 +602,13 @@ button:disabled {
     var(--wos-radius-lg);
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(23, 25, 35, 0.78),
-      rgba(14, 16, 24, 0.72)
-    );
+    rgba(17, 18, 27, 0.72);
+
+  backdrop-filter:
+    blur(24px);
+
+  -webkit-backdrop-filter:
+    blur(24px);
 
   box-shadow:
     inset 0 1px 0
@@ -1704,249 +616,17 @@ button:disabled {
 
     0 20px 50px
     rgba(0, 0, 0, 0.16);
-
-  backdrop-filter:
-    blur(24px);
-
-  -webkit-backdrop-filter:
-    blur(24px);
-
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.wos-glass-card::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.025),
-      transparent 35%
-    );
-}
-
-.wos-glass-card:hover {
-  border-color:
-    rgba(166, 108, 255, 0.16);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.03),
-
-    0 24px 60px
-    rgba(0, 0, 0, 0.2),
-
-    0 0 30px
-    rgba(140, 66, 255, 0.035);
 }
 
 /* =========================================================
-   PLACEHOLDER CARD
-   ========================================================= */
-
-.wos-placeholder-card {
-  min-height: 150px;
-
-  padding: 22px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  position: relative;
-
-  z-index: 1;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.065);
-
-  border-radius:
-    16px;
-
-  background:
-    rgba(255, 255, 255, 0.022);
-
-  backdrop-filter:
-    blur(18px);
-
-  -webkit-backdrop-filter:
-    blur(18px);
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease;
-}
-
-.wos-placeholder-card:hover {
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(166, 108, 255, 0.18);
-}
-
-.wos-placeholder-card span {
-  color:
-    #777986;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.4px;
-}
-
-.wos-placeholder-card strong {
-  margin-top: 10px;
-
-  color:
-    #ffffff;
-
-  font-size: 28px;
-
-  font-weight: 800;
-
-  letter-spacing: -0.8px;
-}
-
-.wos-placeholder-card small {
-  margin-top: 8px;
-
-  color:
-    #555762;
-
-  font-size: 10px;
-}
-
-/* =========================================================
-   EMPTY STATE
-   ========================================================= */
-
-.wos-empty-state {
-  width: 100%;
-
-  min-height: 220px;
-
-  display: grid;
-
-  place-items: center;
-
-  padding: 30px;
-
-  border:
-    1px dashed
-    rgba(255, 255, 255, 0.09);
-
-  border-radius:
-    18px;
-
-  background:
-    rgba(255, 255, 255, 0.018);
-
-  color:
-    #666875;
-
-  text-align: center;
-
-  font-size: 12px;
-
-  line-height: 1.6;
-}
-
-/* =========================================================
-   SECTION HEADING
-   ========================================================= */
-
-.section-heading {
-  width: 100%;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  margin:
-    30px 0 14px;
-}
-
-.section-heading h2 {
-  margin:
-    4px 0 0;
-
-  color:
-    #ffffff;
-
-  font-size: 17px;
-
-  font-weight: 800;
-
-  line-height: 1.2;
-
-  letter-spacing: -0.2px;
-}
-
-.live-status {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  color:
-    #5c6377;
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 1px;
-
-  white-space: nowrap;
-}
-
-.live-status span,
-.footer-dot {
-  width: 7px;
-  height: 7px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  background:
-    var(--wos-green);
-
-  box-shadow:
-    0 0 12px
-    rgba(53, 230, 155, 0.8);
-}
-
-/* =========================================================
-   BUTTON SYSTEM
+   BUTTONS
    ========================================================= */
 
 .wos-button {
   min-height: 42px;
 
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
 
   gap: 8px;
@@ -1958,40 +638,23 @@ button:disabled {
     1px solid
     rgba(255, 255, 255, 0.08);
 
-  border-radius:
-    11px;
+  border-radius: 11px;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
   background:
     rgba(255, 255, 255, 0.035);
 
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025);
-
-  font-family:
-    inherit;
-
   font-size: 11px;
-
   font-weight: 800;
 
-  line-height: 1;
-
   text-decoration: none;
-
-  outline: none;
-
-  cursor: pointer;
 
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
     background 180ms ease,
-    border-color 180ms ease,
-    opacity 180ms ease;
+    border-color 180ms ease;
 }
 
 .wos-button:hover {
@@ -2003,34 +666,11 @@ button:disabled {
 
   background:
     rgba(140, 66, 255, 0.1);
-
-  box-shadow:
-    0 10px 28px
-    rgba(0, 0, 0, 0.18);
 }
-
-.wos-button:active {
-  transform:
-    translateY(0);
-}
-
-.wos-button:focus-visible {
-  outline:
-    2px solid
-    rgba(166, 108, 255, 0.55);
-
-  outline-offset:
-    2px;
-}
-
-/* =========================================================
-   PRIMARY BUTTON
-   ========================================================= */
 
 .wos-button.primary,
 .wos-button-primary {
-  color:
-    #ffffff;
+  color: #ffffff;
 
   border-color:
     rgba(140, 66, 255, 0.35);
@@ -2047,911 +687,44 @@ button:disabled {
     rgba(140, 66, 255, 0.25);
 }
 
-.wos-button.primary:hover,
-.wos-button-primary:hover {
-  border-color:
-    rgba(166, 108, 255, 0.5);
-
-  background:
-    linear-gradient(
-      135deg,
-      #9854ff,
-      #6c2ce0
-    );
-
-  box-shadow:
-    0 14px 40px
-    rgba(140, 66, 255, 0.38);
-}
-
-/* =========================================================
-   SECONDARY BUTTON
-   ========================================================= */
-
 .wos-button.secondary,
 .wos-button-secondary {
-  color:
-    #d7d9e5;
-
-  border-color:
-    rgba(255, 255, 255, 0.08);
+  color: #d7d9e5;
 
   background:
     rgba(255, 255, 255, 0.035);
 }
 
-.wos-button.secondary:hover,
-.wos-button-secondary:hover {
-  color:
-    #ffffff;
-
-  background:
-    rgba(255, 255, 255, 0.06);
-}
-
 /* =========================================================
-   DANGER BUTTON
-   ========================================================= */
-
-.wos-button-danger {
-  color:
-    var(--wos-red);
-
-  border-color:
-    rgba(255, 93, 114, 0.2);
-
-  background:
-    rgba(255, 93, 114, 0.06);
-}
-
-.wos-button-danger:hover {
-  color:
-    #ffffff;
-
-  border-color:
-    rgba(255, 93, 114, 0.4);
-
-  background:
-    rgba(255, 93, 114, 0.13);
-
-  box-shadow:
-    0 10px 30px
-    rgba(255, 93, 114, 0.12);
-}
-
-/* =========================================================
-   DISABLED BUTTON
-   ========================================================= */
-
-.wos-button:disabled,
-.wos-button-primary:disabled,
-.wos-button-secondary:disabled,
-.wos-button-danger:disabled {
-  opacity:
-    0.42;
-
-  transform:
-    none;
-
-  cursor:
-    not-allowed;
-
-  box-shadow:
-    none;
-}
-
-/* =========================================================
-   RESPONSIVE CONTENT
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .wos-content {
-    padding:
-      26px;
-  }
-
-  .wos-page-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-
-}
-
-@media (max-width: 760px) {
-
-  .wos-content {
-    padding:
-      20px;
-  }
-
-  .wos-page-header {
-    margin-bottom:
-      22px;
-  }
-
-  .wos-page-title-row {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap:
-      8px;
-  }
-
-  .wos-page-header h1 {
-    font-size:
-      25px;
-  }
-
-  .wos-page-header p {
-    font-size:
-      12px;
-  }
-
-  .wos-page-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-  .section-heading {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap:
-      8px;
-  }
-
-}
-
-@media (max-width: 480px) {
-
-  .wos-content {
-    padding:
-      16px;
-  }
-
-  .wos-page-header h1 {
-    font-size:
-      23px;
-  }
-
-  .wos-button {
-    min-height:
-      40px;
-
-    padding:
-      0 14px;
-  }
-
-}
-
-/* =========================================================
-   WOS ULTIMATE
-   PART 5 / 6
-   HERO + STATS + ACTION CARDS + SETTINGS
-   ========================================================= */
-
-
-/* =========================================================
-   HERO CARD
-   ========================================================= */
-
-.hero-card {
-  width: 100%;
-  min-height: 290px;
-
-  position: relative;
-  overflow: hidden;
-
-  padding: 38px 42px;
-
-  border:
-    1px solid
-    rgba(155, 100, 255, 0.15);
-
-  border-radius:
-    20px;
-
-  background:
-    linear-gradient(
-      120deg,
-      rgba(30, 20, 49, 0.92),
-      rgba(16, 17, 26, 0.82)
-    );
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025),
-
-    0 25px 70px
-    rgba(0, 0, 0, 0.22);
-}
-
-.hero-card::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at 85% 40%,
-      rgba(140, 66, 255, 0.13),
-      transparent 34%
-    );
-}
-
-.hero-card::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(139, 64, 255, 0.08),
-      transparent 55%
-    );
-}
-
-.hero-content {
-  position: relative;
-
-  z-index: 3;
-
-  max-width: 570px;
-}
-
-.hero-badge {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  padding:
-    6px 9px;
-
-  border:
-    1px solid
-    rgba(71, 229, 159, 0.15);
-
-  border-radius:
-    7px;
-
-  color:
-    #7cf4bc;
-
-  background:
-    rgba(71, 229, 159, 0.04);
-
-  font-size:
-    9px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1.3px;
-}
-
-.hero-badge span {
-  width: 5px;
-  height: 5px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  background:
-    var(--wos-green);
-
-  box-shadow:
-    0 0 10px
-    var(--wos-green);
-}
-
-.hero-card h2 {
-  margin:
-    20px 0 10px;
-
-  color:
-    #ffffff;
-
-  font-size:
-    clamp(28px, 3vw, 42px);
-
-  font-weight:
-    800;
-
-  line-height:
-    1.08;
-
-  letter-spacing:
-    -1.5px;
-}
-
-.hero-card h2 strong {
-  background:
-    linear-gradient(
-      90deg,
-      #ffffff,
-      #a66cff
-    );
-
-  -webkit-background-clip:
-    text;
-
-  background-clip:
-    text;
-
-  color:
-    transparent;
-}
-
-.hero-card p {
-  max-width:
-    510px;
-
-  margin:
-    0;
-
-  color:
-    #85899b;
-
-  font-size:
-    12px;
-
-  line-height:
-    1.7;
-}
-
-.hero-buttons {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  margin-top:
-    23px;
-}
-
-.hero-orb {
-  position:
-    absolute;
-
-  width:
-    280px;
-
-  height:
-    280px;
-
-  right:
-    80px;
-
-  top:
-    5px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border-radius:
-    50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(136, 58, 255, 0.16),
-      transparent 62%
-    );
-
-  pointer-events:
-    none;
-
-  z-index:
-    1;
-}
-
-.orb-core {
-  width:
-    155px;
-
-  height:
-    155px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border:
-    1px solid
-    rgba(153, 91, 255, 0.35);
-
-  border-radius:
-    50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(139, 62, 255, 0.2),
-      rgba(9, 9, 16, 0.85)
-    );
-
-  box-shadow:
-    0 0 80px
-    rgba(123, 45, 255, 0.35),
-
-    inset 0 0 40px
-    rgba(123, 45, 255, 0.12);
-}
-
-.orb-core span {
-  color:
-    #b27aff;
-
-  font-size:
-    30px;
-
-  font-weight:
-    900;
-
-  letter-spacing:
-    4px;
-
-  text-shadow:
-    0 0 30px
-    rgba(167, 105, 255, 0.7);
-}
-
-
-/* =========================================================
-   STATS GRID
-   ========================================================= */
-
-.stats-grid {
-  width:
-    100%;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap:
-    12px;
-}
-
-.wos-stat-card {
-  min-height:
-    155px;
-
-  padding:
-    17px;
-
-  position:
-    relative;
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease;
-}
-
-.wos-stat-card:hover {
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(140, 66, 255, 0.25);
-}
-
-.stat-top {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-}
-
-.stat-icon {
-  width:
-    30px;
-
-  height:
-    30px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border-radius:
-    9px;
-
-  color:
-    var(--wos-purple-light);
-
-  background:
-    rgba(140, 66, 255, 0.08);
-
-  border:
-    1px solid
-    rgba(140, 66, 255, 0.06);
-}
-
-.stat-title {
-  margin-top:
-    18px;
-
-  color:
-    #707588;
-
-  font-size:
-    8px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1px;
-}
-
-.stat-value {
-  margin-top:
-    4px;
-
-  color:
-    #ffffff;
-
-  font-size:
-    29px;
-
-  font-weight:
-    800;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    -1px;
-}
-
-.stat-value span {
-  margin-left:
-    2px;
-
-  color:
-    #64697b;
-
-  font-size:
-    11px;
-
-  font-weight:
-    600;
-}
-
-.stat-line {
-  width:
-    100%;
-
-  height:
-    3px;
-
-  margin-top:
-    16px;
-
-  overflow:
-    hidden;
-
-  border-radius:
-    10px;
-
-  background:
-    rgba(255, 255, 255, 0.04);
-}
-
-.stat-line div {
-  width:
-    0%;
-
-  height:
-    100%;
-
-  border-radius:
-    inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--wos-purple-dark),
-      var(--wos-purple-light)
-    );
-
-  box-shadow:
-    0 0 12px
-    rgba(140, 66, 255, 0.4);
-}
-
-
-/* =========================================================
-   ACTION CARDS
-   ========================================================= */
-
-.actions-grid {
-  width:
-    100%;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap:
-    12px;
-}
-
-.wos-action-card {
-  min-height:
-    125px;
-
-  overflow:
-    hidden;
-
-  position:
-    relative;
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease;
-}
-
-.wos-action-card:hover {
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(255, 255, 255, 0.12);
-}
-
-.action-card-button {
-  width:
-    100%;
-
-  min-height:
-    125px;
-
-  display:
-    block;
-
-  padding:
-    18px;
-
-  border:
-    0;
-
-  color:
-    inherit;
-
-  background:
-    transparent;
-
-  font-family:
-    inherit;
-
-  text-align:
-    left;
-
-  outline:
-    none;
-
-  cursor:
-    pointer;
-}
-
-.action-card-button:focus-visible {
-  outline:
-    2px solid
-    rgba(166, 108, 255, 0.5);
-
-  outline-offset:
-    -2px;
-}
-
-.action-icon {
-  width:
-    32px;
-
-  height:
-    32px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border-radius:
-    9px;
-
-  font-size:
-    15px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.035);
-}
-
-
-/* =========================================================
-   ACTION CARD ACCENTS
-   ========================================================= */
-
-.accent-purple .action-icon {
-  color:
-    #aa71ff;
-
-  background:
-    rgba(140, 66, 255, 0.1);
-}
-
-.accent-cyan .action-icon {
-  color:
-    #45e7ff;
-
-  background:
-    rgba(0, 216, 255, 0.08);
-}
-
-.accent-green .action-icon {
-  color:
-    #4de8a4;
-
-  background:
-    rgba(58, 229, 155, 0.08);
-}
-
-.accent-orange .action-icon {
-  color:
-    #ffb45d;
-
-  background:
-    rgba(255, 169, 77, 0.08);
-}
-
-
-/* =========================================================
-   ACTION CARD TEXT
-   ========================================================= */
-
-.action-card-button h3 {
-  margin:
-    13px 0 4px;
-
-  color:
-    #ffffff;
-
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  line-height:
-    1.3;
-}
-
-.action-card-button p {
-  margin:
-    0;
-
-  color:
-    var(--wos-muted);
-
-  font-size:
-    9px;
-
-  line-height:
-    1.55;
-}
-
-
-/* =========================================================
-   SETTINGS CARD
+   SETTINGS
    ========================================================= */
 
 .wos-settings-card {
-  width:
-    100%;
-
   padding:
     4px 20px;
-
-  overflow:
-    hidden;
 }
 
 .wos-setting-row {
-  min-height:
-    72px;
+  min-height: 72px;
 
-  display:
-    flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
-  gap:
-    20px;
-
-  border-bottom:
-    1px solid
-    rgba(255, 255, 255, 0.045);
-}
-
-.wos-setting-row:last-child {
-  border-bottom:
-    0;
+  gap: 20px;
 }
 
 .wos-setting-info {
-  min-width:
-    0;
-
-  flex:
-    1;
+  min-width: 0;
 }
 
-.wos-setting-info strong {
-  display:
-    block;
+.wos-setting-info h3 {
+  margin: 0;
 
-  color:
-    #e9ebf3;
+  color: #f5f7ff;
 
-  font-size:
-    11px;
-
-  font-weight:
-    700;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .wos-setting-info p {
@@ -2959,1184 +732,382 @@ button:disabled {
     5px 0 0;
 
   color:
-    #666b7d;
+    var(--wos-muted);
 
-  font-size:
-    9px;
+  font-size: 9px;
 
-  line-height:
-    1.5;
+  line-height: 1.5;
 }
 
-
 /* =========================================================
-   GENERIC TOGGLE
+   NEW LANGUAGE SETTINGS
+   IMPORTANT:
+   LANGUAGE CONTROL LIVES ONLY IN SETTINGS
    ========================================================= */
 
-.wos-toggle {
-  width:
-    42px;
+.wos-settings-language {
+  width: 100%;
 
-  height:
-    23px;
+  display: flex;
+  flex-direction: column;
 
-  flex-shrink:
-    0;
-
-  position:
-    relative;
+  gap: 14px;
 
   padding:
-    0;
+    20px 0;
+}
+
+.wos-settings-language-header {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.wos-settings-language-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
 
   border:
     1px solid
-    rgba(255, 255, 255, 0.08);
+    rgba(140, 66, 255, 0.18);
 
-  border-radius:
-    999px;
-
-  background:
-    rgba(255, 255, 255, 0.06);
-
-  cursor:
-    pointer;
-
-  transition:
-    background 180ms ease,
-    border-color 180ms ease;
-}
-
-.wos-toggle::after {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  width:
-    17px;
-
-  height:
-    17px;
-
-  top:
-    2px;
-
-  left:
-    2px;
-
-  border-radius:
-    50%;
-
-  background:
-    #777b89;
-
-  box-shadow:
-    0 2px 6px
-    rgba(0, 0, 0, 0.35);
-
-  transition:
-    transform 180ms ease,
-    background 180ms ease;
-}
-
-.wos-toggle.active {
-  border-color:
-    rgba(140, 66, 255, 0.4);
-
-  background:
-    rgba(140, 66, 255, 0.25);
-}
-
-.wos-toggle.active::after {
-  background:
-    #ffffff;
-
-  transform:
-    translateX(18px);
-
-  box-shadow:
-    0 0 12px
-    rgba(166, 108, 255, 0.55);
-}
-
-
-/* =========================================================
-   RESPONSIVE HERO
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-  .stats-grid,
-  .actions-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-
-  .hero-orb {
-    right:
-      10px;
-
-    opacity:
-      0.65;
-  }
-
-}
-
-@media (max-width: 760px) {
-
-  .hero-card {
-    min-height:
-      auto;
-
-    padding:
-      28px;
-  }
-
-  .hero-content {
-    max-width:
-      100%;
-  }
-
-  .hero-card h2 {
-    font-size:
-      30px;
-  }
-
-  .hero-orb {
-    width:
-      190px;
-
-    height:
-      190px;
-
-    right:
-      -60px;
-
-    top:
-      25px;
-
-    opacity:
-      0.35;
-  }
-
-  .orb-core {
-    width:
-      110px;
-
-    height:
-      110px;
-  }
-
-  .orb-core span {
-    font-size:
-      22px;
-  }
-
-  .hero-buttons {
-    flex-wrap:
-      wrap;
-  }
-
-}
-
-@media (max-width: 520px) {
-
-  .stats-grid,
-  .actions-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-  .hero-card {
-    padding:
-      24px;
-  }
-
-  .hero-card h2 {
-    font-size:
-      26px;
-  }
-
-  .hero-buttons {
-    width:
-      100%;
-
-    flex-direction:
-      column;
-  }
-
-  .hero-buttons .wos-button {
-    width:
-      100%;
-  }
-
-  .wos-setting-row {
-    gap:
-      12px;
-  }
-
-}
-/* =========================================================
-   WOS ULTIMATE
-   PART 6 / 6
-   LANGUAGE SWITCHER + TOPBAR ACTIONS
-   FINAL RESPONSIVE + FINAL OVERRIDES
-   ========================================================= */
-
-
-/* =========================================================
-   TOPBAR ACTIONS
-   ========================================================= */
-
-.wos-topbar-actions {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    flex-end;
-
-  gap:
-    12px;
-
-  min-width:
-    0;
-}
-
-
-/* =========================================================
-   LANGUAGE BOX
-   ========================================================= */
-
-.wos-language-box {
-  width:
-    100%;
-
-  margin:
-    0 0 12px;
-
-  padding:
-    10px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.065);
-
-  border-radius:
-    14px;
-
-  background:
-    rgba(8, 9, 15, 0.82);
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025),
-
-    0 12px 30px
-    rgba(0, 0, 0, 0.18);
-
-  backdrop-filter:
-    blur(24px);
-
-  -webkit-backdrop-filter:
-    blur(24px);
-}
-
-
-/* =========================================================
-   LANGUAGE LABEL
-   ========================================================= */
-
-.wos-language-box
-.wos-language-label {
-  margin:
-    0 3px 7px;
+  border-radius: 12px;
 
   color:
-    #666b7c;
+    var(--wos-purple-light);
 
-  font-size:
-    8px;
+  background:
+    rgba(140, 66, 255, 0.08);
 
-  font-weight:
-    800;
+  font-size: 18px;
 
-  line-height:
-    1;
-
-  letter-spacing:
-    1.6px;
-
-  text-transform:
-    uppercase;
+  box-shadow:
+    0 0 25px
+    rgba(140, 66, 255, 0.08);
 }
 
+.wos-settings-language-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.wos-settings-language-description {
+  margin: 4px 0 0;
+
+  color:
+    var(--wos-muted);
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
 
 /* =========================================================
-   LANGUAGE SWITCHER CONTAINER
+   LANGUAGE OPTIONS
    ========================================================= */
 
-.wos-language-switcher {
-  width:
-    100%;
-
-  display:
-    grid;
+.wos-settings-language-options {
+  display: grid;
 
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap:
-    4px;
+  gap: 10px;
 
-  padding:
-    4px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.055);
-
-  border-radius:
-    11px;
-
-  background:
-    #0b0c12;
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025);
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON
-   IMPORTANT:
-   Force background so browser/mobile default
-   white button cannot appear.
-   ========================================================= */
-
-.wos-language-button {
-  width:
-    100%;
-
-  min-width:
-    0;
-
-  min-height:
-    34px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    6px;
-
-  padding:
-    0 7px;
-
-  border:
-    1px solid
-    transparent;
-
-  border-radius:
-    8px;
-
-  outline:
-    none;
-
-  appearance:
-    none;
-
-  -webkit-appearance:
-    none;
-
-  -webkit-tap-highlight-color:
-    transparent;
-
-  color:
-    #737789;
-
-  background:
-    #10121a;
-
-  background-image:
-    none;
-
-  box-shadow:
-    none;
-
-  font-family:
-    inherit;
-
-  font-size:
-    9px;
-
-  font-weight:
-    800;
-
-  line-height:
-    1;
-
-  white-space:
-    nowrap;
-
-  cursor:
-    pointer;
-
-  transition:
-    color 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON HOVER
-   ========================================================= */
-
-.wos-language-button:hover {
-  color:
-    #ffffff;
-
-  background:
-    #171522;
-
-  background-image:
-    none;
-
-  border-color:
-    rgba(166, 108, 255, 0.12);
-
-  box-shadow:
-    inset 0 0 12px
-    rgba(140, 66, 255, 0.035);
-
-  transform:
-    translateY(-1px);
-}
-
-
-/* =========================================================
-   ACTIVE LANGUAGE
-   ========================================================= */
-
-.wos-language-button.active {
-  color:
-    #ffffff;
-
-  border-color:
-    rgba(166, 108, 255, 0.3);
-
-  background:
-    linear-gradient(
-      135deg,
-      #7133df,
-      #4d21a8
-    );
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #7133df,
-      #4d21a8
-    );
-
-  box-shadow:
-    0 0 18px
-    rgba(140, 66, 255, 0.22),
-
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.08);
-}
-
-
-/* =========================================================
-   ACTIVE HOVER
-   ========================================================= */
-
-.wos-language-button.active:hover {
-  color:
-    #ffffff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #8141ef,
-      #5825bb
-    );
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #8141ef,
-      #5825bb
-    );
-
-  border-color:
-    rgba(190, 157, 255, 0.38);
-
-  box-shadow:
-    0 0 24px
-    rgba(140, 66, 255, 0.3);
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON ACTIVE PRESS
-   ========================================================= */
-
-.wos-language-button:active {
-  transform:
-    translateY(0)
-    scale(0.97);
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON FOCUS
-   ========================================================= */
-
-.wos-language-button:focus {
-  outline:
-    none;
-
-  box-shadow:
-    none;
-}
-
-.wos-language-button:focus-visible {
-  outline:
-    2px solid
-    rgba(166, 108, 255, 0.55);
-
-  outline-offset:
-    1px;
-}
-
-
-/* =========================================================
-   LANGUAGE FLAG
-   ========================================================= */
-
-.wos-language-button
-.wos-language-flag {
-  width:
-    18px;
-
-  min-width:
-    18px;
-
-  height:
-    18px;
-
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  font-size:
-    13px;
-
-  line-height:
-    1;
-
-  font-family:
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Noto Color Emoji",
-    sans-serif;
-}
-
-
-/* =========================================================
-   LANGUAGE TEXT
-   ========================================================= */
-
-.wos-language-button > span:last-child {
-  overflow:
-    hidden;
-
-  text-overflow:
-    ellipsis;
-
-  white-space:
-    nowrap;
-}
-
-
-/* =========================================================
-   TOPBAR LANGUAGE
-   If language buttons are ever rendered inside topbar,
-   these rules keep them identical.
-   ========================================================= */
-
-.wos-topbar
-.wos-language-switcher {
-  width:
-    auto;
-
-  display:
-    inline-flex;
-
-  grid-template-columns:
-    none;
-
-  gap:
-    4px;
-
-  padding:
-    4px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.065);
-
-  border-radius:
-    12px;
-
-  background:
-    #0b0c12;
-
-  box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, 0.025),
-
-    0 8px 30px
-    rgba(0, 0, 0, 0.2);
-}
-
-.wos-topbar
-.wos-language-button {
-  width:
-    auto;
-
-  min-width:
-    58px;
-
-  padding:
-    0 10px;
-}
-
-
-/* =========================================================
-   PREVENT BROWSER DEFAULT WHITE BUTTON
-   ========================================================= */
-
-button.wos-language-button {
-  background-color:
-    #10121a !important;
-
-  color:
-    #737789 !important;
-
-  background-image:
-    none;
-}
-
-button.wos-language-button:hover {
-  background-color:
-    #171522 !important;
-
-  color:
-    #ffffff !important;
-}
-
-button.wos-language-button.active {
-  background-color:
-    #5d2ab9 !important;
-
-  color:
-    #ffffff !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #7133df,
-      #4d21a8
-    ) !important;
-}
-
-button.wos-language-button.active:hover {
-  background-color:
-    #6b32d0 !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #8141ef,
-      #5825bb
-    ) !important;
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-  .wos-sidebar {
-    width:
-      220px;
-
-    min-width:
-      220px;
-
-    padding:
-      18px 11px;
-  }
-
-  .wos-brand {
-    padding:
-      4px 8px 20px;
-  }
-
-  .wos-navigation-inner {
-    gap:
-      14px;
-  }
-
-  .wos-language-box {
-    padding:
-      8px;
-
-    border-radius:
-      12px;
-  }
-
-  .wos-language-button {
-    min-height:
-      32px;
-
-    font-size:
-      8px;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-  .wos-sidebar {
-    width:
-      190px;
-
-    min-width:
-      190px;
-  }
-
-  .wos-brand-mark {
-    width:
-      36px;
-
-    height:
-      36px;
-
-    min-width:
-      36px;
-
-    font-size:
-      18px;
-  }
-
-  .wos-brand-text strong {
-    font-size:
-      15px;
-  }
-
-  .wos-brand-text span {
-    font-size:
-      8px;
-  }
-
-  .wos-language-box
-  .wos-language-label {
-    font-size:
-      7px;
-  }
-
-  .wos-language-button {
-    gap:
-      3px;
-
-    padding:
-      0 4px;
-
-    font-size:
-      8px;
-  }
-
-  .wos-language-button
-  .wos-language-flag {
-    width:
-      16px;
-
-    min-width:
-      16px;
-
-    font-size:
-      12px;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL SCREEN
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .wos-sidebar {
-    width:
-      175px;
-
-    min-width:
-      175px;
-
-    padding:
-      14px 8px;
-  }
-
-  .wos-navigation-item {
-    min-height:
-      40px;
-
-    gap:
-      9px;
-
-    padding:
-      0 9px;
-  }
-
-  .wos-navigation-text {
-    font-size:
-      10px;
-  }
-
-  .wos-language-switcher {
-    gap:
-      3px;
-  }
-
-  .wos-language-button {
-    min-height:
-      31px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior:
-      auto !important;
-
-    animation-duration:
-      0.01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      0.01ms !important;
-  }
-
-}
-/* =========================================================
-   WOS LANGUAGE BOX
-   ========================================================= */
-
-.wos-language-box {
   width: 100%;
-  margin-bottom: 18px;
-  padding: 11px;
-
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(24, 21, 36, 0.92),
-      rgba(10, 11, 18, 0.82)
-    );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.025),
-    0 12px 30px rgba(0, 0, 0, 0.18);
-
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
 }
 
-/* HEADER */
+.wos-settings-language-option {
+  min-height: 68px;
 
-.wos-language-box-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
-  padding: 1px 3px 9px;
+  gap: 12px;
+
+  padding:
+    12px 14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 13px;
+
+  color: #c3c6d2;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.wos-language-box-title {
-  color: #656978;
+.wos-settings-language-option:hover {
+  transform:
+    translateY(-2px);
+
+  color: #ffffff;
+
+  border-color:
+    rgba(166, 108, 255, 0.25);
+
+  background:
+    rgba(140, 66, 255, 0.07);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.16);
+}
+
+.wos-settings-language-option.active {
+  color: #ffffff;
+
+  border-color:
+    rgba(140, 66, 255, 0.42);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(140, 66, 255, 0.18),
+      rgba(98, 38, 214, 0.07)
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(140, 66, 255, 0.1),
+
+    inset 0 0 20px
+    rgba(166, 108, 255, 0.035);
+}
+
+.wos-settings-language-flag {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  font-size: 19px;
+
+  line-height: 1;
+}
+
+.wos-settings-language-option.active
+.wos-settings-language-flag {
+  background:
+    rgba(140, 66, 255, 0.12);
+}
+
+.wos-settings-language-text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.wos-settings-language-text strong {
+  color: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.wos-settings-language-text span {
+  color:
+    var(--wos-muted);
 
   font-size: 8px;
-  font-weight: 900;
-
-  letter-spacing: 1.7px;
 }
 
-.wos-language-box-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.wos-settings-language-option.active
+.wos-settings-language-text span {
+  color:
+    #9d8bbd;
+}
 
-  min-width: 25px;
-  height: 18px;
+/* =========================================================
+   SETTINGS LANGUAGE CHECK
+   ========================================================= */
 
-  padding: 0 6px;
+.wos-settings-language-check {
+  width: 20px;
+  height: 20px;
 
-  border: 1px solid rgba(140, 66, 255, 0.18);
-  border-radius: 6px;
+  margin-left: auto;
 
-  color: #a66cff;
+  flex-shrink: 0;
 
-  background: rgba(140, 66, 255, 0.08);
+  display: grid;
+  place-items: center;
 
-  font-size: 7px;
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 50%;
+
+  color: transparent;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  font-size: 10px;
   font-weight: 900;
+}
+
+.wos-settings-language-option.active
+.wos-settings-language-check {
+  color: #ffffff;
+
+  border-color:
+    var(--wos-purple);
+
+  background:
+    var(--wos-purple);
+
+  box-shadow:
+    0 0 14px
+    rgba(140, 66, 255, 0.4);
+}
+
+/* =========================================================
+   STATUS BAR
+   ========================================================= */
+
+.wos-statusbar {
+  min-height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding:
+    0 20px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.045);
+
+  color:
+    #565b6d;
+
+  background:
+    rgba(8, 9, 14, 0.6);
+
+  font-size: 8px;
+  font-weight: 700;
 
   letter-spacing: 0.8px;
 }
 
 /* =========================================================
-   LANGUAGE SWITCHER
+   RESPONSIVE
    ========================================================= */
 
-.wos-language-switcher {
-  width: 100%;
+@media (max-width: 900px) {
+  .wos-content {
+    padding: 22px;
+  }
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  .wos-sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
 
-  gap: 5px;
-
-  padding: 4px;
-
-  border: 1px solid rgba(255, 255, 255, 0.055);
-  border-radius: 10px;
-
-  background: rgba(3, 4, 8, 0.72);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  .wos-settings-language-options {
+    grid-template-columns: 1fr;
+  }
 }
-
-/* =========================================================
-   LANGUAGE BUTTON
-   ========================================================= */
-
-.wos-language-button {
-  position: relative;
-
-  width: 100%;
-  min-width: 0;
-  min-height: 38px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 6px;
-
-  padding: 0 7px;
-
-  border: 1px solid transparent;
-  border-radius: 8px;
-
-  outline: none;
-
-  color: #686d7d;
-
-  background: rgba(255, 255, 255, 0.018);
-
-  font-family: inherit;
-  font-size: 9px;
-  font-weight: 800;
-
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  appearance: none;
-  -webkit-appearance: none;
-
-  box-shadow: none;
-
-  transition:
-    color 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-/* REMOVE BROWSER WHITE BUTTON */
-
-.wos-language-button,
-.wos-language-button:hover,
-.wos-language-button:focus,
-.wos-language-button:active {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* HOVER */
-
-.wos-language-button:hover {
-  color: #ffffff;
-
-  background:
-    rgba(255, 255, 255, 0.055);
-
-  border-color:
-    rgba(255, 255, 255, 0.06);
-
-  transform: translateY(-1px);
-}
-
-/* ACTIVE */
-
-.wos-language-button.active {
-  color: #ffffff;
-
-  border-color:
-    rgba(166, 108, 255, 0.24);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(140, 66, 255, 0.34),
-      rgba(98, 38, 214, 0.16)
-    );
-
-  box-shadow:
-    0 0 18px rgba(140, 66, 255, 0.14),
-    inset 0 0 14px rgba(166, 108, 255, 0.045);
-}
-
-.wos-language-button.active:hover {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(140, 66, 255, 0.42),
-      rgba(98, 38, 214, 0.2)
-    );
-}
-
-/* FLAG */
-
-.wos-language-flag {
-  width: 18px;
-  min-width: 18px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 13px;
-  line-height: 1;
-}
-
-.wos-language-button-text {
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  line-height: 1;
-}
-
-/* ACTIVE DOT */
-
-.wos-language-active-dot {
-  position: absolute;
-
-  right: 6px;
-  top: 6px;
-
-  width: 4px;
-  height: 4px;
-
-  border-radius: 50%;
-
-  background: #a66cff;
-
-  box-shadow:
-    0 0 8px rgba(166, 108, 255, 0.9);
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 760px) {
-
-  .wos-language-box {
-    padding: 9px;
+  .wos-sidebar {
+    width: 190px;
+    min-width: 190px;
   }
 
-  .wos-language-button {
-    min-height: 36px;
+  .wos-topbar {
+    padding:
+      0 16px;
   }
 
+  .wos-content {
+    padding: 18px;
+  }
 }
 
-@media (max-width: 480px) {
-
-  .wos-language-button-text {
-    display: none;
+@media (max-width: 560px) {
+  .wos-shell {
+    display: block;
   }
 
-  .wos-language-button {
-    min-height: 38px;
+  .wos-sidebar {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+
+    border-right: 0;
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.06);
   }
 
-  .wos-language-flag {
-    width: 20px;
-    min-width: 20px;
+  .wos-navigation-inner {
+    gap: 8px;
   }
 
+  .wos-content {
+    padding: 14px;
+  }
+
+  .wos-topbar {
+    height: 58px;
+    min-height: 58px;
+  }
+
+  .wos-topbar-title {
+    font-size: 8px;
+  }
+
+  .wos-statusbar {
+    gap: 10px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+  }
 }
