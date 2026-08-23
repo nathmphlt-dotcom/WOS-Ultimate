@@ -1,15 +1,14 @@
-import "../styles/globals.css";
-
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "WOS — Windows Optimizer Suite",
-  description: "WOS CyberGlass Windows Optimizer Suite UI Preview",
-  applicationName: "WOS"
+  description:
+    "Professional Windows Gaming Optimization Suite",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -18,4 +17,4 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   );
-}
+        }
