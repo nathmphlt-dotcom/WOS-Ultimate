@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "WOS — Windows Optimizer Suite",
@@ -17,4 +17,4 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   );
-        }
+}
