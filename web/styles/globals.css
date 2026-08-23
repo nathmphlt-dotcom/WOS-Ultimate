@@ -2384,3 +2384,201 @@ a {
   }
 
        }
+/* =========================================================
+   WOS LANGUAGE SWITCHER
+   FINAL OVERRIDE
+   CyberGlass / Cyber Purple
+   ========================================================= */
+
+.wos-language-box {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.wos-language-box > .wos-language-label {
+  margin: 0 10px 7px;
+
+  color: #656875;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.wos-language-switch {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4px;
+
+  padding: 4px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.075);
+
+  border-radius: 13px;
+
+  background:
+    rgba(8, 9, 15, 0.88) !important;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035),
+    0 10px 28px
+      rgba(0, 0, 0, 0.22);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.wos-language-option {
+  width: 100%;
+  min-width: 0;
+  min-height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 0 8px;
+
+  border: 1px solid transparent !important;
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #777b8c !important;
+
+  background:
+    transparent !important;
+
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  box-shadow: none;
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.wos-language-option:hover {
+  color: #ffffff !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.06) !important;
+
+  transform:
+    translateY(-1px);
+}
+
+.wos-language-option.active {
+  color: #ffffff !important;
+
+  border-color:
+    rgba(166, 108, 255, 0.28) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(140, 66, 255, 0.34),
+      rgba(98, 38, 214, 0.14)
+    ) !important;
+
+  box-shadow:
+    0 0 18px
+      rgba(140, 66, 255, 0.16),
+    inset 0 0 14px
+      rgba(166, 108, 255, 0.05);
+}
+
+.wos-language-option.active:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(140, 66, 255, 0.42),
+      rgba(98, 38, 214, 0.18)
+    ) !important;
+}
+
+.wos-language-flag {
+  width: 18px;
+  min-width: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  line-height: 1;
+}
+
+.wos-language-label-text {
+  display: inline-flex;
+
+  align-items: center;
+
+  line-height: 1;
+}
+
+/* =========================================================
+   REMOVE DEFAULT BUTTON WHITE BACKGROUND
+   ========================================================= */
+
+.wos-language-box button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wos-language-box button:focus,
+.wos-language-box button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 1px
+      rgba(166, 108, 255, 0.3),
+    0 0 18px
+      rgba(140, 66, 255, 0.12);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .wos-language-option {
+    min-height: 34px;
+    padding: 0 6px;
+  }
+
+  .wos-language-label-text {
+    display: none;
+  }
+
+  .wos-language-flag {
+    width: 20px;
+    min-width: 20px;
+  }
+   }
