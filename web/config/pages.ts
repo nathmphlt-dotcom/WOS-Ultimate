@@ -1,159 +1,194 @@
+export type WOSPageCategory =
+  | "main"
+  | "gaming"
+  | "system"
+  | "tools"
+
 export type WOSPage = {
   id: string
-  title: string
-  description: string
   path: string
+  title: string
   icon: string
-  category: "main" | "gaming" | "system" | "tools"
+  category: WOSPageCategory
+  translationKey?: string
 }
 
 export const WOS_PAGES: WOSPage[] = [
+  // =====================================================
+  // MAIN
+  // =====================================================
+
   {
     id: "dashboard",
+    path: "/",
     title: "Dashboard",
-    description: "Overview of your Windows system",
-    path: "/dashboard",
     icon: "⌂",
     category: "main",
+    translationKey: "dashboard.title",
   },
+
   {
     id: "optimizer",
-    title: "Optimizer",
-    description: "Optimize Windows performance",
     path: "/optimizer",
+    title: "Optimizer",
     icon: "⚡",
     category: "main",
+    translationKey: "navigation.optimizer",
   },
+
   {
     id: "scanner",
-    title: "System Scanner",
-    description: "Analyze your system",
     path: "/scanner",
-    icon: "⌕",
-    category: "main",
-  },
-  {
-    id: "gaming",
-    title: "Gaming",
-    description: "Gaming optimization center",
-    path: "/gaming",
-    icon: "◈",
-    category: "gaming",
-  },
-  {
-    id: "fivem",
-    title: "FiveM Booster",
-    description: "FiveM performance optimization",
-    path: "/fivem",
-    icon: "◆",
-    category: "gaming",
-  },
-  {
-    id: "gpu",
-    title: "GPU",
-    description: "Graphics performance",
-    path: "/gpu",
-    icon: "▣",
-    category: "system",
-  },
-  {
-    id: "cpu",
-    title: "CPU",
-    description: "Processor performance",
-    path: "/cpu",
-    icon: "▤",
-    category: "system",
-  },
-  {
-    id: "memory",
-    title: "Memory",
-    description: "RAM monitoring and optimization",
-    path: "/memory",
-    icon: "▥",
-    category: "system",
-  },
-  {
-    id: "network",
-    title: "Network",
-    description: "Network diagnostics and optimization",
-    path: "/network",
-    icon: "⌁",
-    category: "system",
-  },
-  {
-    id: "processes",
-    title: "Processes",
-    description: "Manage running processes",
-    path: "/processes",
+    title: "System Scanner",
     icon: "◉",
-    category: "system",
+    category: "main",
+    translationKey: "navigation.scanner",
   },
-  {
-    id: "startup",
-    title: "Startup",
-    description: "Manage startup applications",
-    path: "/startup",
-    icon: "↗",
-    category: "system",
-  },
-  {
-    id: "cleanup",
-    title: "Cleanup",
-    description: "Clean unnecessary system files",
-    path: "/cleanup",
-    icon: "⌫",
-    category: "system",
-  },
-  {
-    id: "tweaks",
-    title: "Windows Tweaks",
-    description: "Advanced Windows configuration",
-    path: "/tweaks",
-    icon: "⚙",
-    category: "system",
-  },
+
   {
     id: "security",
-    title: "Security",
-    description: "Security and privilege management",
     path: "/security",
+    title: "Security",
     icon: "◆",
-    category: "tools",
+    category: "main",
+    translationKey: "navigation.security",
   },
+
+  // =====================================================
+  // GAMING
+  // =====================================================
+
   {
-    id: "backup",
-    title: "Backup & Restore",
-    description: "System backup and rollback",
-    path: "/backup",
-    icon: "↺",
-    category: "tools",
+    id: "fivem",
+    path: "/fivem",
+    title: "FiveM",
+    icon: "◈",
+    category: "gaming",
+    translationKey: "fivem.title",
   },
+
   {
-    id: "logs",
-    title: "Logs",
-    description: "View WOS operation history",
-    path: "/logs",
-    icon: "☷",
-    category: "tools",
+    id: "gaming",
+    path: "/gaming",
+    title: "Gaming",
+    icon: "◈",
+    category: "gaming",
+    translationKey: "navigation.gaming",
   },
+
   {
-    id: "settings",
-    title: "Settings",
-    description: "Configure WOS",
-    path: "/settings",
+    id: "game-mode",
+    path: "/gaming/game-mode",
+    title: "Game Mode",
+    icon: "▶",
+    category: "gaming",
+    translationKey: "navigation.gameMode",
+  },
+
+  {
+    id: "network",
+    path: "/gaming/network",
+    title: "Gaming Network",
+    icon: "⌁",
+    category: "gaming",
+    translationKey: "navigation.gamingNetwork",
+  },
+
+  // =====================================================
+  // SYSTEM
+  // =====================================================
+
+  {
+    id: "system",
+    path: "/system",
+    title: "System",
+    icon: "▣",
+    category: "system",
+    translationKey: "navigation.system",
+  },
+
+  {
+    id: "performance",
+    path: "/system/performance",
+    title: "Performance",
+    icon: "◒",
+    category: "system",
+    translationKey: "navigation.performance",
+  },
+
+  {
+    id: "processes",
+    path: "/system/processes",
+    title: "Processes",
+    icon: "▤",
+    category: "system",
+    translationKey: "navigation.processes",
+  },
+
+  {
+    id: "services",
+    path: "/system/services",
+    title: "Services",
     icon: "⚙",
-    category: "tools",
+    category: "system",
+    translationKey: "navigation.services",
   },
+
+  {
+    id: "startup",
+    path: "/system/startup",
+    title: "Startup",
+    icon: "↗",
+    category: "system",
+    translationKey: "navigation.startup",
+  },
+
+  {
+    id: "storage",
+    path: "/system/storage",
+    title: "Storage",
+    icon: "▱",
+    category: "system",
+    translationKey: "navigation.storage",
+  },
+
+  // =====================================================
+  // TOOLS
+  // =====================================================
+
   {
     id: "tools",
-    title: "System Tools",
-    description: "Advanced system utilities",
     path: "/tools",
-    icon: "⌘",
+    title: "Tools",
+    icon: "▦",
     category: "tools",
+    translationKey: "navigation.tools",
+  },
+
+  {
+    id: "cleanup",
+    path: "/tools/cleanup",
+    title: "System Cleanup",
+    icon: "⌫",
+    category: "tools",
+    translationKey: "operations.systemCleanup",
+  },
+
+  {
+    id: "settings",
+    path: "/settings",
+    title: "Settings",
+    icon: "⚙",
+    category: "tools",
+    translationKey: "settings.title",
+  },
+
+  {
+    id: "logs",
+    path: "/tools/logs",
+    title: "Operation Logs",
+    icon: "≡",
+    category: "tools",
+    translationKey: "navigation.logs",
   },
 ]
-
-export function getWOSPage(pathname: string): WOSPage | undefined {
-  return WOS_PAGES.find((page) => page.path === pathname)
-}
