@@ -8,38 +8,31 @@ import React, {
   useState,
 } from "react"
 
-import th from "../../locales/th"
-import en from "../../locales/en"
+import th from "../locales/th"
+import en from "../locales/en"
 
 export type Language = "th" | "en"
 
-type TranslationObject = typeof th
+type TranslationDictionary = Record<string, unknown>
 
 type LanguageContextType = {
   language: Language
-
-  setLanguage: (
-    language: Language
-  ) => void
-
-  t: (
-    key: string,
-    fallback?: string
-  ) => string
+  setLanguage: (language: Language) => void
+  t: (key: string) => string
 }
 
 const translations: Record<
   Language,
-  TranslationObject
+  TranslationDictionary
 > = {
-  th,
-  en,
+  th: th as TranslationDictionary,
+  en: en as TranslationDictionary,
 }
 
 const LanguageContext =
-  createContext<
-    LanguageContextType | undefined
-  >(undefined)
+  createContext<LanguageContextType | undefined>(
+    undefined
+  )
 
 function getTranslation(
   object: unknown,
@@ -52,11 +45,9 @@ function getTranslation(
     return undefined
   }
 
-  const parts = key.split(".")
-
   let current: unknown = object
 
-  for (const part of parts) {
+  for (const part of key.split(".")) {
     if (
       typeof current !== "object" ||
       current === null
@@ -64,17 +55,12 @@ function getTranslation(
       return undefined
     }
 
-    if (
-      !(part in current)
-    ) {
+    if (!(part in current)) {
       return undefined
     }
 
     current = (
-      current as Record<
-        string,
-        unknown
-      >
+      current as Record<string, unknown>
     )[part]
   }
 
@@ -88,15 +74,11 @@ export function LanguageProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [
-    language,
-    setLanguageState,
-  ] = useState<Language>("en")
+  const [language, setLanguageState] =
+    useState<Language>("en")
 
-  const [
-    initialized,
-    setInitialized,
-  ] = useState(false)
+  const [initialized, setInitialized] =
+    useState(false)
 
   useEffect(() => {
     try {
@@ -112,7 +94,7 @@ export function LanguageProvider({
         setLanguageState(saved)
       }
     } catch {
-      // Ignore localStorage errors
+      // Ignore storage errors
     }
 
     setInitialized(true)
@@ -121,9 +103,7 @@ export function LanguageProvider({
   const setLanguage = (
     nextLanguage: Language
   ) => {
-    setLanguageState(
-      nextLanguage
-    )
+    setLanguageState(nextLanguage)
 
     try {
       window.localStorage.setItem(
@@ -131,72 +111,38 @@ export function LanguageProvider({
         nextLanguage
       )
     } catch {
-      // Ignore localStorage errors
+      // Ignore storage errors
     }
   }
 
-  /*
-   * รองรับทั้ง:
-   *
-   * t("dashboard.title")
-   *
-   * และ
-   *
-   * t("dashboard.title", "Dashboard")
-   *
-   * เพื่อป้องกัน component เก่าหรือ component
-   * ใหม่เรียก translation ด้วย fallback
-   */
-
-  const t = (
-    key: string,
-    fallback?: string
-  ): string => {
-    const currentTranslations =
-      translations[language]
-
-    const translated =
+  const t = (key: string): string => {
+    const current =
       getTranslation(
-        currentTranslations,
+        translations[language],
         key
       )
 
-    if (
-      translated !== undefined
-    ) {
-      return translated
+    if (current !== undefined) {
+      return current
     }
 
-    const englishFallback =
+    const fallback =
       getTranslation(
         translations.en,
         key
       )
 
-    if (
-      englishFallback !== undefined
-    ) {
-      return englishFallback
-    }
-
-    if (
-      fallback !== undefined
-    ) {
-      return fallback
-    }
-
-    return key
+    return fallback ?? key
   }
 
-  const value =
-    useMemo(
-      () => ({
-        language,
-        setLanguage,
-        t,
-      }),
-      [language]
-    )
+  const value = useMemo(
+    () => ({
+      language,
+      setLanguage,
+      t,
+    }),
+    [language]
+  )
 
   if (!initialized) {
     return null
@@ -213,9 +159,7 @@ export function LanguageProvider({
 
 export function useLanguage() {
   const context =
-    useContext(
-      LanguageContext
-    )
+    useContext(LanguageContext)
 
   if (!context) {
     throw new Error(
