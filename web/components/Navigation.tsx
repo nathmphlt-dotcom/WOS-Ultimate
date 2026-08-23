@@ -51,21 +51,27 @@ export default function Navigation({
         {!collapsed && (
           <div className="wos-language-box">
 
-            <div className="wos-language-label">
-              {language === "th"
-                ? "ภาษา"
-                : "LANGUAGE"}
+            <div className="wos-language-box-header">
+              <span className="wos-language-box-title">
+                LANGUAGE
+              </span>
+
+              <span className="wos-language-box-status">
+                {language === "th" ? "TH" : "EN"}
+              </span>
             </div>
 
             <div
-              className="wos-language-switch"
+              className="wos-language-switcher"
               role="group"
               aria-label="Language"
             >
 
+              {/* THAI */}
+
               <button
                 type="button"
-                className={`wos-language-option ${
+                className={`wos-language-button ${
                   language === "th"
                     ? "active"
                     : ""
@@ -73,23 +79,27 @@ export default function Navigation({
                 onClick={() =>
                   setLanguage("th")
                 }
-                aria-pressed={
-                  language === "th"
-                }
                 aria-label="เปลี่ยนเป็นภาษาไทย"
+                aria-pressed={language === "th"}
               >
                 <span className="wos-language-flag">
                   🇹🇭
                 </span>
 
-                <span className="wos-language-label-text">
+                <span className="wos-language-button-text">
                   ไทย
                 </span>
+
+                {language === "th" && (
+                  <span className="wos-language-active-dot" />
+                )}
               </button>
+
+              {/* ENGLISH */}
 
               <button
                 type="button"
-                className={`wos-language-option ${
+                className={`wos-language-button ${
                   language === "en"
                     ? "active"
                     : ""
@@ -97,18 +107,20 @@ export default function Navigation({
                 onClick={() =>
                   setLanguage("en")
                 }
-                aria-pressed={
-                  language === "en"
-                }
                 aria-label="Switch to English"
+                aria-pressed={language === "en"}
               >
                 <span className="wos-language-flag">
                   🇬🇧
                 </span>
 
-                <span className="wos-language-label-text">
+                <span className="wos-language-button-text">
                   English
                 </span>
+
+                {language === "en" && (
+                  <span className="wos-language-active-dot" />
+                )}
               </button>
 
             </div>
@@ -120,12 +132,10 @@ export default function Navigation({
             ================================================= */}
 
         {categories.map((category) => {
-
-          const pages =
-            WOS_PAGES.filter(
-              (page) =>
-                page.category === category
-            )
+          const pages = WOS_PAGES.filter(
+            (page) =>
+              page.category === category
+          )
 
           return (
             <div
@@ -136,15 +146,12 @@ export default function Navigation({
               {!collapsed && (
                 <div className="wos-navigation-label">
                   {t(
-                    categoryTitles[
-                      category
-                    ]
+                    categoryTitles[category]
                   )}
                 </div>
               )}
 
               {pages.map((page) => {
-
                 const active =
                   pathname === page.path ||
                   pathname.startsWith(
@@ -191,9 +198,11 @@ export default function Navigation({
                   </Link>
                 )
               })}
+
             </div>
           )
         })}
+
       </div>
     </nav>
   )
