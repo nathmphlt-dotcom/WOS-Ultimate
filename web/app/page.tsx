@@ -1,5 +1,5 @@
-import WOSUI from "../components/WOSUI";
+import { redirect } from "next/navigation"
 
-export default function Home() {
-  return <WOSUI />;
+export default function HomePage() {
+  redirect("/dashboard")
 }
