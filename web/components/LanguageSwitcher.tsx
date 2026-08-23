@@ -4,7 +4,7 @@ import React from "react"
 
 import {
   useLanguage,
-} from "../context/LanguageContext"
+} from "./i18n/LanguageContext"
 
 export default function LanguageSwitcher() {
   const {
@@ -13,7 +13,15 @@ export default function LanguageSwitcher() {
   } = useLanguage()
 
   return (
-    <div className="wos-language-switch">
+    <div
+      className="wos-language-switch"
+      role="group"
+      aria-label="Language"
+    >
+
+      {/* =================================================
+          THAI
+          ================================================= */}
 
       <button
         type="button"
@@ -22,19 +30,30 @@ export default function LanguageSwitcher() {
             ? "active"
             : ""
         }`}
-        onClick={() =>
+        onClick={() => {
           setLanguage("th")
+        }}
+        aria-pressed={
+          language === "th"
         }
-        aria-label="เปลี่ยนเป็นภาษาไทย"
       >
-        <span className="wos-language-flag">
+
+        <span
+          className="wos-language-flag"
+          aria-hidden="true"
+        >
           🇹🇭
         </span>
 
-        <span>
+        <span className="wos-language-label">
           ไทย
         </span>
+
       </button>
+
+      {/* =================================================
+          ENGLISH
+          ================================================= */}
 
       <button
         type="button"
@@ -43,18 +62,25 @@ export default function LanguageSwitcher() {
             ? "active"
             : ""
         }`}
-        onClick={() =>
+        onClick={() => {
           setLanguage("en")
+        }}
+        aria-pressed={
+          language === "en"
         }
-        aria-label="Switch to English"
       >
-        <span className="wos-language-flag">
+
+        <span
+          className="wos-language-flag"
+          aria-hidden="true"
+        >
           🇬🇧
         </span>
 
-        <span>
+        <span className="wos-language-label">
           English
         </span>
+
       </button>
 
     </div>
