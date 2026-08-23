@@ -1,11 +1,19 @@
+"use client"
+
 import PageHeader from "../../components/PageHeader"
 import PageTransition from "../../components/PageTransition"
+
 import SecurityStatus from "../../components/security/SecurityStatus"
 import SecurityCheck from "../../components/security/SecurityCheck"
 import SecurityEvent from "../../components/security/SecurityEvent"
+import PermissionBadge from "../../components/security/PermissionBadge"
+
 import { SECURITY_CHECKS } from "../../config/security"
+import { useSecurity } from "../../components/security/SecurityContext"
 
 export default function SecurityPage() {
+  const { security, isWebMode } = useSecurity()
+
   const administrator = SECURITY_CHECKS.find(
     (item) => item.id === "administrator"
   )
@@ -28,13 +36,21 @@ export default function SecurityPage() {
 
           <SecurityStatus
             label="ADMINISTRATOR"
-            value="UNKNOWN"
+            value={
+              security.admin === "unknown"
+                ? "UNKNOWN"
+                : security.admin.toUpperCase()
+            }
             status={administrator?.status ?? "unknown"}
           />
 
           <SecurityStatus
             label="UAC PROTECTION"
-            value="UNKNOWN"
+            value={
+              security.uac === "unknown"
+                ? "UNKNOWN"
+                : security.uac.toUpperCase()
+            }
             status={uac?.status ?? "unknown"}
           />
 
@@ -56,7 +72,53 @@ export default function SecurityPage() {
 
           <div className="security-panel-header">
             <div>
+              <h2>Security Context</h2>
+
+              <p>
+                Current WOS execution environment and permission level.
+              </p>
+            </div>
+
+            <PermissionBadge
+              level={security.permission}
+            />
+          </div>
+
+          <div className="security-context-grid">
+
+            <div className="security-context-item">
+              <span>EXECUTION MODE</span>
+              <strong>
+                {isWebMode
+                  ? "WEB PREVIEW"
+                  : "WINDOWS DESKTOP"}
+              </strong>
+            </div>
+
+            <div className="security-context-item">
+              <span>BACKEND</span>
+              <strong>
+                {security.backend.toUpperCase()}
+              </strong>
+            </div>
+
+            <div className="security-context-item">
+              <span>PERMISSION</span>
+              <strong>
+                {security.permission.toUpperCase()}
+              </strong>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section className="security-panel">
+
+          <div className="security-panel-header">
+            <div>
               <h2>Operation Security</h2>
+
               <p>
                 Protection layers used before WOS modifies the system.
               </p>
@@ -89,8 +151,9 @@ export default function SecurityPage() {
           <div className="security-panel-header">
             <div>
               <h2>Security Events</h2>
+
               <p>
-                Recent privileged operations and security events.
+                Recent WOS security activity.
               </p>
             </div>
           </div>
@@ -98,14 +161,14 @@ export default function SecurityPage() {
           <div className="security-events">
 
             <SecurityEvent
-              title="Security system initialized"
-              description="WOS security layer is ready."
+              title="Security context initialized"
+              description="WOS security state is active."
               time="Now"
             />
 
             <SecurityEvent
-              title="Windows backend unavailable"
-              description="Native Windows checks will be enabled in Desktop mode."
+              title="Web preview mode"
+              description="Native Windows privileges are unavailable."
               time="Now"
               status="warning"
             />
@@ -117,4 +180,4 @@ export default function SecurityPage() {
       </div>
     </PageTransition>
   )
-}
+                }
