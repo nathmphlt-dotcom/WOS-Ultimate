@@ -3,6 +3,7 @@
 import React from "react"
 
 import Navigation from "./Navigation"
+import LanguageSwitcher from "./LanguageSwitcher"
 
 import { SecurityProvider } from "./security/SecurityContext"
 
@@ -71,16 +72,26 @@ function WOSContent({
             WINDOWS OPTIMIZER SUITE
           </div>
 
-          <div className="wos-system-status">
+          <div className="wos-topbar-actions">
 
-            <span className="wos-status-dot" />
+            {/* LANGUAGE */}
 
-            <span>
-              {t(
-                "status.systemReady",
-                "SYSTEM READY"
-              )}
-            </span>
+            <LanguageSwitcher />
+
+            {/* SYSTEM STATUS */}
+
+            <div className="wos-system-status">
+
+              <span className="wos-status-dot" />
+
+              <span>
+                {t(
+                  "status.systemReady",
+                  "SYSTEM READY"
+                )}
+              </span>
+
+            </div>
 
           </div>
 
@@ -159,4 +170,4 @@ export default function WOSUI({
 
     </LanguageProvider>
   )
-    }
+          }
