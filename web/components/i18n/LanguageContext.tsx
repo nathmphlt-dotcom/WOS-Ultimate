@@ -11,133 +11,249 @@ import React, {
 import th from "../../locales/th"
 import en from "../../locales/en"
 
+/* =========================================================
+   LANGUAGE TYPES
+   ========================================================= */
+
 export type Language = "th" | "en"
 
 type TranslationObject = typeof th
 
 type LanguageContextType = {
   language: Language
-  setLanguage: (language: Language) => void
-  toggleLanguage: () => void
-  t: (key: string) => string
+
+  setLanguage: (
+    language: Language
+  ) => void
+
+  t: (
+    key: string
+  ) => string
 }
 
-const translations: Record<Language, TranslationObject> = {
+/* =========================================================
+   TRANSLATIONS
+   ========================================================= */
+
+const translations: Record<
+  Language,
+  TranslationObject
+> = {
   th,
   en,
 }
 
+/* =========================================================
+   CONTEXT
+   ========================================================= */
+
 const LanguageContext =
-  createContext<LanguageContextType | null>(null)
+  createContext<
+    LanguageContextType | undefined
+  >(undefined)
 
-function getNestedValue(
+/* =========================================================
+   GET NESTED TRANSLATION
+   Example:
+   t("navigation.optimizer")
+   t("dashboard.title")
+   ========================================================= */
+
+function getTranslation(
   object: unknown,
-  path: string
+  key: string
 ): string | undefined {
-  const result = path
-    .split(".")
-    .reduce<unknown>((current, key) => {
-      if (
-        current &&
-        typeof current === "object" &&
-        key in current
-      ) {
-        return (
-          current as Record<string, unknown>
-        )[key]
-      }
+  if (
+    typeof object !== "object" ||
+    object === null
+  ) {
+    return undefined
+  }
 
+  const parts = key.split(".")
+
+  let current: unknown = object
+
+  for (const part of parts) {
+    if (
+      typeof current !== "object" ||
+      current === null
+    ) {
       return undefined
-    }, object)
+    }
 
-  return typeof result === "string"
-    ? result
+    if (
+      !(part in current)
+    ) {
+      return undefined
+    }
+
+    current = (
+      current as Record<
+        string,
+        unknown
+      >
+    )[part]
+  }
+
+  return typeof current === "string"
+    ? current
     : undefined
 }
+
+/* =========================================================
+   PROVIDER
+   ========================================================= */
 
 export function LanguageProvider({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [language, setLanguageState] =
-    useState<Language>("th")
+  const [
+    language,
+    setLanguageState,
+  ] = useState<Language>("en")
+
+  const [
+    initialized,
+    setInitialized,
+  ] = useState(false)
+
+  /* =======================================================
+     LOAD SAVED LANGUAGE
+     ======================================================= */
 
   useEffect(() => {
-    const saved =
-      window.localStorage.getItem(
-        "wos-language"
-      )
+    try {
+      const saved =
+        window.localStorage.getItem(
+          "wos-language"
+        )
 
-    if (saved === "th" || saved === "en") {
-      setLanguageState(saved)
+      if (
+        saved === "th" ||
+        saved === "en"
+      ) {
+        setLanguageState(saved)
+      }
+    } catch {
+      // Ignore localStorage errors
     }
+
+    setInitialized(true)
   }, [])
 
-  function setLanguage(nextLanguage: Language) {
-    setLanguageState(nextLanguage)
+  /* =======================================================
+     CHANGE LANGUAGE
+     ======================================================= */
 
-    window.localStorage.setItem(
-      "wos-language",
+  const setLanguage = (
+    nextLanguage: Language
+  ) => {
+    setLanguageState(
       nextLanguage
     )
 
-    document.documentElement.lang =
-      nextLanguage === "th"
-        ? "th"
-        : "en"
+    try {
+      window.localStorage.setItem(
+        "wos-language",
+        nextLanguage
+      )
+    } catch {
+      // Ignore localStorage errors
+    }
   }
 
-  function toggleLanguage() {
-    setLanguage(
-      language === "th"
-        ? "en"
-        : "th"
-    )
-  }
+  /* =======================================================
+     TRANSLATION FUNCTION
+     ======================================================= */
 
-  function t(key: string) {
-    const value = getNestedValue(
-      translations[language],
-      key
-    )
+  const t = (
+    key: string
+  ): string => {
+    const currentTranslations =
+      translations[language]
 
-    if (value !== undefined) {
-      return value
+    const translated =
+      getTranslation(
+        currentTranslations,
+        key
+      )
+
+    /*
+     * ถ้าหา Translation ไม่เจอ
+     * ลอง fallback ไปภาษาอังกฤษ
+     */
+
+    if (
+      translated !== undefined
+    ) {
+      return translated
     }
 
-    const fallback = getNestedValue(
-      translations.th,
-      key
-    )
+    const englishFallback =
+      getTranslation(
+        translations.en,
+        key
+      )
 
-    if (fallback !== undefined) {
-      return fallback
+    if (
+      englishFallback !== undefined
+    ) {
+      return englishFallback
     }
+
+    /*
+     * ถ้ายังไม่มี key จริง ๆ
+     * คืน key กลับมาแทน
+     * เพื่อป้องกันหน้าเว็บพัง
+     */
 
     return key
   }
 
-  const value = useMemo(
-    () => ({
-      language,
-      setLanguage,
-      toggleLanguage,
-      t,
-    }),
-    [language]
-  )
+  /* =======================================================
+     CONTEXT VALUE
+     ======================================================= */
+
+  const value =
+    useMemo(
+      () => ({
+        language,
+        setLanguage,
+        t,
+      }),
+      [language]
+    )
+
+  /*
+   * ป้องกัน hydration mismatch
+   * ตอนโหลดหน้าเว็บครั้งแรก
+   */
+
+  if (!initialized) {
+    return null
+  }
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider
+      value={value}
+    >
       {children}
     </LanguageContext.Provider>
   )
 }
 
+/* =========================================================
+   HOOK
+   ========================================================= */
+
 export function useLanguage() {
   const context =
-    useContext(LanguageContext)
+    useContext(
+      LanguageContext
+    )
 
   if (!context) {
     throw new Error(
