@@ -1,27 +1,4 @@
 const en = {
-  common: {
-    appName: "WOS",
-    appSubtitle: "ULTIMATE",
-    windowsOptimizerSuite: "WINDOWS OPTIMIZER SUITE",
-
-    systemReady: "SYSTEM READY",
-    online: "Online",
-    offline: "Offline",
-    enabled: "Enabled",
-    disabled: "Disabled",
-
-    save: "Save",
-    cancel: "Cancel",
-    apply: "Apply",
-    reset: "Reset",
-    close: "Close",
-    back: "Back",
-    next: "Next",
-
-    loading: "Loading...",
-    comingSoon: "Coming Soon",
-  },
-
   navigation: {
     categories: {
       main: "MAIN",
@@ -30,7 +7,6 @@ const en = {
       tools: "TOOLS",
     },
 
-    dashboard: "Dashboard",
     optimizer: "Optimizer",
     scanner: "System Scanner",
     security: "Security",
@@ -48,84 +24,216 @@ const en = {
     storage: "Storage",
 
     tools: "Tools",
-    cleanup: "System Cleanup",
     logs: "Operation Logs",
-
-    settings: "Settings",
-  },
-
-  topbar: {
-    systemReady: "SYSTEM READY",
-    language: "Language",
-    notifications: "Notifications",
-    administrator: "ADMINISTRATOR",
   },
 
   dashboard: {
-    kicker: "SYSTEM OVERVIEW",
-    title: "Windows Optimizer Suite",
-    description:
-      "Optimize Windows performance for gaming and everyday use.",
+    title: "Dashboard",
+    subtitle:
+      "Windows Optimizer Suite Control Center",
 
-    systemHealth: "SYSTEM HEALTH",
-    performance: "PERFORMANCE",
-    gamingMode: "GAMING MODE",
-    network: "NETWORK",
-    memory: "MEMORY",
+    welcome: "Welcome to WOS Ultimate",
 
-    quickActions: "QUICK ACTIONS",
-    live: "LIVE",
+    systemReady: "SYSTEM READY",
+    systemStatus: "System Status",
 
-    optimizeNow: "OPTIMIZE NOW",
-    scanSystem: "SCAN SYSTEM",
-    gamingBoost: "GAMING BOOST",
-    networkBoost: "NETWORK BOOST",
+    cpu: "CPU Usage",
+    gpu: "GPU Usage",
+    ram: "RAM Usage",
+    disk: "Disk Usage",
+
+    quickActions: "Quick Actions",
+
+    optimize: "Optimize",
+    scan: "System Scan",
+    security: "Security Check",
+    cleanup: "System Cleanup",
   },
 
-  fivem: {
-    title: "FiveM",
-    description:
-      "Optimize Windows and system performance for FiveM.",
+  optimizer: {
+    title: "Optimizer",
+    subtitle:
+      "Optimize Windows for maximum performance",
+
+    ready: "OPTIMIZER READY",
+
+    optimizeNow: "Optimize Now",
+    scanBeforeOptimize:
+      "Scan Before Optimization",
+
+    performance: "Performance",
+    gaming: "Gaming",
+    network: "Network",
+    memory: "Memory",
+
+    safeMode: "Safe Mode",
+
+    recommended: "Recommended",
+    optimized: "Optimized",
+    pending: "Pending",
   },
 
-  operations: {
-    systemCleanup: "System Cleanup",
-  },
+  scanner: {
+    title: "System Scanner",
+    subtitle:
+      "Analyze Windows system health and performance",
 
-  settings: {
-    title: "Settings",
-    description:
-      "Manage WOS Ultimate settings.",
+    startScan: "Start Scan",
+    scanning: "Scanning...",
+    scanComplete: "Scan Complete",
+
+    cpu: "CPU",
+    gpu: "GPU",
+    memory: "Memory",
+    storage: "Storage",
+    network: "Network",
+    services: "Services",
+
+    healthy: "Healthy",
+    warning: "Warning",
+    critical: "Critical",
+
+    lastScan: "Last Scan",
+    issuesFound: "Issues Found",
   },
 
   security: {
     title: "Security",
-    description:
-      "Manage WOS security status and permissions.",
+    subtitle:
+      "Monitor the Security Layer and protection status",
 
-    securityContext: "SECURITY CONTEXT",
-    securityOnline: "Security Context Online",
+    protected: "System Protected",
+    securityReady: "SECURITY READY",
 
-    administrator: "Administrator",
-    standardUser: "Standard User",
+    securityContext: "Security Context",
+    protection: "Protection",
+    integrity: "System Integrity",
 
-    protected: "Protected",
-    warning: "Warning",
-    blocked: "Blocked",
+    enabled: "Enabled",
+    disabled: "Disabled",
+    protectedStatus: "Protected",
   },
 
-  language: {
-    title: "Language",
-    thai: "Thai",
+  fivem: {
+    title: "FiveM",
+    subtitle:
+      "Optimize Windows and FiveM for gaming",
+
+    ready: "FIVEM OPTIMIZATION",
+
+    optimizeFiveM: "Optimize FiveM",
+
+    fps: "FPS",
+    latency: "Latency",
+    cpu: "CPU",
+    gpu: "GPU",
+
+    launch: "Launch FiveM",
+    optimize: "Optimize",
+  },
+
+  gaming: {
+    title: "Gaming Center",
+    subtitle:
+      "Gaming performance control center",
+
+    gamingReady: "GAMING SYSTEM READY",
+
+    gameMode: "Game Mode",
+    network: "Gaming Network",
+    gpu: "GPU Optimization",
+    input: "Input Optimization",
+
+    enable: "Enable",
+    disable: "Disable",
+    active: "Active",
+  },
+
+  settings: {
+    title: "Settings",
+    subtitle:
+      "Manage WOS Ultimate settings",
+
+    general: "General",
+    appearance: "Appearance",
+    language: "Language",
+    security: "Security",
+    advanced: "Advanced",
+
+    languageTitle: "System Language",
+    languageDescription:
+      "Choose the language used by WOS Ultimate",
+
+    thai: "ไทย",
     english: "English",
-    switchLanguage: "Switch Language",
+
+    save: "Save",
+    reset: "Reset",
+  },
+
+  operations: {
+    systemCleanup: "System Cleanup",
+    startCleanup: "Start Cleanup",
+    cleaning: "Cleaning...",
+    cleanupComplete:
+      "Cleanup Complete",
+
+    operationLogs: "Operation Logs",
+    clearLogs: "Clear Logs",
+    refreshLogs: "Refresh Logs",
+  },
+
+  common: {
+    ready: "Ready",
+    online: "Online",
+    offline: "Offline",
+
+    enabled: "Enabled",
+    disabled: "Disabled",
+
+    active: "Active",
+    inactive: "Inactive",
+
+    start: "Start",
+    stop: "Stop",
+    apply: "Apply",
+    cancel: "Cancel",
+    close: "Close",
+    refresh: "Refresh",
+
+    loading: "Loading...",
+    processing: "Processing...",
+
+    success: "Success",
+    warning: "Warning",
+    error: "Error",
+
+    yes: "Yes",
+    no: "No",
+
+    systemReady: "System Ready",
+    systemOnline: "System Online",
+  },
+
+  status: {
+    systemReady: "SYSTEM READY",
+    securityOnline:
+      "Security Context Online",
+    languageOnline:
+      "Language System Online",
+    backendWaiting:
+      "Waiting for Windows Backend",
+
+    backendOffline:
+      "Windows Backend Not Connected",
   },
 
   footer: {
     wosUltimate: "WOS Ultimate",
-    securityContextOnline: "Security Context Online",
-    version: "Version",
+    languageSystem: "Language System",
+    securityContext: "Security Context",
+    operationLogs: "Operation Logs",
   },
-} as const
+}
 
 export default en
