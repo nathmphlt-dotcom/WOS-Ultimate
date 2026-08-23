@@ -8,72 +8,78 @@ import React, {
   useState,
 } from "react"
 
-import th from "../locales/th"
-import en from "../locales/en"
+import th from "../../locales/th"
+import en from "../../locales/en"
 
 export type Language = "th" | "en"
 
-type TranslationValue =
-  | string
-  | Record<string, unknown>
-
-type LanguageDictionary = Record<
-  string,
-  TranslationValue
->
+type TranslationObject = typeof th
 
 type LanguageContextType = {
   language: Language
-  setLanguage: (language: Language) => void
-  toggleLanguage: () => void
-  t: (key: string, fallback?: string) => string
+
+  setLanguage: (
+    language: Language
+  ) => void
+
+  t: (
+    key: string,
+    fallback?: string
+  ) => string
+}
+
+const translations: Record<
+  Language,
+  TranslationObject
+> = {
+  th,
+  en,
 }
 
 const LanguageContext =
-  createContext<LanguageContextType | undefined>(
-    undefined
-  )
+  createContext<
+    LanguageContextType | undefined
+  >(undefined)
 
-const dictionaries: Record<
-  Language,
-  LanguageDictionary
-> = {
-  th: th as LanguageDictionary,
-  en: en as LanguageDictionary,
-}
-
-function getNestedValue(
-  dictionary: LanguageDictionary,
-  key: string
-): unknown {
-  return key
-    .split(".")
-    .reduce<unknown>((current, part) => {
-      if (
-        current &&
-        typeof current === "object" &&
-        part in current
-      ) {
-        return (
-          current as Record<string, unknown>
-        )[part]
-      }
-
-      return undefined
-    }, dictionary)
-}
-
-function resolveTranslation(
-  dictionary: LanguageDictionary,
+function getTranslation(
+  object: unknown,
   key: string
 ): string | undefined {
-  const value = getNestedValue(
-    dictionary,
-    key
-  )
+  if (
+    typeof object !== "object" ||
+    object === null
+  ) {
+    return undefined
+  }
 
-  return typeof value === "string"
-    ? value
+  const parts = key.split(".")
+
+  let current: unknown = object
+
+  for (const part of parts) {
+    if (
+      typeof current !== "object" ||
+      current === null
+    ) {
+      return undefined
+    }
+
+    if (
+      !(part in current)
+    ) {
+      return undefined
+    }
+
+    current = (
+      current as Record<
+        string,
+        unknown
+      >
+    )[part]
+  }
+
+  return typeof current === "string"
+    ? current
     : undefined
 }
 
@@ -82,10 +88,15 @@ export function LanguageProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [language, setLanguageState] =
-    useState<Language>("en")
+  const [
+    language,
+    setLanguageState,
+  ] = useState<Language>("en")
 
-  const [ready, setReady] = useState(false)
+  const [
+    initialized,
+    setInitialized,
+  ] = useState(false)
 
   useEffect(() => {
     try {
@@ -104,13 +115,15 @@ export function LanguageProvider({
       // Ignore localStorage errors
     }
 
-    setReady(true)
+    setInitialized(true)
   }, [])
 
   const setLanguage = (
     nextLanguage: Language
   ) => {
-    setLanguageState(nextLanguage)
+    setLanguageState(
+      nextLanguage
+    )
 
     try {
       window.localStorage.setItem(
@@ -120,69 +133,74 @@ export function LanguageProvider({
     } catch {
       // Ignore localStorage errors
     }
-
-    document.documentElement.lang =
-      nextLanguage === "th"
-        ? "th"
-        : "en"
   }
 
-  const toggleLanguage = () => {
-    setLanguage(
-      language === "th"
-        ? "en"
-        : "th"
-    )
-  }
+  /*
+   * รองรับทั้ง:
+   *
+   * t("dashboard.title")
+   *
+   * และ
+   *
+   * t("dashboard.title", "Dashboard")
+   *
+   * เพื่อป้องกัน component เก่าหรือ component
+   * ใหม่เรียก translation ด้วย fallback
+   */
 
   const t = (
     key: string,
     fallback?: string
-  ) => {
-    const current =
-      resolveTranslation(
-        dictionaries[language],
+  ): string => {
+    const currentTranslations =
+      translations[language]
+
+    const translated =
+      getTranslation(
+        currentTranslations,
         key
       )
 
-    if (current !== undefined) {
-      return current
+    if (
+      translated !== undefined
+    ) {
+      return translated
     }
 
-    const english =
-      resolveTranslation(
-        dictionaries.en,
+    const englishFallback =
+      getTranslation(
+        translations.en,
         key
       )
 
-    if (english !== undefined) {
-      return english
+    if (
+      englishFallback !== undefined
+    ) {
+      return englishFallback
     }
 
-    return (
-      fallback ??
-      key
-    )
+    if (
+      fallback !== undefined
+    ) {
+      return fallback
+    }
+
+    return key
   }
 
-  useEffect(() => {
-    if (!ready) return
+  const value =
+    useMemo(
+      () => ({
+        language,
+        setLanguage,
+        t,
+      }),
+      [language]
+    )
 
-    document.documentElement.lang =
-      language === "th"
-        ? "th"
-        : "en"
-  }, [language, ready])
-
-  const value = useMemo(
-    () => ({
-      language,
-      setLanguage,
-      toggleLanguage,
-      t,
-    }),
-    [language]
-  )
+  if (!initialized) {
+    return null
+  }
 
   return (
     <LanguageContext.Provider
@@ -195,7 +213,9 @@ export function LanguageProvider({
 
 export function useLanguage() {
   const context =
-    useContext(LanguageContext)
+    useContext(
+      LanguageContext
+    )
 
   if (!context) {
     throw new Error(
@@ -204,4 +224,4 @@ export function useLanguage() {
   }
 
   return context
-        }
+}
