@@ -19,6 +19,9 @@ export type Language = "th" | "en"
 
 type TranslationObject = typeof th
 
+type TranslationVariables =
+  Record<string, string | number>
+
 type LanguageContextType = {
   language: Language
 
@@ -27,7 +30,8 @@ type LanguageContextType = {
   ) => void
 
   t: (
-    key: string
+    key: string,
+    variables?: TranslationVariables
   ) => string
 }
 
@@ -54,9 +58,6 @@ const LanguageContext =
 
 /* =========================================================
    GET NESTED TRANSLATION
-   Example:
-   t("navigation.optimizer")
-   t("dashboard.title")
    ========================================================= */
 
 function getTranslation(
@@ -102,6 +103,38 @@ function getTranslation(
 }
 
 /* =========================================================
+   INTERPOLATION
+   Supports:
+
+   {{name}}
+   {{count}}
+   ========================================================= */
+
+function interpolate(
+  text: string,
+  variables?: TranslationVariables
+): string {
+  if (!variables) {
+    return text
+  }
+
+  return text.replace(
+    /\{\{(\w+)\}\}/g,
+    (
+      _match,
+      variableName: string
+    ) => {
+      const value =
+        variables[variableName]
+
+      return value === undefined
+        ? `{{${variableName}}}`
+        : String(value)
+    }
+  )
+}
+
+/* =========================================================
    PROVIDER
    ========================================================= */
 
@@ -138,7 +171,7 @@ export function LanguageProvider({
         setLanguageState(saved)
       }
     } catch {
-      // Ignore localStorage errors
+      // localStorage unavailable
     }
 
     setInitialized(true)
@@ -161,56 +194,55 @@ export function LanguageProvider({
         nextLanguage
       )
     } catch {
-      // Ignore localStorage errors
+      // localStorage unavailable
     }
   }
 
   /* =======================================================
-     TRANSLATION FUNCTION
+     TRANSLATION
      ======================================================= */
 
   const t = (
-    key: string
+    key: string,
+    variables?: TranslationVariables
   ): string => {
     const currentTranslations =
       translations[language]
 
-    const translated =
+    let translated =
       getTranslation(
         currentTranslations,
         key
       )
 
     /*
-     * ถ้าหา Translation ไม่เจอ
-     * ลอง fallback ไปภาษาอังกฤษ
+     * Fallback English
      */
 
     if (
-      translated !== undefined
+      translated === undefined
     ) {
-      return translated
-    }
-
-    const englishFallback =
-      getTranslation(
-        translations.en,
-        key
-      )
-
-    if (
-      englishFallback !== undefined
-    ) {
-      return englishFallback
+      translated =
+        getTranslation(
+          translations.en,
+          key
+        )
     }
 
     /*
-     * ถ้ายังไม่มี key จริง ๆ
-     * คืน key กลับมาแทน
-     * เพื่อป้องกันหน้าเว็บพัง
+     * Missing key
      */
 
-    return key
+    if (
+      translated === undefined
+    ) {
+      return key
+    }
+
+    return interpolate(
+      translated,
+      variables
+    )
   }
 
   /* =======================================================
@@ -227,10 +259,9 @@ export function LanguageProvider({
       [language]
     )
 
-  /*
-   * ป้องกัน hydration mismatch
-   * ตอนโหลดหน้าเว็บครั้งแรก
-   */
+  /* =======================================================
+     HYDRATION
+     ======================================================= */
 
   if (!initialized) {
     return null
@@ -262,4 +293,4 @@ export function useLanguage() {
   }
 
   return context
-  }
+}
