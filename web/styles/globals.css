@@ -1841,3 +1841,83 @@ button {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   WOS PART 2.8-L
+   LANGUAGE SYSTEM
+   ========================================================= */
+
+.wos-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 3px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  min-height: 27px;
+  padding: 0 8px;
+
+  border: 0;
+  border-radius: 7px;
+
+  color: #666875;
+  background: transparent;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.language-button.active {
+  color: #ffffff;
+
+  background: rgba(122, 46, 255, 0.2);
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(155, 77, 255, 0.15);
+}
+
+.language-button:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .language-button span {
+    display: none;
+  }
+
+  .language-switcher {
+    padding: 2px;
+  }
+
+  .language-button {
+    min-width: 30px;
+    justify-content: center;
+  }
+
+  .wos-topbar-actions {
+    gap: 6px;
+  }
+  }
