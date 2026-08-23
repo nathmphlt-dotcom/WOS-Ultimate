@@ -5,9 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { WOS_PAGES } from "../config/pages"
-import {
-  useLanguage,
-} from "./i18n/LanguageContext"
+import { useLanguage } from "./i18n/LanguageContext"
 
 type NavigationProps = {
   collapsed?: boolean
@@ -54,14 +52,20 @@ export default function Navigation({
           <div className="wos-language-box">
 
             <div className="wos-language-label">
-              LANGUAGE
+              {language === "th"
+                ? "ภาษา"
+                : "LANGUAGE"}
             </div>
 
-            <div className="wos-language-switcher">
+            <div
+              className="wos-language-switch"
+              role="group"
+              aria-label="Language"
+            >
 
               <button
                 type="button"
-                className={`wos-language-button ${
+                className={`wos-language-option ${
                   language === "th"
                     ? "active"
                     : ""
@@ -69,20 +73,23 @@ export default function Navigation({
                 onClick={() =>
                   setLanguage("th")
                 }
+                aria-pressed={
+                  language === "th"
+                }
                 aria-label="เปลี่ยนเป็นภาษาไทย"
               >
                 <span className="wos-language-flag">
                   🇹🇭
                 </span>
 
-                <span>
+                <span className="wos-language-label-text">
                   ไทย
                 </span>
               </button>
 
               <button
                 type="button"
-                className={`wos-language-button ${
+                className={`wos-language-option ${
                   language === "en"
                     ? "active"
                     : ""
@@ -90,19 +97,21 @@ export default function Navigation({
                 onClick={() =>
                   setLanguage("en")
                 }
+                aria-pressed={
+                  language === "en"
+                }
                 aria-label="Switch to English"
               >
                 <span className="wos-language-flag">
                   🇬🇧
                 </span>
 
-                <span>
+                <span className="wos-language-label-text">
                   English
                 </span>
               </button>
 
             </div>
-
           </div>
         )}
 
@@ -182,12 +191,10 @@ export default function Navigation({
                   </Link>
                 )
               })}
-
             </div>
           )
         })}
-
       </div>
     </nav>
   )
-              }
+}
