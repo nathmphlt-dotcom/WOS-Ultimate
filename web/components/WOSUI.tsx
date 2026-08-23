@@ -4,13 +4,138 @@ import React from "react"
 
 import Navigation from "./Navigation"
 
-import {
-  LanguageProvider,
-} from "./i18n/LanguageContext"
+import { SecurityProvider } from "./security/SecurityContext"
 
 import {
-  SecurityProvider,
-} from "./security/SecurityContext"
+  LanguageProvider,
+  useLanguage,
+} from "./i18n/LanguageContext"
+
+/* =========================================================
+   WOS CONTENT
+   ========================================================= */
+
+function WOSContent({
+  children,
+}: {
+  children?: React.ReactNode
+}) {
+  const { t } = useLanguage()
+
+  return (
+    <div className="wos-shell">
+
+      {/* ===================================================
+          SIDEBAR
+          =================================================== */}
+
+      <aside className="wos-sidebar">
+
+        <div className="wos-brand">
+
+          <div className="wos-brand-mark">
+            W
+          </div>
+
+          <div className="wos-brand-text">
+
+            <strong>
+              WOS
+            </strong>
+
+            <span>
+              ULTIMATE
+            </span>
+
+          </div>
+
+        </div>
+
+        <Navigation />
+
+      </aside>
+
+      {/* ===================================================
+          MAIN
+          =================================================== */}
+
+      <main className="wos-main">
+
+        {/* =================================================
+            TOPBAR
+            ================================================= */}
+
+        <header className="wos-topbar">
+
+          <div className="wos-topbar-title">
+            WINDOWS OPTIMIZER SUITE
+          </div>
+
+          <div className="wos-system-status">
+
+            <span className="wos-status-dot" />
+
+            <span>
+              {t(
+                "status.systemReady"
+              )}
+            </span>
+
+          </div>
+
+        </header>
+
+        {/* =================================================
+            PAGE CONTENT
+            ================================================= */}
+
+        <section className="wos-content">
+
+          <div className="wos-page-transition">
+            {children}
+          </div>
+
+        </section>
+
+        {/* =================================================
+            STATUS BAR
+            ================================================= */}
+
+        <footer className="wos-statusbar">
+
+          <span>
+            {t(
+              "footer.wosUltimate"
+            )}
+          </span>
+
+          <span>
+            PART 2.8
+          </span>
+
+          <span>
+            {t(
+              "footer.languageSystem"
+            )}
+          </span>
+
+          <span>
+            {t(
+              "footer.securityContext"
+            )}
+          </span>
+
+        </footer>
+
+      </main>
+
+    </div>
+  )
+}
+
+/* =========================================================
+   WOS UI ROOT
+   ========================================================= */
 
 export default function WOSUI({
   children,
@@ -22,80 +147,12 @@ export default function WOSUI({
 
       <SecurityProvider>
 
-        <div className="wos-shell">
-
-          <aside className="wos-sidebar">
-
-            <div className="wos-brand">
-
-              <div className="wos-brand-mark">
-                W
-              </div>
-
-              <div className="wos-brand-text">
-
-                <strong>
-                  WOS
-                </strong>
-
-                <span>
-                  ULTIMATE
-                </span>
-
-              </div>
-
-            </div>
-
-            <Navigation />
-
-          </aside>
-
-          <main className="wos-main">
-
-            <div className="wos-topbar">
-
-              <div className="wos-topbar-title">
-                WINDOWS OPTIMIZER SUITE
-              </div>
-
-              <div className="wos-system-status">
-
-                <span className="wos-status-dot" />
-
-                SYSTEM READY
-
-              </div>
-
-            </div>
-
-            <div className="wos-content">
-
-              {children}
-
-            </div>
-
-            <footer className="wos-statusbar">
-
-              <span>
-                WOS Ultimate
-              </span>
-
-              <span>
-                PART 2.8
-              </span>
-
-              <span>
-                Language System Online
-              </span>
-
-            </footer>
-
-          </main>
-
-        </div>
+        <WOSContent>
+          {children}
+        </WOSContent>
 
       </SecurityProvider>
 
     </LanguageProvider>
   )
-              }
+      }
