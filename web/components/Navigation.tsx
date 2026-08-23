@@ -1,74 +1,124 @@
 "use client"
 
+import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+
+import { WOS_PAGES } from "../config/pages"
 import { useLanguage } from "../context/LanguageContext"
 
-const navigationItems = [
-  {
-    href: "/",
-    key: "navigation.dashboard",
-    icon: "⌂",
-  },
-  {
-    href: "/optimizer",
-    key: "navigation.optimizer",
-    icon: "⚡",
-  },
-  {
-    href: "/scanner",
-    key: "navigation.scanner",
-    icon: "◉",
-  },
-  {
-    href: "/security",
-    key: "navigation.security",
-    icon: "◆",
-  },
-  {
-    href: "/fivem",
-    key: "navigation.fivem",
-    icon: "◈",
-  },
-  {
-    href: "/settings",
-    key: "navigation.settings",
-    icon: "⚙",
-  },
-]
+type NavigationProps = {
+  collapsed?: boolean
+}
 
-export default function Navigation() {
+const categoryTitles = {
+  main: "navigation.categories.main",
+  gaming: "navigation.categories.gaming",
+  system: "navigation.categories.system",
+  tools: "navigation.categories.tools",
+} as const
+
+const categories = [
+  "main",
+  "gaming",
+  "system",
+  "tools",
+] as const
+
+export default function Navigation({
+  collapsed = false,
+}: NavigationProps) {
   const pathname = usePathname()
   const { t } = useLanguage()
 
   return (
-    <nav className="wos-navigation">
+    <nav
+      className={`wos-navigation ${
+        collapsed ? "is-collapsed" : ""
+      }`}
+    >
+      <div className="wos-navigation-inner">
 
-      {navigationItems.map((item) => {
-        const active =
-          pathname === item.href
+        {categories.map((category) => {
+          const pages = WOS_PAGES.filter(
+            (page) => page.category === category
+          )
 
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={
-              active
-                ? "wos-nav-item active"
-                : "wos-nav-item"
-            }
-          >
-            <span className="wos-nav-icon">
-              {item.icon}
-            </span>
+          if (pages.length === 0) {
+            return null
+          }
 
-            <span className="wos-nav-label">
-              {t(item.key)}
-            </span>
-          </Link>
-        )
-      })}
+          return (
+            <div
+              className="wos-navigation-group"
+              key={category}
+            >
 
+              {!collapsed && (
+                <div className="wos-navigation-label">
+                  {t(categoryTitles[category])}
+                </div>
+              )}
+
+              {pages.map((page) => {
+                const active =
+                  pathname === page.path ||
+                  pathname.startsWith(
+                    `${page.path}/`
+                  )
+
+                /*
+                 * รองรับระบบภาษาใน WOS_PAGES
+                 *
+                 * ถ้า page มี translationKey
+                 * จะใช้ระบบภาษา
+                 *
+                 * ถ้ายังไม่มี
+                 * จะใช้ page.title เดิม
+                 */
+                const pageTitle =
+                  "translationKey" in page &&
+                  page.translationKey
+                    ? t(page.translationKey)
+                    : page.title
+
+                return (
+                  <Link
+                    href={page.path}
+                    key={page.id}
+                    className={`wos-navigation-item ${
+                      active ? "active" : ""
+                    }`}
+                    title={
+                      collapsed
+                        ? pageTitle
+                        : undefined
+                    }
+                  >
+
+                    <span className="wos-navigation-icon">
+                      {page.icon}
+                    </span>
+
+                    {!collapsed && (
+                      <span className="wos-navigation-text">
+                        {pageTitle}
+                      </span>
+                    )}
+
+                    {active && (
+                      <span className="wos-navigation-active-line" />
+                    )}
+
+                  </Link>
+                )
+              })}
+
+            </div>
+          )
+        })}
+
+      </div>
     </nav>
   )
-}
+                    }
