@@ -11,10 +11,9 @@ const th = {
     ready: "พร้อมใช้งาน",
     protected: "ป้องกันแล้ว",
     unknown: "ไม่ทราบสถานะ",
+
     enabled: "เปิดใช้งาน",
     disabled: "ปิดใช้งาน",
-
-    now: "ตอนนี้",
 
     online: "ออนไลน์",
     offline: "ออฟไลน์",
@@ -30,10 +29,13 @@ const th = {
     apply: "นำไปใช้",
     reset: "รีเซ็ต",
     refresh: "รีเฟรช",
+
     scan: "สแกน",
     start: "เริ่ม",
     stop: "หยุด",
+
     details: "รายละเอียด",
+    now: "ตอนนี้",
   },
 
   navigation: {
@@ -48,6 +50,21 @@ const th = {
     optimizer: "ตัวเพิ่มประสิทธิภาพ",
     scanner: "สแกนระบบ",
     security: "ความปลอดภัย",
+
+    gaming: "เกมมิ่ง",
+    gameMode: "โหมดเกม",
+    gamingNetwork: "เครือข่ายเกม",
+
+    system: "ระบบ",
+    performance: "ประสิทธิภาพ",
+    processes: "โปรเซส",
+    services: "บริการระบบ",
+    startup: "โปรแกรมเริ่มต้น",
+    storage: "พื้นที่จัดเก็บ",
+
+    tools: "เครื่องมือ",
+    logs: "บันทึก Operation",
+
     settings: "ตั้งค่า",
     fivem: "FiveM",
   },
@@ -55,15 +72,92 @@ const th = {
   topbar: {
     systemReady: "ระบบพร้อมใช้งาน",
     systemNotReady: "ระบบยังไม่พร้อม",
+
     webMode: "โหมดเว็บ",
     desktopMode: "โหมดเดสก์ท็อป",
+  },
+
+  dashboard: {
+    title: "แดชบอร์ด",
+
+    description:
+      "ภาพรวมสถานะระบบและประสิทธิภาพของ WOS",
+
+    systemStatus: "สถานะระบบ",
+    performance: "ประสิทธิภาพ",
+    security: "ความปลอดภัย",
+    optimization: "การ Optimize",
+
+    systemHealthy: "ระบบทำงานปกติ",
+
+    optimizationReady:
+      "ระบบพร้อมสำหรับการ Optimize",
+  },
+
+  optimizer: {
+    title: "Windows Optimizer",
+
+    description:
+      "ปรับแต่ง Windows เพื่อประสิทธิภาพและการเล่นเกม",
+
+    performance: "ประสิทธิภาพ",
+    gaming: "เกมมิ่ง",
+    latency: "ความหน่วง",
+    background: "โปรแกรมเบื้องหลัง",
+
+    optimize: "เริ่ม Optimize",
+    optimizing: "กำลัง Optimize...",
+    optimized: "Optimize แล้ว",
+
+    recommended: "แนะนำ",
+    custom: "กำหนดเอง",
+  },
+
+  scanner: {
+    title: "System Scanner",
+
+    description:
+      "ตรวจสอบและวิเคราะห์สถานะของระบบ Windows",
+
+    systemOverview: "ภาพรวมระบบ",
+
+    cpu: "CPU",
+    gpu: "GPU",
+    memory: "หน่วยความจำ",
+    storage: "พื้นที่จัดเก็บ",
+    network: "เครือข่าย",
+
+    scanning: "กำลังสแกนระบบ...",
+    scanComplete: "สแกนระบบเสร็จสิ้น",
+    scanFailed: "การสแกนล้มเหลว",
+
+    scanAgain: "สแกนอีกครั้ง",
+
+    healthy: "ปกติ",
+    attention: "ควรตรวจสอบ",
+    critical: "วิกฤต",
+  },
+
+  fivem: {
+    title: "FiveM Optimizer",
+
+    description:
+      "ปรับแต่งระบบสำหรับ FiveM",
+
+    performance: "ประสิทธิภาพ FiveM",
+    fps: "FPS",
+    inputLatency: "Input Latency",
+    networkLatency: "Network Latency",
+
+    optimize: "Optimize FiveM",
+    launch: "เปิด FiveM",
   },
 
   security: {
     title: "ศูนย์ความปลอดภัย",
 
     description:
-      "ระบบความปลอดภัย สิทธิ์ และการป้องกันการทำงานของ WOS",
+      "ระบบความปลอดภัย สิทธิ์ และการป้องกันของ WOS",
 
     administrator: "สิทธิ์ผู้ดูแลระบบ",
     uac: "การป้องกัน UAC",
@@ -79,7 +173,7 @@ const th = {
     backend: "Backend",
     permission: "สิทธิ์",
 
-    webPreview: "โหมด Web Preview",
+    webPreview: "Web Preview",
     windowsDesktop: "Windows Desktop",
 
     operationSecurity: "ความปลอดภัยของ Operation",
@@ -124,6 +218,7 @@ const th = {
     operationLog: "บันทึก Operation",
 
     backupRequired: "ต้องสำรองข้อมูล",
+
     backupDescription:
       "WOS จะสร้างข้อมูลสำหรับกู้คืนก่อนแก้ไขระบบ",
 
@@ -178,7 +273,7 @@ const th = {
         "วิเคราะห์ข้อมูลพื้นฐานของระบบ Windows",
 
       performanceScan:
-        "วิเคราะห์ประสิทธิภาพของ CPU, GPU, RAM และระบบ",
+        "วิเคราะห์ CPU, GPU, RAM และประสิทธิภาพระบบ",
 
       windowsTweak:
         "ปรับแต่งการตั้งค่า Windows",
@@ -195,82 +290,6 @@ const th = {
       systemCleanup:
         "ลบไฟล์ระบบที่ไม่จำเป็น",
     },
-  },
-
-  scanner: {
-    title: "System Scanner",
-
-    description:
-      "ตรวจสอบและวิเคราะห์สถานะของระบบ Windows",
-
-    systemOverview: "ภาพรวมระบบ",
-
-    cpu: "CPU",
-    gpu: "GPU",
-    memory: "หน่วยความจำ",
-    storage: "พื้นที่จัดเก็บ",
-    network: "เครือข่าย",
-
-    scanning: "กำลังสแกนระบบ...",
-    scanComplete: "สแกนระบบเสร็จสิ้น",
-
-    scanFailed: "การสแกนล้มเหลว",
-
-    scanAgain: "สแกนอีกครั้ง",
-
-    healthy: "ปกติ",
-    attention: "ควรตรวจสอบ",
-    critical: "วิกฤต",
-  },
-
-  optimizer: {
-    title: "Windows Optimizer",
-
-    description:
-      "ปรับแต่ง Windows เพื่อประสิทธิภาพการใช้งานและการเล่นเกม",
-
-    performance: "ประสิทธิภาพ",
-    gaming: "เกมมิ่ง",
-    latency: "ความหน่วง",
-    background: "โปรแกรมเบื้องหลัง",
-
-    optimize: "เริ่ม Optimize",
-    optimizing: "กำลัง Optimize...",
-    optimized: "Optimize แล้ว",
-
-    recommended: "แนะนำ",
-    custom: "กำหนดเอง",
-  },
-
-  fivem: {
-    title: "FiveM Optimizer",
-
-    description:
-      "การปรับแต่งระบบสำหรับ FiveM",
-
-    performance: "ประสิทธิภาพ FiveM",
-    fps: "FPS",
-    inputLatency: "Input Latency",
-    networkLatency: "Network Latency",
-
-    optimize: "Optimize FiveM",
-    launch: "เปิด FiveM",
-  },
-
-  dashboard: {
-    title: "Dashboard",
-
-    description:
-      "ภาพรวมสถานะและประสิทธิภาพของ WOS",
-
-    systemStatus: "สถานะระบบ",
-    performance: "ประสิทธิภาพ",
-    security: "ความปลอดภัย",
-    optimization: "การ Optimize",
-
-    systemHealthy: "ระบบทำงานปกติ",
-    optimizationReady:
-      "พร้อมสำหรับการ Optimize",
   },
 
   settings: {
@@ -295,6 +314,7 @@ const th = {
   language: {
     title: "ภาษา",
     select: "เลือกภาษา",
+
     thai: "ไทย",
     english: "English",
   },
