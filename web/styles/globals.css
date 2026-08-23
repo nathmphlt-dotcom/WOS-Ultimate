@@ -1483,3 +1483,79 @@ a {
 
 ::-webkit-scrollbar-thumb {
   border
+/* =========================================================
+   WOS BUTTON SYSTEM
+   ========================================================= */
+
+.wos-button {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 18px;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.wos-button:hover {
+  transform: translateY(-2px);
+}
+
+.wos-button.primary {
+  color: #ffffff;
+
+  border: 1px solid
+    rgba(166, 108, 255, 0.35);
+
+  background:
+    linear-gradient(
+      135deg,
+      #8c42ff,
+      #6426d9
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(140, 66, 255, 0.25);
+}
+
+.wos-button.primary:hover {
+  box-shadow:
+    0 14px 40px
+    rgba(140, 66, 255, 0.38);
+}
+
+.wos-button.secondary {
+  color: #d7d9e5;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.09);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+.wos-button.secondary:hover {
+  border-color:
+    rgba(166, 108, 255, 0.28);
+
+  background:
+    rgba(140, 66, 255, 0.08);
+}
