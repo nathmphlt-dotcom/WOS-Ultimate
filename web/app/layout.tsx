@@ -1,9 +1,12 @@
+import type { Metadata } from "next"
 import "../styles/globals.css"
+
 import WOSUI from "../components/WOSUI"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "WOS Ultimate",
-  description: "Windows Optimizer Suite",
+  description:
+    "Windows Optimizer Suite — CyberGlass System Optimization",
 }
 
 export default function RootLayout({
