@@ -1,129 +1,237 @@
 const th = {
-  common: {
-    appName: "WOS",
-    appSubtitle: "ULTIMATE",
-    windowsOptimizerSuite: "WINDOWS OPTIMIZER SUITE",
-
-    systemReady: "SYSTEM READY",
-    online: "ออนไลน์",
-    offline: "ออฟไลน์",
-    enabled: "เปิดใช้งาน",
-    disabled: "ปิดใช้งาน",
-
-    save: "บันทึก",
-    cancel: "ยกเลิก",
-    apply: "ใช้งาน",
-    reset: "รีเซ็ต",
-    close: "ปิด",
-    back: "ย้อนกลับ",
-    next: "ถัดไป",
-
-    loading: "กำลังโหลด...",
-    comingSoon: "เร็ว ๆ นี้",
-  },
-
   navigation: {
     categories: {
-      main: "MAIN",
-      gaming: "GAMING",
-      system: "SYSTEM",
-      tools: "TOOLS",
+      main: "หน้าหลัก",
+      gaming: "เกมมิ่ง",
+      system: "ระบบ",
+      tools: "เครื่องมือ",
     },
 
-    dashboard: "แดชบอร์ด",
-    optimizer: "Optimizer",
-    scanner: "System Scanner",
-    security: "Security",
+    optimizer: "ตัวเพิ่มประสิทธิภาพ",
+    scanner: "สแกนระบบ",
+    security: "ความปลอดภัย",
 
     fivem: "FiveM",
     gaming: "Gaming",
     gameMode: "Game Mode",
-    gamingNetwork: "Gaming Network",
+    gamingNetwork: "เครือข่ายเกม",
 
     system: "System",
-    performance: "Performance",
-    processes: "Processes",
-    services: "Services",
-    startup: "Startup",
-    storage: "Storage",
+    performance: "ประสิทธิภาพ",
+    processes: "โปรเซส",
+    services: "บริการ",
+    startup: "โปรแกรมเริ่มต้น",
+    storage: "พื้นที่จัดเก็บ",
 
-    tools: "Tools",
-    cleanup: "System Cleanup",
-    logs: "Operation Logs",
-
-    settings: "Settings",
-  },
-
-  topbar: {
-    systemReady: "SYSTEM READY",
-    language: "ภาษา",
-    notifications: "การแจ้งเตือน",
-    administrator: "ADMINISTRATOR",
+    tools: "เครื่องมือ",
+    logs: "บันทึกการทำงาน",
   },
 
   dashboard: {
-    kicker: "SYSTEM OVERVIEW",
-    title: "Windows Optimizer Suite",
-    description:
-      "เพิ่มประสิทธิภาพ Windows สำหรับการเล่นเกมและการใช้งานประจำวัน",
+    title: "แดชบอร์ด",
+    subtitle:
+      "ศูนย์ควบคุม Windows Optimizer Suite",
 
-    systemHealth: "SYSTEM HEALTH",
-    performance: "PERFORMANCE",
-    gamingMode: "GAMING MODE",
-    network: "NETWORK",
-    memory: "MEMORY",
+    welcome: "ยินดีต้อนรับสู่ WOS Ultimate",
 
-    quickActions: "QUICK ACTIONS",
-    live: "LIVE",
+    systemReady: "ระบบพร้อมใช้งาน",
+    systemStatus: "สถานะระบบ",
 
-    optimizeNow: "OPTIMIZE NOW",
-    scanSystem: "SCAN SYSTEM",
-    gamingBoost: "GAMING BOOST",
-    networkBoost: "NETWORK BOOST",
+    cpu: "การใช้งาน CPU",
+    gpu: "การใช้งาน GPU",
+    ram: "การใช้งาน RAM",
+    disk: "การใช้งาน Disk",
+
+    quickActions: "การทำงานด่วน",
+
+    optimize: "เพิ่มประสิทธิภาพ",
+    scan: "สแกนระบบ",
+    security: "ตรวจสอบความปลอดภัย",
+    cleanup: "ทำความสะอาดระบบ",
+  },
+
+  optimizer: {
+    title: "ตัวเพิ่มประสิทธิภาพ",
+    subtitle:
+      "ปรับแต่ง Windows เพื่อประสิทธิภาพสูงสุด",
+
+    ready: "OPTIMIZER READY",
+
+    optimizeNow: "เพิ่มประสิทธิภาพทันที",
+    scanBeforeOptimize:
+      "สแกนระบบก่อนเพิ่มประสิทธิภาพ",
+
+    performance: "ประสิทธิภาพ",
+    gaming: "Gaming",
+    network: "เครือข่าย",
+    memory: "หน่วยความจำ",
+
+    safeMode: "โหมดปลอดภัย",
+
+    recommended: "แนะนำ",
+    optimized: "ปรับแล้ว",
+    pending: "รอดำเนินการ",
+  },
+
+  scanner: {
+    title: "สแกนระบบ",
+    subtitle:
+      "ตรวจสอบสถานะและประสิทธิภาพของ Windows",
+
+    startScan: "เริ่มสแกน",
+    scanning: "กำลังสแกน...",
+    scanComplete: "สแกนเสร็จสิ้น",
+
+    cpu: "CPU",
+    gpu: "GPU",
+    memory: "Memory",
+    storage: "Storage",
+    network: "Network",
+    services: "Services",
+
+    healthy: "ปกติ",
+    warning: "คำเตือน",
+    critical: "วิกฤต",
+
+    lastScan: "สแกนล่าสุด",
+    issuesFound: "ปัญหาที่พบ",
+  },
+
+  security: {
+    title: "ความปลอดภัย",
+    subtitle:
+      "ตรวจสอบ Security Layer และสถานะการป้องกัน",
+
+    protected: "ระบบได้รับการป้องกัน",
+    securityReady: "SECURITY READY",
+
+    securityContext: "Security Context",
+    protection: "Protection",
+    integrity: "System Integrity",
+
+    enabled: "เปิดใช้งาน",
+    disabled: "ปิดใช้งาน",
+    protectedStatus: "Protected",
   },
 
   fivem: {
     title: "FiveM",
-    description: "ปรับแต่ง Windows และระบบสำหรับการเล่น FiveM",
+    subtitle:
+      "ปรับแต่ง Windows และ FiveM สำหรับการเล่นเกม",
+
+    ready: "FIVEM OPTIMIZATION",
+
+    optimizeFiveM: "เพิ่มประสิทธิภาพ FiveM",
+
+    fps: "FPS",
+    latency: "Latency",
+    cpu: "CPU",
+    gpu: "GPU",
+
+    launch: "เปิด FiveM",
+    optimize: "Optimize",
   },
 
-  operations: {
-    systemCleanup: "System Cleanup",
+  gaming: {
+    title: "Gaming Center",
+    subtitle:
+      "ศูนย์ควบคุมประสิทธิภาพสำหรับเกม",
+
+    gamingReady: "GAMING SYSTEM READY",
+
+    gameMode: "Game Mode",
+    network: "Gaming Network",
+    gpu: "GPU Optimization",
+    input: "Input Optimization",
+
+    enable: "เปิดใช้งาน",
+    disable: "ปิดใช้งาน",
+    active: "ทำงานอยู่",
   },
 
   settings: {
-    title: "Settings",
-    description: "จัดการการตั้งค่าของ WOS Ultimate",
-  },
+    title: "ตั้งค่า",
+    subtitle:
+      "จัดการการตั้งค่า WOS Ultimate",
 
-  security: {
-    title: "Security",
-    description:
-      "จัดการสถานะความปลอดภัยและสิทธิ์ของ WOS",
+    general: "ทั่วไป",
+    appearance: "รูปลักษณ์",
+    language: "ภาษา",
+    security: "ความปลอดภัย",
+    advanced: "ขั้นสูง",
 
-    securityContext: "SECURITY CONTEXT",
-    securityOnline: "Security Context Online",
+    languageTitle: "ภาษาของระบบ",
+    languageDescription:
+      "เลือกภาษาที่ใช้ใน WOS Ultimate",
 
-    administrator: "Administrator",
-    standardUser: "Standard User",
-
-    protected: "Protected",
-    warning: "Warning",
-    blocked: "Blocked",
-  },
-
-  language: {
-    title: "Language",
     thai: "ไทย",
     english: "English",
-    switchLanguage: "เปลี่ยนภาษา",
+
+    save: "บันทึก",
+    reset: "รีเซ็ต",
+  },
+
+  operations: {
+    systemCleanup: "ทำความสะอาดระบบ",
+    startCleanup: "เริ่มทำความสะอาด",
+    cleaning: "กำลังทำความสะอาด...",
+    cleanupComplete:
+      "ทำความสะอาดเสร็จสิ้น",
+
+    operationLogs: "บันทึกการทำงาน",
+    clearLogs: "ล้างบันทึก",
+    refreshLogs: "รีเฟรชบันทึก",
+  },
+
+  common: {
+    ready: "พร้อมใช้งาน",
+    online: "ออนไลน์",
+    offline: "ออฟไลน์",
+
+    enabled: "เปิด",
+    disabled: "ปิด",
+
+    active: "ทำงาน",
+    inactive: "ไม่ได้ทำงาน",
+
+    start: "เริ่ม",
+    stop: "หยุด",
+    apply: "นำไปใช้",
+    cancel: "ยกเลิก",
+    close: "ปิด",
+    refresh: "รีเฟรช",
+
+    loading: "กำลังโหลด...",
+    processing: "กำลังประมวลผล...",
+
+    success: "สำเร็จ",
+    warning: "คำเตือน",
+    error: "เกิดข้อผิดพลาด",
+
+    yes: "ใช่",
+    no: "ไม่",
+
+    systemReady: "ระบบพร้อมใช้งาน",
+    systemOnline: "ระบบออนไลน์",
+  },
+
+  status: {
+    systemReady: "ระบบพร้อมใช้งาน",
+    securityOnline: "Security Context ออนไลน์",
+    languageOnline: "ระบบภาษาออนไลน์",
+    backendWaiting:
+      "กำลังรอ Windows Backend",
+
+    backendOffline:
+      "Windows Backend ยังไม่ได้เชื่อมต่อ",
   },
 
   footer: {
     wosUltimate: "WOS Ultimate",
-    securityContextOnline: "Security Context Online",
-    version: "เวอร์ชัน",
+    languageSystem: "ระบบภาษา",
+    securityContext: "Security Context",
+    operationLogs: "Operation Logs",
   },
-} as const
+}
 
 export default th
