@@ -1144,3 +1144,350 @@ button {
     gap: 10px;
   }
 }
+/* =========================================================
+   WOS PART 1.3
+   Navigation + 18 Page Architecture
+   ========================================================= */
+
+.wos-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #090a0f;
+  color: #ffffff;
+}
+
+.wos-sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  padding: 22px 14px;
+  background: rgba(12, 13, 20, 0.92);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(24px);
+}
+
+.wos-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px 26px;
+}
+
+.wos-brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #7a2eff;
+  box-shadow: 0 0 28px rgba(122, 46, 255, 0.45);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.wos-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wos-brand-text strong {
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.wos-brand-text span {
+  color: #8d8f9a;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+.wos-navigation {
+  width: 100%;
+}
+
+.wos-navigation-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wos-navigation-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wos-navigation-label {
+  padding: 0 12px 7px;
+  color: #656875;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.wos-navigation-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 11px;
+  color: #8e909c;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.wos-navigation-item:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateX(2px);
+}
+
+.wos-navigation-item.active {
+  color: #ffffff;
+  background: rgba(122, 46, 255, 0.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(122, 46, 255, 0.18),
+    0 8px 30px rgba(122, 46, 255, 0.06);
+}
+
+.wos-navigation-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.wos-navigation-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wos-navigation-active-line {
+  position: absolute;
+  left: 0;
+  top: 9px;
+  bottom: 9px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: #7a2eff;
+  box-shadow: 0 0 12px rgba(122, 46, 255, 0.8);
+}
+
+.wos-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wos-topbar {
+  height: 68px;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(9, 10, 15, 0.72);
+  backdrop-filter: blur(20px);
+}
+
+.wos-topbar-title {
+  color: #777986;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.wos-system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #858794;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wos-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #36d576;
+  box-shadow: 0 0 10px rgba(54, 213, 118, 0.8);
+}
+
+.wos-content {
+  flex: 1;
+  padding: 32px;
+}
+
+.wos-page-header {
+  margin-bottom: 28px;
+}
+
+.wos-page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wos-page-header h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.wos-page-header p {
+  margin: 9px 0 0;
+  color: #777986;
+  font-size: 13px;
+}
+
+.wos-page-badge {
+  padding: 5px 9px;
+  border: 1px solid rgba(122, 46, 255, 0.28);
+  border-radius: 999px;
+  color: #b98cff;
+  background: rgba(122, 46, 255, 0.1);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.wos-page-transition {
+  animation: wos-page-enter 220ms ease both;
+}
+
+@keyframes wos-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wos-page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.wos-placeholder-card {
+  min-height: 150px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(18px);
+}
+
+.wos-placeholder-card span {
+  color: #777986;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.wos-placeholder-card strong {
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.wos-placeholder-card small {
+  margin-top: 8px;
+  color: #555762;
+  font-size: 10px;
+}
+
+.wos-empty-state {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  border: 1px dashed rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.018);
+  color: #666875;
+  text-align: center;
+  font-size: 12px;
+}
+
+.wos-statusbar {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #555762;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+}
+
+@media (max-width: 1100px) {
+  .wos-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .wos-sidebar {
+    width: 76px;
+    min-width: 76px;
+    padding: 18px 10px;
+  }
+
+  .wos-brand {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wos-brand-text {
+    display: none;
+  }
+
+  .wos-navigation-label,
+  .wos-navigation-text {
+    display: none;
+  }
+
+  .wos-navigation-item {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .wos-navigation-active-line {
+    display: none;
+  }
+
+  .wos-content {
+    padding: 22px 16px;
+  }
+
+  .wos-topbar {
+    padding: 0 16px;
+  }
+
+  .wos-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wos-statusbar {
+    padding: 0 16px;
+  }
+    }
