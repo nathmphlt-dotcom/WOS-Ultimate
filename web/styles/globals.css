@@ -3873,4 +3873,270 @@ button.wos-language-button.active:hover {
   }
 
 }
+/* =========================================================
+   WOS LANGUAGE BOX
+   ========================================================= */
 
+.wos-language-box {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 21, 36, 0.92),
+      rgba(10, 11, 18, 0.82)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 12px 30px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* HEADER */
+
+.wos-language-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1px 3px 9px;
+}
+
+.wos-language-box-title {
+  color: #656978;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1.7px;
+}
+
+.wos-language-box-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 25px;
+  height: 18px;
+
+  padding: 0 6px;
+
+  border: 1px solid rgba(140, 66, 255, 0.18);
+  border-radius: 6px;
+
+  color: #a66cff;
+
+  background: rgba(140, 66, 255, 0.08);
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+}
+
+/* =========================================================
+   LANGUAGE SWITCHER
+   ========================================================= */
+
+.wos-language-switcher {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 5px;
+
+  padding: 4px;
+
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 10px;
+
+  background: rgba(3, 4, 8, 0.72);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================================
+   LANGUAGE BUTTON
+   ========================================================= */
+
+.wos-language-button {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 0 7px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  outline: none;
+
+  color: #686d7d;
+
+  background: rgba(255, 255, 255, 0.018);
+
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  box-shadow: none;
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+/* REMOVE BROWSER WHITE BUTTON */
+
+.wos-language-button,
+.wos-language-button:hover,
+.wos-language-button:focus,
+.wos-language-button:active {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* HOVER */
+
+.wos-language-button:hover {
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border-color:
+    rgba(255, 255, 255, 0.06);
+
+  transform: translateY(-1px);
+}
+
+/* ACTIVE */
+
+.wos-language-button.active {
+  color: #ffffff;
+
+  border-color:
+    rgba(166, 108, 255, 0.24);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(140, 66, 255, 0.34),
+      rgba(98, 38, 214, 0.16)
+    );
+
+  box-shadow:
+    0 0 18px rgba(140, 66, 255, 0.14),
+    inset 0 0 14px rgba(166, 108, 255, 0.045);
+}
+
+.wos-language-button.active:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(140, 66, 255, 0.42),
+      rgba(98, 38, 214, 0.2)
+    );
+}
+
+/* FLAG */
+
+.wos-language-flag {
+  width: 18px;
+  min-width: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  line-height: 1;
+}
+
+.wos-language-button-text {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  line-height: 1;
+}
+
+/* ACTIVE DOT */
+
+.wos-language-active-dot {
+  position: absolute;
+
+  right: 6px;
+  top: 6px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #a66cff;
+
+  box-shadow:
+    0 0 8px rgba(166, 108, 255, 0.9);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .wos-language-box {
+    padding: 9px;
+  }
+
+  .wos-language-button {
+    min-height: 36px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .wos-language-button-text {
+    display: none;
+  }
+
+  .wos-language-button {
+    min-height: 38px;
+  }
+
+  .wos-language-flag {
+    width: 20px;
+    min-width: 20px;
+  }
+
+}
