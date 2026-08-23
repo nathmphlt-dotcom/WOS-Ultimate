@@ -4574,3 +4574,2885 @@ textarea {
 /* =========================================================
    END OF WOS GLOBALS — PART 6/6
    ========================================================= */
+/* =========================================================
+   WOS ULTIMATE
+   PART 7/10
+   CYBER BACKGROUND + AMBIENT GLOW
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   MAIN CYBER ATMOSPHERE
+   --------------------------------------------------------- */
+
+.wos-shell {
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 72% 12%,
+      rgba(140, 66, 255, 0.13),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 12% 78%,
+      rgba(0, 220, 255, 0.045),
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(90, 30, 180, 0.025),
+      transparent 45%
+    ),
+    #07080d;
+}
+
+/* ---------------------------------------------------------
+   CYBER LIGHT FIELD
+   --------------------------------------------------------- */
+
+.wos-shell::before {
+  content: "";
+
+  position: fixed;
+  inset: -25%;
+
+  z-index: -5;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 75% 15%,
+      rgba(140, 66, 255, 0.11),
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 20% 85%,
+      rgba(0, 220, 255, 0.035),
+      transparent 28%
+    );
+
+  filter: blur(35px);
+
+  animation:
+    wos-ambient-breathe
+    10s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------
+   CYBER GRID
+   --------------------------------------------------------- */
+
+.wos-shell::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -4;
+
+  pointer-events: none;
+
+  opacity: 0.22;
+
+  background-image:
+    linear-gradient(
+      rgba(140, 66, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(140, 66, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    46px 46px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 0%,
+      rgba(0,0,0,.7) 42%,
+      transparent 90%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 0%,
+      rgba(0,0,0,.7) 42%,
+      transparent 90%
+    );
+}
+
+/* ---------------------------------------------------------
+   MAIN CONTENT ATMOSPHERE
+   --------------------------------------------------------- */
+
+.wos-main {
+  position: relative;
+  isolation: isolate;
+}
+
+.wos-main::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  top: -260px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140, 66, 255, 0.08),
+      rgba(140, 66, 255, 0.025) 35%,
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  animation:
+    wos-orb-drift
+    14s ease-in-out infinite alternate;
+
+  z-index: -1;
+}
+
+/* ---------------------------------------------------------
+   TOPBAR CYBER LINE
+   --------------------------------------------------------- */
+
+.wos-topbar {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-topbar::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(140, 66, 255, 0.55),
+      rgba(166, 108, 255, 0.9),
+      rgba(140, 66, 255, 0.55),
+      transparent
+    );
+
+  opacity: 0.55;
+
+  animation:
+    wos-topbar-scan
+    5s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR AMBIENT LIGHT
+   --------------------------------------------------------- */
+
+.wos-sidebar {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-sidebar::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 420px;
+
+  left: -110px;
+  top: 130px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(140, 66, 255, 0.09),
+      transparent 70%
+    );
+
+  filter: blur(18px);
+
+  pointer-events: none;
+
+  animation:
+    wos-sidebar-glow
+    12s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------
+   BRAND GLOW
+   --------------------------------------------------------- */
+
+.wos-brand-mark {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-brand-mark::before {
+  content: "";
+
+  position: absolute;
+
+  width: 160%;
+  height: 40%;
+
+  left: -30%;
+  top: -30%;
+
+  transform: rotate(-25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.34),
+      transparent
+    );
+
+  animation:
+    wos-brand-sweep
+    4.5s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   PAGE CONTENT LIGHT
+   --------------------------------------------------------- */
+
+.wos-content {
+  position: relative;
+}
+
+.wos-content::before {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  left: 35%;
+  top: 10%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140, 66, 255, 0.035),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  animation:
+    wos-content-breathe
+    12s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------
+   GLASS CARD LIGHT
+   --------------------------------------------------------- */
+
+.wos-glass-card,
+.wos-placeholder-card,
+.wos-stat-card,
+.wos-action-card,
+.wos-cleanup-card,
+.wos-settings-section {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-glass-card::before,
+.wos-placeholder-card::before,
+.wos-stat-card::before,
+.wos-action-card::before,
+.wos-cleanup-card::before,
+.wos-settings-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255,255,255,.045),
+      transparent 18%,
+      transparent 72%,
+      rgba(140,66,255,.025)
+    );
+
+  opacity: .7;
+}
+
+/* ---------------------------------------------------------
+   CARD EDGE GLOW
+   --------------------------------------------------------- */
+
+.wos-glass-card::after,
+.wos-stat-card::after,
+.wos-action-card::after,
+.wos-cleanup-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12%;
+  right: 12%;
+  top: -1px;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(166,108,255,.45),
+      transparent
+    );
+
+  opacity: .35;
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.wos-glass-card:hover::after,
+.wos-stat-card:hover::after,
+.wos-action-card:hover::after,
+.wos-cleanup-card:hover::after {
+  opacity: .9;
+
+  transform:
+    scaleX(1.15);
+}
+
+/* ---------------------------------------------------------
+   HERO ATMOSPHERE
+   --------------------------------------------------------- */
+
+.hero-card {
+  isolation: isolate;
+}
+
+.hero-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -80px;
+  top: -150px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140,66,255,.18),
+      rgba(140,66,255,.06) 34%,
+      transparent 70%
+    );
+
+  filter: blur(8px);
+
+  pointer-events: none;
+
+  animation:
+    wos-hero-glow
+    8s ease-in-out infinite alternate;
+
+  z-index: 0;
+}
+
+/* ---------------------------------------------------------
+   HERO BORDER LIGHT
+   --------------------------------------------------------- */
+
+.hero-card {
+  border-color:
+    rgba(155,100,255,.19);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 25px 70px rgba(0,0,0,.22),
+    0 0 55px rgba(120,45,255,.045);
+}
+
+/* ---------------------------------------------------------
+   CLEANUP HERO GLOW
+   --------------------------------------------------------- */
+
+.wos-cleanup-hero {
+  isolation: isolate;
+}
+
+.wos-cleanup-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  right: -100px;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140,66,255,.12),
+      transparent 68%
+    );
+
+  filter: blur(8px);
+
+  pointer-events: none;
+
+  animation:
+    wos-cleanup-glow
+    9s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------
+   STATUS DOT PULSE
+   --------------------------------------------------------- */
+
+.wos-status-dot,
+.wos-cleanup-ready span,
+.wos-cleanup-status-dot span,
+.wos-settings-status-dot {
+  animation:
+    wos-status-pulse
+    2.4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   ACTIVE NAV GLOW
+   --------------------------------------------------------- */
+
+.wos-navigation-item.active {
+  box-shadow:
+    inset 2px 0 0 var(--wos-purple),
+    0 8px 30px rgba(126,45,255,.08),
+    0 0 22px rgba(126,45,255,.035);
+}
+
+/* ---------------------------------------------------------
+   BUTTON LIGHT
+   --------------------------------------------------------- */
+
+.wos-button.primary,
+.wos-button-primary,
+.wos-cleanup-start {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-button.primary::after,
+.wos-button-primary::after,
+.wos-cleanup-start::after {
+  content: "";
+
+  position: absolute;
+
+  top: -80%;
+  left: -45%;
+
+  width: 35%;
+  height: 260%;
+
+  transform: rotate(25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.2),
+      transparent
+    );
+
+  animation:
+    wos-button-sweep
+    4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   AMBIENT ANIMATIONS
+   --------------------------------------------------------- */
+
+@keyframes wos-ambient-breathe {
+
+  0% {
+    transform:
+      translate3d(-2%, -1%, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(2%, 1%, 0)
+      scale(1.04);
+  }
+
+  100% {
+    transform:
+      translate3d(-1%, 2%, 0)
+      scale(1.08);
+  }
+}
+
+@keyframes wos-orb-drift {
+
+  0% {
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate3d(-90px,55px,0)
+      scale(1.12);
+  }
+}
+
+@keyframes wos-sidebar-glow {
+
+  0% {
+    transform:
+      translateY(-30px)
+      scale(.9);
+    opacity: .5;
+  }
+
+  100% {
+    transform:
+      translateY(80px)
+      scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes wos-content-breathe {
+
+  0% {
+    transform:
+      translate(0,0)
+      scale(.9);
+    opacity: .35;
+  }
+
+  100% {
+    transform:
+      translate(70px,40px)
+      scale(1.15);
+    opacity: .75;
+  }
+}
+
+@keyframes wos-hero-glow {
+
+  0% {
+    transform:
+      translate(20px,-10px)
+      scale(.9);
+    opacity: .55;
+  }
+
+  100% {
+    transform:
+      translate(-30px,35px)
+      scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes wos-cleanup-glow {
+
+  0% {
+    transform:
+      translate(20px,20px)
+      scale(.8);
+    opacity: .3;
+  }
+
+  100% {
+    transform:
+      translate(-25px,-20px)
+      scale(1.1);
+    opacity: .8;
+  }
+}
+
+@keyframes wos-topbar-scan {
+
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes wos-brand-sweep {
+
+  0%,
+  55% {
+    transform:
+      translateX(-120%)
+      rotate(-25deg);
+  }
+
+  80%,
+  100% {
+    transform:
+      translateX(350%)
+      rotate(-25deg);
+  }
+}
+
+@keyframes wos-button-sweep {
+
+  0%,
+  55% {
+    transform:
+      translateX(-180%)
+      rotate(25deg);
+  }
+
+  80%,
+  100% {
+    transform:
+      translateX(450%)
+      rotate(25deg);
+  }
+}
+
+@keyframes wos-status-pulse {
+
+  0%,
+  100% {
+    opacity: .65;
+    transform: scale(.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE PERFORMANCE
+   --------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .wos-shell::after {
+    opacity: .12;
+    background-size: 34px 34px;
+  }
+
+  .wos-shell::before {
+    filter: blur(45px);
+  }
+
+  .wos-content::before {
+    opacity: .5;
+  }
+
+  .hero-card::before {
+    opacity: .55;
+  }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wos-shell::before,
+  .wos-main::before,
+  .wos-sidebar::before,
+  .wos-content::before,
+  .hero-card::before,
+  .wos-cleanup-hero::after,
+  .wos-status-dot,
+  .wos-cleanup-ready span,
+  .wos-cleanup-status-dot span,
+  .wos-settings-status-dot,
+  .wos-topbar::after,
+  .wos-brand-mark::before,
+  .wos-button.primary::after,
+  .wos-button-primary::after,
+  .wos-cleanup-start::after {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   END PART 7/10
+   ========================================================= */
+
+/* =========================================================
+   WOS ULTIMATE — PART 8/8
+   FINAL CYBERGLASS VISUAL ENGINE
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL AMBIENT LIGHT
+   ========================================================= */
+
+.wos-shell::before {
+  content: "";
+
+  position: fixed;
+  inset: -20%;
+
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 72% 18%,
+      rgba(140, 66, 255, 0.13),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 20% 82%,
+      rgba(0, 220, 255, 0.045),
+      transparent 20%
+    );
+
+  animation:
+    wosAmbientFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes wosAmbientFloat {
+  from {
+    transform: translate3d(-1%, -1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(1%, 1%, 0) scale(1.04);
+  }
+}
+
+/* =========================================================
+   CYBER GRID
+   ========================================================= */
+
+.wos-main::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -1;
+
+  opacity: 0.16;
+
+  background-image:
+    linear-gradient(
+      rgba(140, 66, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(140, 66, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65),
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   TOPBAR ENERGY LINE
+   ========================================================= */
+
+.wos-topbar {
+  position: relative;
+}
+
+.wos-topbar::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(140, 66, 255, 0.65),
+      rgba(166, 108, 255, 0.9),
+      rgba(140, 66, 255, 0.65),
+      transparent
+    );
+
+  opacity: 0.55;
+
+  animation:
+    wosEnergyLine 4s linear infinite;
+}
+
+@keyframes wosEnergyLine {
+  0% {
+    opacity: 0.25;
+    transform: scaleX(0.45);
+    transform-origin: left;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
+/* =========================================================
+   SIDEBAR GLOW
+   ========================================================= */
+
+.wos-sidebar {
+  position: relative;
+}
+
+.wos-sidebar::after {
+  content: "";
+
+  position: absolute;
+
+  top: 10%;
+  right: -1px;
+
+  width: 1px;
+  height: 35%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(140, 66, 255, 0.75),
+      transparent
+    );
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(140, 66, 255, 0.8)
+    );
+
+  animation:
+    wosSidebarScan 6s ease-in-out infinite;
+}
+
+@keyframes wosSidebarScan {
+  0%,
+  100% {
+    transform: translateY(-20%);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translateY(170%);
+    opacity: 0.9;
+  }
+}
+
+/* =========================================================
+   BRAND ENERGY
+   ========================================================= */
+
+.wos-brand-mark {
+  position: relative;
+
+  overflow: hidden;
+
+  animation:
+    wosBrandPulse 4s ease-in-out infinite;
+}
+
+.wos-brand-mark::after {
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+  left: -60%;
+
+  width: 45%;
+  height: 300%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.28),
+      transparent
+    );
+
+  transform: rotate(25deg);
+
+  animation:
+    wosBrandSweep 5s ease-in-out infinite;
+}
+
+@keyframes wosBrandSweep {
+  0% {
+    transform:
+      translateX(-180%)
+      rotate(25deg);
+  }
+
+  35%,
+  100% {
+    transform:
+      translateX(420%)
+      rotate(25deg);
+  }
+}
+
+@keyframes wosBrandPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 22px
+      rgba(122, 46, 255, 0.32);
+  }
+
+  50% {
+    box-shadow:
+      0 0 38px
+      rgba(122, 46, 255, 0.55);
+  }
+}
+
+/* =========================================================
+   NAV ACTIVE ENERGY
+   ========================================================= */
+
+.wos-navigation-item.active {
+  overflow: hidden;
+}
+
+.wos-navigation-item.active::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -80%;
+
+  width: 55%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(166, 108, 255, 0.09),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  animation:
+    wosNavSweep 4s ease-in-out infinite;
+}
+
+@keyframes wosNavSweep {
+  0%,
+  55% {
+    left: -80%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+/* =========================================================
+   STATUS DOT
+   ========================================================= */
+
+.wos-status-dot {
+  animation:
+    wosStatusPulse 2s ease-in-out infinite;
+}
+
+@keyframes wosStatusPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   GLASS CARD LIGHT EDGE
+   ========================================================= */
+
+.wos-glass-card,
+.wos-stat-card,
+.wos-action-card,
+.wos-cleanup-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.wos-glass-card::before,
+.wos-stat-card::before,
+.wos-action-card::before,
+.wos-cleanup-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 8%;
+
+  width: 84%;
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      rgba(166, 108, 255, 0.18),
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+
+  opacity: 0.65;
+}
+
+/* =========================================================
+   CARD HOVER GLOW
+   ========================================================= */
+
+.wos-glass-card:hover,
+.wos-stat-card:hover,
+.wos-action-card:hover,
+.wos-cleanup-card:hover {
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04),
+
+    0 22px 55px
+    rgba(0, 0, 0, 0.25),
+
+    0 0 35px
+    rgba(140, 66, 255, 0.055);
+}
+
+/* =========================================================
+   CARD LIGHT SWEEP
+   ========================================================= */
+
+.wos-stat-card::after,
+.wos-action-card::after,
+.wos-cleanup-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -120%;
+
+  width: 55%;
+  height: 200%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(166, 108, 255, 0.055),
+      transparent
+    );
+
+  transform:
+    rotate(18deg);
+
+  transition:
+    left 600ms ease;
+}
+
+.wos-stat-card:hover::after,
+.wos-action-card:hover::after,
+.wos-cleanup-card:hover::after {
+  left: 150%;
+}
+
+/* =========================================================
+   HERO ENERGY RING
+   ========================================================= */
+
+.hero-orb {
+  animation:
+    wosOrbFloat 7s ease-in-out infinite;
+}
+
+.hero-orb::before,
+.hero-orb::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.hero-orb::before {
+  width: 220px;
+  height: 220px;
+
+  border:
+    1px solid
+    rgba(140, 66, 255, 0.18);
+
+  border-left-color:
+    rgba(166, 108, 255, 0.7);
+
+  border-right-color:
+    transparent;
+
+  animation:
+    wosRingRotate 8s linear infinite;
+}
+
+.hero-orb::after {
+  width: 185px;
+  height: 185px;
+
+  border:
+    1px solid
+    rgba(0, 220, 255, 0.12);
+
+  border-top-color:
+    rgba(0, 220, 255, 0.55);
+
+  border-bottom-color:
+    transparent;
+
+  animation:
+    wosRingRotateReverse 5s linear infinite;
+}
+
+@keyframes wosOrbFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-8px)
+      scale(1.025);
+  }
+}
+
+@keyframes wosRingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wosRingRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* =========================================================
+   ORB CORE ENERGY
+   ========================================================= */
+
+.orb-core {
+  position: relative;
+
+  animation:
+    wosCorePulse 3.5s ease-in-out infinite;
+}
+
+.orb-core::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed
+    rgba(166, 108, 255, 0.22);
+
+  animation:
+    wosRingRotate 14s linear infinite;
+}
+
+.orb-core::after {
+  content: "";
+
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  top: 20px;
+  left: 50%;
+
+  border-radius: 50%;
+
+  background:
+    var(--wos-purple-light);
+
+  box-shadow:
+    0 0 14px
+    rgba(166, 108, 255, 0.9);
+
+  transform-origin:
+    0 58px;
+
+  animation:
+    wosOrbitDot 4s linear infinite;
+}
+
+@keyframes wosCorePulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 65px
+      rgba(123, 45, 255, 0.28),
+
+      inset 0 0 35px
+      rgba(123, 45, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 95px
+      rgba(123, 45, 255, 0.42),
+
+      inset 0 0 50px
+      rgba(123, 45, 255, 0.18);
+  }
+}
+
+@keyframes wosOrbitDot {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(-4px);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(-4px);
+  }
+}
+
+/* =========================================================
+   HERO SCANLINE
+   ========================================================= */
+
+.hero-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+}
+
+/* =========================================================
+   BUTTON ENERGY
+   ========================================================= */
+
+.wos-button,
+.wos-cleanup-start {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-button::after,
+.wos-cleanup-start::after {
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+  left: -40%;
+
+  width: 25%;
+  height: 300%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+
+  transform:
+    rotate(22deg);
+
+  transition:
+    left 500ms ease;
+}
+
+.wos-button:hover::after,
+.wos-cleanup-start:hover::after {
+  left: 125%;
+}
+
+/* =========================================================
+   BUTTON PRESS
+   ========================================================= */
+
+.wos-button:active,
+.wos-cleanup-start:active {
+  transform:
+    translateY(1px)
+    scale(0.98);
+}
+
+/* =========================================================
+   PAGE HEADER GLOW
+   ========================================================= */
+
+.wos-page-header h1,
+.wos-cleanup-title-row h1 {
+  text-shadow:
+    0 0 35px
+    rgba(166, 108, 255, 0.08);
+}
+
+/* =========================================================
+   PURPLE TEXT ENERGY
+   ========================================================= */
+
+.wos-page-badge,
+.wos-cleanup-badge {
+  box-shadow:
+    0 0 20px
+    rgba(140, 66, 255, 0.05);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.wos-statusbar {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-statusbar::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(140, 66, 255, 0.25),
+      transparent
+    );
+}
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* =========================================================
+   MOBILE EFFECT CONTROL
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .wos-main::before {
+    opacity: 0.08;
+    background-size: 55px 55px;
+  }
+
+  .hero-orb {
+    opacity: 0.35;
+    right: -90px;
+  }
+
+  .hero-orb::before {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-orb::after {
+    width: 150px;
+    height: 150px;
+  }
+
+}
+
+/* =========================================================
+   FINAL CYBER VIGNETTE
+   ========================================================= */
+
+.wos-shell::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 999;
+
+  box-shadow:
+    inset 0 0 140px
+    rgba(0, 0, 0, 0.42);
+}
+/* =========================================================
+   WOS ULTIMATE — PART 9
+   PREMIUM HUD / CYBER DASHBOARD LAYER
+   ========================================================= */
+
+/* =========================================================
+   HUD VARIABLES
+   ========================================================= */
+
+:root {
+  --wos-glow-purple:
+    rgba(140, 66, 255, 0.55);
+
+  --wos-glow-purple-soft:
+    rgba(140, 66, 255, 0.16);
+
+  --wos-glow-cyan:
+    rgba(0, 220, 255, 0.45);
+
+  --wos-hud-line:
+    rgba(166, 108, 255, 0.22);
+}
+
+/* =========================================================
+   MAIN HUD ATMOSPHERE
+   ========================================================= */
+
+.wos-content {
+  position: relative;
+}
+
+.wos-content::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: 40px;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140, 66, 255, 0.075),
+      transparent 68%
+    );
+
+  filter:
+    blur(10px);
+
+  animation:
+    wosHudFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes wosHudFloat {
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(-45px, 25px, 0)
+      scale(1.08);
+  }
+}
+
+/* =========================================================
+   DASHBOARD SCAN
+   ========================================================= */
+
+.wos-page-transition {
+  position: relative;
+}
+
+.wos-page-transition::before {
+  content: "";
+
+  position: absolute;
+
+  left: -5%;
+  right: -5%;
+
+  top: -100px;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(140, 66, 255, 0.35),
+      rgba(0, 220, 255, 0.25),
+      transparent
+    );
+
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(140, 66, 255, 0.5)
+    );
+
+  animation:
+    wosPageScan 8s linear infinite;
+}
+
+@keyframes wosPageScan {
+  0% {
+    transform:
+      translateY(0);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.55;
+  }
+
+  90% {
+    opacity: 0.25;
+  }
+
+  100% {
+    transform:
+      translateY(calc(100vh + 200px));
+
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   STATS ENERGY BAR
+   ========================================================= */
+
+.stat-line {
+  position: relative;
+
+  overflow: visible;
+}
+
+.stat-line::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: -2px;
+
+  width: 28px;
+  height: 7px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(166, 108, 255, 0.9);
+
+  filter:
+    blur(4px);
+
+  opacity: 0;
+
+  animation:
+    wosStatEnergy 3.5s ease-in-out infinite;
+}
+
+@keyframes wosStatEnergy {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  85% {
+    opacity: 0.7;
+  }
+
+  100% {
+    left: calc(100% - 28px);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   STAT CARD ICON PULSE
+   ========================================================= */
+
+.stat-icon {
+  position: relative;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.stat-icon::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border:
+    1px solid
+    rgba(166, 108, 255, 0.18);
+
+  border-radius: 12px;
+
+  opacity: 0;
+
+  transform: scale(0.7);
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.wos-stat-card:hover .stat-icon {
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 25px
+    rgba(140, 66, 255, 0.18);
+}
+
+.wos-stat-card:hover .stat-icon::after {
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+/* =========================================================
+   ACTION CARD ENERGY CORNER
+   ========================================================= */
+
+.wos-action-card {
+  isolation: isolate;
+}
+
+.wos-action-card::before {
+  z-index: 1;
+}
+
+.wos-action-card .action-icon {
+  position: relative;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.wos-action-card:hover .action-icon {
+  transform:
+    translateY(-2px)
+    scale(1.08);
+
+  box-shadow:
+    0 0 25px
+    rgba(140, 66, 255, 0.12);
+}
+
+/* =========================================================
+   ACTION CARD CORNER MARK
+   ========================================================= */
+
+.wos-action-card::marker {
+  display: none;
+}
+
+.wos-action-card {
+  --hud-corner: rgba(166, 108, 255, 0.35);
+}
+
+.wos-action-card:hover {
+  --hud-corner: rgba(166, 108, 255, 0.75);
+}
+
+.wos-action-card .action-card-button::after {
+  content: "";
+
+  position: absolute;
+
+  right: 12px;
+  bottom: 12px;
+
+  width: 18px;
+  height: 18px;
+
+  pointer-events: none;
+
+  border-right:
+    1px solid
+    var(--hud-corner);
+
+  border-bottom:
+    1px solid
+    var(--hud-corner);
+
+  opacity: 0.45;
+
+  transition:
+    opacity 200ms ease,
+    width 200ms ease,
+    height 200ms ease;
+}
+
+.wos-action-card:hover
+.action-card-button::after {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.9;
+}
+
+/* =========================================================
+   HERO HUD CORNERS
+   ========================================================= */
+
+.hero-card {
+  isolation: isolate;
+}
+
+.hero-card::after {
+  z-index: 0;
+}
+
+.hero-card .hero-content {
+  z-index: 3;
+}
+
+.hero-card::before {
+  z-index: 1;
+}
+
+/* Top-left HUD bracket */
+
+.hero-card {
+  --hud-bracket:
+    rgba(166, 108, 255, 0.42);
+}
+
+.hero-card {
+  outline:
+    1px solid
+    rgba(140, 66, 255, 0.025);
+}
+
+.hero-card .hero-content::before {
+  content: "";
+
+  position: absolute;
+
+  left: -18px;
+  top: -18px;
+
+  width: 28px;
+  height: 28px;
+
+  pointer-events: none;
+
+  border-top:
+    1px solid
+    var(--hud-bracket);
+
+  border-left:
+    1px solid
+    var(--hud-bracket);
+
+  opacity: 0.75;
+}
+
+/* =========================================================
+   HERO STATUS PULSE
+   ========================================================= */
+
+.hero-badge {
+  position: relative;
+}
+
+.hero-badge span {
+  animation:
+    wosHeroStatus 1.8s ease-in-out infinite;
+}
+
+@keyframes wosHeroStatus {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PAGE BADGE ENERGY
+   ========================================================= */
+
+.wos-page-badge {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-page-badge::after,
+.wos-cleanup-badge::after {
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -100%;
+
+  width: 45%;
+  height: 200%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+
+  transform:
+    rotate(20deg);
+
+  animation:
+    wosBadgeSweep 5s ease-in-out infinite;
+}
+
+@keyframes wosBadgeSweep {
+  0%,
+  65% {
+    left: -100%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+/* =========================================================
+   LIVE STATUS
+   ========================================================= */
+
+.live-status {
+  position: relative;
+
+  padding-left: 2px;
+}
+
+.live-status span,
+.footer-dot {
+  animation:
+    wosLivePulse 2s ease-in-out infinite;
+}
+
+@keyframes wosLivePulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    box-shadow:
+      0 0 6px
+      rgba(53, 230, 155, 0.35);
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 16px
+      rgba(53, 230, 155, 0.9);
+  }
+}
+
+/* =========================================================
+   GLASS CARD CORNER HUD
+   ========================================================= */
+
+.wos-glass-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: 13px;
+  bottom: 13px;
+
+  width: 18px;
+  height: 18px;
+
+  pointer-events: none;
+
+  border-right:
+    1px solid
+    rgba(166, 108, 255, 0.18);
+
+  border-bottom:
+    1px solid
+    rgba(166, 108, 255, 0.18);
+}
+
+/* =========================================================
+   CLEANUP CARDS — CYBER EFFECT
+   ========================================================= */
+
+.wos-cleanup-card.selected::before {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(166, 108, 255, 0.55),
+      transparent
+    );
+
+  animation:
+    wosSelectedLine 2.8s linear infinite;
+}
+
+@keyframes wosSelectedLine {
+  from {
+    transform:
+      translateX(-100%);
+  }
+
+  to {
+    transform:
+      translateX(100%);
+  }
+}
+
+.wos-cleanup-check.checked {
+  animation:
+    wosCheckPulse 2s ease-in-out infinite;
+}
+
+@keyframes wosCheckPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px
+      rgba(140, 66, 255, 0.3);
+  }
+
+  50% {
+    box-shadow:
+      0 0 23px
+      rgba(140, 66, 255, 0.6);
+  }
+}
+
+/* =========================================================
+   CLEANUP START BUTTON
+   ========================================================= */
+
+.wos-cleanup-start {
+  isolation: isolate;
+}
+
+.wos-cleanup-start::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 1px;
+
+  border-radius: 9px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.1),
+      transparent 60%
+    );
+
+  transform:
+    translateX(-120%);
+
+  animation:
+    wosStartSweep 4s ease-in-out infinite;
+}
+
+@keyframes wosStartSweep {
+  0%,
+  55% {
+    transform:
+      translateX(-120%);
+  }
+
+  100% {
+    transform:
+      translateX(120%);
+  }
+}
+
+/* =========================================================
+   FOOTER DATA STREAM
+   ========================================================= */
+
+.wos-statusbar span {
+  transition:
+    color 180ms ease;
+}
+
+.wos-statusbar span:hover {
+  color:
+    #a66cff;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  color:
+    #ffffff;
+
+  background:
+    rgba(140, 66, 255, 0.38);
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible {
+  outline:
+    1px solid
+    rgba(166, 108, 255, 0.7);
+
+  outline-offset:
+    3px;
+
+  box-shadow:
+    0 0 18px
+    rgba(140, 66, 255, 0.18);
+}
+
+/* =========================================================
+   PERFORMANCE
+   ========================================================= */
+
+.wos-glass-card,
+.wos-stat-card,
+.wos-action-card,
+.wos-cleanup-card,
+.hero-card,
+.hero-orb,
+.orb-core {
+  will-change:
+    transform;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .wos-content::before {
+    opacity: 0.45;
+  }
+
+  .wos-page-transition::before {
+    animation-duration: 11s;
+  }
+
+  .hero-card .hero-content::before {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+/* =========================================================
+   WOS ULTIMATE — PART 10/10
+   CINEMATIC CYBER HUD
+   ========================================================= */
+
+/* =========================================================
+   FLOATING PARTICLE FIELD
+   ========================================================= */
+
+.wos-main::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  opacity: 0.38;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(166, 108, 255, 0.55) 0,
+      rgba(166, 108, 255, 0.55) 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(0, 220, 255, 0.4) 0,
+      rgba(0, 220, 255, 0.4) 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    130px 170px,
+    210px 230px;
+
+  background-position:
+    0 0,
+    70px 90px;
+
+  animation:
+    wosParticlesMove 18s linear infinite;
+}
+
+@keyframes wosParticlesMove {
+  from {
+    background-position:
+      0 0,
+      70px 90px;
+  }
+
+  to {
+    background-position:
+      0 170px,
+      70px 320px;
+  }
+}
+
+/* =========================================================
+   CYBER CORNER MARKERS
+   ========================================================= */
+
+.wos-content {
+  isolation: isolate;
+}
+
+.wos-content::after {
+  content: "";
+
+  position: absolute;
+
+  right: 22px;
+  top: 22px;
+
+  width: 34px;
+  height: 34px;
+
+  pointer-events: none;
+
+  border-top:
+    1px solid
+    rgba(166, 108, 255, 0.28);
+
+  border-right:
+    1px solid
+    rgba(166, 108, 255, 0.28);
+
+  opacity: 0.55;
+}
+
+/* =========================================================
+   PAGE HEADER HUD LINE
+   ========================================================= */
+
+.wos-page-header {
+  position: relative;
+}
+
+.wos-page-header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -12px;
+
+  width: 150px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(140, 66, 255, 0.7),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(140, 66, 255, 0.25);
+}
+
+/* =========================================================
+   TITLE PURPLE ENERGY
+   ========================================================= */
+
+.wos-page-header h1 {
+  position: relative;
+}
+
+.wos-page-header h1::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 45px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    var(--wos-purple-light);
+
+  box-shadow:
+    0 0 12px
+    rgba(166, 108, 255, 0.7);
+
+  animation:
+    wosTitlePulse 3s ease-in-out infinite;
+}
+
+@keyframes wosTitlePulse {
+  0%,
+  100% {
+    width: 35px;
+    opacity: 0.55;
+  }
+
+  50% {
+    width: 70px;
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   HERO OUTER ENERGY
+   ========================================================= */
+
+.hero-card {
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.035),
+
+    0 25px 70px
+    rgba(0, 0, 0, 0.25),
+
+    0 0 70px
+    rgba(140, 66, 255, 0.055);
+}
+
+.hero-card:hover {
+  border-color:
+    rgba(166, 108, 255, 0.24);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05),
+
+    0 30px 80px
+    rgba(0, 0, 0, 0.3),
+
+    0 0 90px
+    rgba(140, 66, 255, 0.1);
+}
+
+/* =========================================================
+   HERO ORB OUTER ROTATION
+   ========================================================= */
+
+.hero-orb {
+  isolation: isolate;
+}
+
+.hero-orb .orb-core {
+  z-index: 3;
+}
+
+.hero-orb::marker {
+  display: none;
+}
+
+/* additional orbital ring */
+
+.hero-orb {
+  border:
+    1px solid
+    rgba(140, 66, 255, 0.055);
+}
+
+.hero-orb::before {
+  box-shadow:
+    0 0 20px
+    rgba(140, 66, 255, 0.08);
+}
+
+/* =========================================================
+   ORB DIGITAL TICKS
+   ========================================================= */
+
+.orb-core span {
+  position: relative;
+
+  z-index: 4;
+}
+
+.orb-core span::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border:
+    1px dashed
+    rgba(166, 108, 255, 0.12);
+
+  animation:
+    wosDigitalRing 20s linear infinite;
+}
+
+@keyframes wosDigitalRing {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-360deg);
+  }
+}
+
+/* =========================================================
+   CARD TOP LIGHT
+   ========================================================= */
+
+.wos-stat-card,
+.wos-action-card,
+.wos-cleanup-card,
+.wos-glass-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 27, 39, 0.88),
+      rgba(12, 14, 21, 0.78)
+    );
+}
+
+/* =========================================================
+   CARD ACTIVE LIGHT
+   ========================================================= */
+
+.wos-stat-card:hover,
+.wos-action-card:hover {
+  transform:
+    translateY(-4px);
+}
+
+/* =========================================================
+   STAT VALUE GLOW
+   ========================================================= */
+
+.stat-value {
+  text-shadow:
+    0 0 25px
+    rgba(255, 255, 255, 0.045);
+}
+
+.wos-stat-card:hover .stat-value {
+  text-shadow:
+    0 0 28px
+    rgba(166, 108, 255, 0.13);
+}
+
+/* =========================================================
+   ACTION CARD TEXT
+   ========================================================= */
+
+.action-card-button h3 {
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.wos-action-card:hover
+.action-card-button h3 {
+  color:
+    #ffffff;
+
+  text-shadow:
+    0 0 18px
+    rgba(166, 108, 255, 0.16);
+}
+
+/* =========================================================
+   BUTTON GLOW RING
+   ========================================================= */
+
+.wos-button.primary,
+.wos-button-primary,
+.wos-cleanup-start {
+  box-shadow:
+    0 8px 28px
+    rgba(140, 66, 255, 0.22),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+}
+
+.wos-button.primary:hover,
+.wos-button-primary:hover,
+.wos-cleanup-start:hover:not(:disabled) {
+  box-shadow:
+    0 12px 38px
+    rgba(140, 66, 255, 0.38),
+
+    0 0 25px
+    rgba(140, 66, 255, 0.12),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   SYSTEM READY HUD
+   ========================================================= */
+
+.wos-system-status {
+  position: relative;
+
+  padding:
+    7px 10px;
+
+  border:
+    1px solid
+    rgba(53, 230, 155, 0.08);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(53, 230, 155, 0.025);
+
+  box-shadow:
+    inset 0 0 12px
+    rgba(53, 230, 155, 0.02);
+}
+
+/* =========================================================
+   STATUS DOT RING
+   ========================================================= */
+
+.wos-status-dot {
+  position: relative;
+}
+
+.wos-status-dot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border:
+    1px solid
+    rgba(53, 230, 155, 0.25);
+
+  border-radius: 50%;
+
+  animation:
+    wosStatusRing 2s ease-out infinite;
+}
+
+@keyframes wosStatusRing {
+  0% {
+    transform:
+      scale(0.65);
+
+    opacity: 0.8;
+  }
+
+  100% {
+    transform:
+      scale(1.8);
+
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   SIDEBAR BRAND TEXT
+   ========================================================= */
+
+.wos-brand-text strong {
+  text-shadow:
+    0 0 18px
+    rgba(166, 108, 255, 0.12);
+}
+
+.wos-brand-text span {
+  transition:
+    color 180ms ease;
+}
+
+.wos-brand:hover .wos-brand-text span {
+  color:
+    #a66cff;
+}
+
+/* =========================================================
+   NAV ICON ENERGY
+   ========================================================= */
+
+.wos-navigation-item.active
+.wos-navigation-icon {
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(166, 108, 255, 0.4)
+    );
+}
+
+/* =========================================================
+   NAV ACTIVE LINE
+   ========================================================= */
+
+.wos-navigation-active-line {
+  animation:
+    wosActiveLine 2.8s ease-in-out infinite;
+}
+
+@keyframes wosActiveLine {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    box-shadow:
+      0 0 7px
+      rgba(122, 46, 255, 0.5);
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 18px
+      rgba(122, 46, 255, 0.95);
+  }
+}
+
+/* =========================================================
+   CLEANUP SUMMARY ENERGY
+   ========================================================= */
+
+.wos-cleanup-summary {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wos-cleanup-summary::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -30%;
+
+  width: 30%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(166, 108, 255, 0.06),
+      transparent
+    );
+
+  transform:
+    skewX(-15deg);
+
+  animation:
+    wosSummarySweep 6s ease-in-out infinite;
+}
+
+@keyframes wosSummarySweep {
+  0%,
+  65% {
+    left: -35%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+/* =========================================================
+   CLEANUP PROGRESS
+   ========================================================= */
+
+.wos-cleanup-progress strong {
+  text-shadow:
+    0 0 15px
+    rgba(166, 108, 255, 0.35);
+}
+
+/* =========================================================
+   CYBER SCANLINE OVERLAY
+   ========================================================= */
+
+.wos-shell {
+  isolation: isolate;
+}
+
+.wos-shell {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 4px,
+      rgba(255, 255, 255, 0.003) 5px
+    );
+}
+
+/* =========================================================
+   VIGNETTE
+   ========================================================= */
+
+.wos-shell::after {
+  z-index: 1000;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 180px
+    rgba(0, 0, 0, 0.48);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .wos-content::after {
+    display: none;
+  }
+
+  .wos-page-header::after {
+    width: 100px;
+  }
+
+  .wos-page-header h1::after {
+    width: 28px;
+  }
+
+  .wos-main::after {
+    opacity: 0.18;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wos-main::after,
+  .wos-content::before,
+  .wos-page-transition::before,
+  .hero-orb,
+  .orb-core,
+  .orb-core span::before,
+  .wos-navigation-active-line,
+  .wos-status-dot::after {
+    animation: none !important;
+  }
+
+}
