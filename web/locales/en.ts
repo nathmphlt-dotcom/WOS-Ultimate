@@ -11,10 +11,9 @@ const en = {
     ready: "Ready",
     protected: "Protected",
     unknown: "Unknown",
+
     enabled: "Enabled",
     disabled: "Disabled",
-
-    now: "Now",
 
     online: "Online",
     offline: "Offline",
@@ -30,10 +29,13 @@ const en = {
     apply: "Apply",
     reset: "Reset",
     refresh: "Refresh",
+
     scan: "Scan",
     start: "Start",
     stop: "Stop",
+
     details: "Details",
+    now: "Now",
   },
 
   navigation: {
@@ -48,6 +50,21 @@ const en = {
     optimizer: "Optimizer",
     scanner: "System Scanner",
     security: "Security",
+
+    gaming: "Gaming",
+    gameMode: "Game Mode",
+    gamingNetwork: "Gaming Network",
+
+    system: "System",
+    performance: "Performance",
+    processes: "Processes",
+    services: "System Services",
+    startup: "Startup",
+    storage: "Storage",
+
+    tools: "Tools",
+    logs: "Operation Logs",
+
     settings: "Settings",
     fivem: "FiveM",
   },
@@ -55,15 +72,92 @@ const en = {
   topbar: {
     systemReady: "SYSTEM READY",
     systemNotReady: "SYSTEM NOT READY",
+
     webMode: "WEB MODE",
     desktopMode: "DESKTOP MODE",
+  },
+
+  dashboard: {
+    title: "Dashboard",
+
+    description:
+      "WOS system status and performance overview",
+
+    systemStatus: "System Status",
+    performance: "Performance",
+    security: "Security",
+    optimization: "Optimization",
+
+    systemHealthy: "System is healthy",
+
+    optimizationReady:
+      "Ready for optimization",
+  },
+
+  optimizer: {
+    title: "Windows Optimizer",
+
+    description:
+      "Optimize Windows for performance and gaming",
+
+    performance: "Performance",
+    gaming: "Gaming",
+    latency: "Latency",
+    background: "Background Processes",
+
+    optimize: "Start Optimization",
+    optimizing: "Optimizing...",
+    optimized: "Optimized",
+
+    recommended: "Recommended",
+    custom: "Custom",
+  },
+
+  scanner: {
+    title: "System Scanner",
+
+    description:
+      "Scan and analyze the current Windows system",
+
+    systemOverview: "System Overview",
+
+    cpu: "CPU",
+    gpu: "GPU",
+    memory: "Memory",
+    storage: "Storage",
+    network: "Network",
+
+    scanning: "Scanning system...",
+    scanComplete: "System scan completed",
+    scanFailed: "System scan failed",
+
+    scanAgain: "Scan Again",
+
+    healthy: "Healthy",
+    attention: "Needs Attention",
+    critical: "Critical",
+  },
+
+  fivem: {
+    title: "FiveM Optimizer",
+
+    description:
+      "System optimization for FiveM",
+
+    performance: "FiveM Performance",
+    fps: "FPS",
+    inputLatency: "Input Latency",
+    networkLatency: "Network Latency",
+
+    optimize: "Optimize FiveM",
+    launch: "Launch FiveM",
   },
 
   security: {
     title: "Security Center",
 
     description:
-      "WOS security, privileges and operation protection",
+      "WOS security, permissions and operation protection",
 
     administrator: "Administrator Privilege",
     uac: "UAC Protection",
@@ -93,7 +187,7 @@ const en = {
       "Recent WOS security activity",
 
     securityInitialized:
-      "Security context initialized",
+      "Security Context initialized",
 
     webPreviewDescription:
       "Native Windows privilege checks will be enabled in Desktop Mode",
@@ -198,83 +292,6 @@ const en = {
     },
   },
 
-  scanner: {
-    title: "System Scanner",
-
-    description:
-      "Scan and analyze the current Windows system state",
-
-    systemOverview: "System Overview",
-
-    cpu: "CPU",
-    gpu: "GPU",
-    memory: "Memory",
-    storage: "Storage",
-    network: "Network",
-
-    scanning: "Scanning system...",
-    scanComplete: "System scan completed",
-
-    scanFailed: "System scan failed",
-
-    scanAgain: "Scan Again",
-
-    healthy: "Healthy",
-    attention: "Needs Attention",
-    critical: "Critical",
-  },
-
-  optimizer: {
-    title: "Windows Optimizer",
-
-    description:
-      "Optimize Windows for performance and gaming",
-
-    performance: "Performance",
-    gaming: "Gaming",
-    latency: "Latency",
-    background: "Background Processes",
-
-    optimize: "Start Optimization",
-    optimizing: "Optimizing...",
-    optimized: "Optimized",
-
-    recommended: "Recommended",
-    custom: "Custom",
-  },
-
-  fivem: {
-    title: "FiveM Optimizer",
-
-    description:
-      "System optimization for FiveM",
-
-    performance: "FiveM Performance",
-    fps: "FPS",
-    inputLatency: "Input Latency",
-    networkLatency: "Network Latency",
-
-    optimize: "Optimize FiveM",
-    launch: "Launch FiveM",
-  },
-
-  dashboard: {
-    title: "Dashboard",
-
-    description:
-      "WOS system and performance overview",
-
-    systemStatus: "System Status",
-    performance: "Performance",
-    security: "Security",
-    optimization: "Optimization",
-
-    systemHealthy: "System is healthy",
-
-    optimizationReady:
-      "Ready for optimization",
-  },
-
   settings: {
     title: "Settings",
 
@@ -297,6 +314,7 @@ const en = {
   language: {
     title: "Language",
     select: "Select Language",
+
     thai: "ไทย",
     english: "English",
   },
