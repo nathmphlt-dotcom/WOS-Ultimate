@@ -18,71 +18,43 @@ export default function LanguageSwitcher() {
       role="group"
       aria-label="Language"
     >
-
-      {/* =================================================
-          THAI
-          ================================================= */}
-
       <button
         type="button"
-        className={`wos-language-option ${
+        className={
           language === "th"
-            ? "active"
-            : ""
-        }`}
-        onClick={() => {
-          setLanguage("th")
-        }}
-        aria-pressed={
-          language === "th"
+            ? "wos-language-option active"
+            : "wos-language-option"
         }
+        onClick={() => setLanguage("th")}
+        aria-pressed={language === "th"}
       >
-
-        <span
-          className="wos-language-flag"
-          aria-hidden="true"
-        >
+        <span className="wos-language-flag">
           🇹🇭
         </span>
 
         <span className="wos-language-label">
           ไทย
         </span>
-
       </button>
-
-      {/* =================================================
-          ENGLISH
-          ================================================= */}
 
       <button
         type="button"
-        className={`wos-language-option ${
+        className={
           language === "en"
-            ? "active"
-            : ""
-        }`}
-        onClick={() => {
-          setLanguage("en")
-        }}
-        aria-pressed={
-          language === "en"
+            ? "wos-language-option active"
+            : "wos-language-option"
         }
+        onClick={() => setLanguage("en")}
+        aria-pressed={language === "en"}
       >
-
-        <span
-          className="wos-language-flag"
-          aria-hidden="true"
-        >
+        <span className="wos-language-flag">
           🇬🇧
         </span>
 
         <span className="wos-language-label">
           English
         </span>
-
       </button>
-
     </div>
   )
 }
