@@ -5,7 +5,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { WOS_PAGES } from "../config/pages"
-import { useLanguage } from "../context/LanguageContext"
+import {
+  useLanguage,
+} from "./i18n/LanguageContext"
 
 type NavigationProps = {
   collapsed?: boolean
@@ -18,18 +20,23 @@ const categoryTitles = {
   tools: "navigation.categories.tools",
 } as const
 
-const categories = [
-  "main",
-  "gaming",
-  "system",
-  "tools",
-] as const
-
 export default function Navigation({
   collapsed = false,
 }: NavigationProps) {
   const pathname = usePathname()
-  const { t } = useLanguage()
+
+  const {
+    language,
+    setLanguage,
+    t,
+  } = useLanguage()
+
+  const categories = [
+    "main",
+    "gaming",
+    "system",
+    "tools",
+  ] as const
 
   return (
     <nav
@@ -39,14 +46,77 @@ export default function Navigation({
     >
       <div className="wos-navigation-inner">
 
-        {categories.map((category) => {
-          const pages = WOS_PAGES.filter(
-            (page) => page.category === category
-          )
+        {/* =================================================
+            LANGUAGE SWITCHER
+            ================================================= */}
 
-          if (pages.length === 0) {
-            return null
-          }
+        {!collapsed && (
+          <div className="wos-language-box">
+
+            <div className="wos-language-label">
+              LANGUAGE
+            </div>
+
+            <div className="wos-language-switcher">
+
+              <button
+                type="button"
+                className={`wos-language-button ${
+                  language === "th"
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() =>
+                  setLanguage("th")
+                }
+                aria-label="เปลี่ยนเป็นภาษาไทย"
+              >
+                <span className="wos-language-flag">
+                  🇹🇭
+                </span>
+
+                <span>
+                  ไทย
+                </span>
+              </button>
+
+              <button
+                type="button"
+                className={`wos-language-button ${
+                  language === "en"
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() =>
+                  setLanguage("en")
+                }
+                aria-label="Switch to English"
+              >
+                <span className="wos-language-flag">
+                  🇬🇧
+                </span>
+
+                <span>
+                  English
+                </span>
+              </button>
+
+            </div>
+
+          </div>
+        )}
+
+        {/* =================================================
+            NAVIGATION
+            ================================================= */}
+
+        {categories.map((category) => {
+
+          const pages =
+            WOS_PAGES.filter(
+              (page) =>
+                page.category === category
+            )
 
           return (
             <div
@@ -56,30 +126,27 @@ export default function Navigation({
 
               {!collapsed && (
                 <div className="wos-navigation-label">
-                  {t(categoryTitles[category])}
+                  {t(
+                    categoryTitles[
+                      category
+                    ]
+                  )}
                 </div>
               )}
 
               {pages.map((page) => {
+
                 const active =
                   pathname === page.path ||
                   pathname.startsWith(
                     `${page.path}/`
                   )
 
-                /*
-                 * รองรับระบบภาษาใน WOS_PAGES
-                 *
-                 * ถ้า page มี translationKey
-                 * จะใช้ระบบภาษา
-                 *
-                 * ถ้ายังไม่มี
-                 * จะใช้ page.title เดิม
-                 */
-                const pageTitle =
-                  "translationKey" in page &&
+                const translatedTitle =
                   page.translationKey
-                    ? t(page.translationKey)
+                    ? t(
+                        page.translationKey
+                      )
                     : page.title
 
                 return (
@@ -87,11 +154,13 @@ export default function Navigation({
                     href={page.path}
                     key={page.id}
                     className={`wos-navigation-item ${
-                      active ? "active" : ""
+                      active
+                        ? "active"
+                        : ""
                     }`}
                     title={
                       collapsed
-                        ? pageTitle
+                        ? translatedTitle
                         : undefined
                     }
                   >
@@ -102,7 +171,7 @@ export default function Navigation({
 
                     {!collapsed && (
                       <span className="wos-navigation-text">
-                        {pageTitle}
+                        {translatedTitle}
                       </span>
                     )}
 
@@ -121,4 +190,4 @@ export default function Navigation({
       </div>
     </nav>
   )
-                    }
+              }
