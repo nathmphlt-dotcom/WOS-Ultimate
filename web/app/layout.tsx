@@ -1,9 +1,12 @@
 import "../styles/globals.css";
+
 import { LanguageProvider } from "../components/LanguageProvider";
+import { SecurityProvider } from "../components/SecurityProvider";
 
 export const metadata = {
   title: "WOS — Windows Optimizer Suite",
-  description: "Professional Windows Gaming Optimization Suite",
+  description:
+    "Professional Windows Gaming Optimization Suite",
 };
 
 export default function RootLayout({
@@ -15,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
-          {children}
+          <SecurityProvider>
+            {children}
+          </SecurityProvider>
         </LanguageProvider>
       </body>
     </html>
