@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
 import "../styles/globals.css";
+import { LanguageProvider } from "../components/LanguageProvider";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "WOS — Windows Optimizer Suite",
-  description:
-    "Professional Windows Gaming Optimization Suite",
+  description: "Professional Windows Gaming Optimization Suite",
 };
 
 export default function RootLayout({
@@ -14,7 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
