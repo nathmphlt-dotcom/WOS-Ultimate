@@ -114,5 +114,23 @@ const th = {
     unsupported: "ไม่รองรับ",
   },
 };
+security: {
+  title: "ความปลอดภัยและสิทธิ์",
+  eyebrow: "WOS SECURITY CORE",
+  description:
+    "ตรวจสอบสิทธิ์ของระบบก่อนดำเนินการแก้ไข Windows",
+  administratorRequired:
+    "จำเป็นต้องใช้สิทธิ์ Administrator",
+  nativeRequired:
+    "การปรับแต่ง Windows ต้องทำผ่าน WOS Desktop Application",
+  webPreview: "WEB PREVIEW",
+  nativeEnvironment: "NATIVE ENVIRONMENT",
+  nativeCheckRequired:
+    "ต้องตรวจสอบจากระบบ Windows จริง",
+  adminRequired: "ต้องใช้สิทธิ์ ADMIN",
+  administrator: "ADMINISTRATOR",
+  nativeWindowsCheck:
+    "ตรวจสอบจาก Windows โดยตรง",
+},
 
 export default th;
