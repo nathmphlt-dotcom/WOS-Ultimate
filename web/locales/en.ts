@@ -114,9 +114,7 @@ const en = {
     unsupported: "UNSUPPORTED",
   },
 };
-
-export default en;
- security: {
+security: {
   title: "Security & Access",
   eyebrow: "WOS SECURITY CORE",
   description:
@@ -132,3 +130,7 @@ export default en;
   administrator: "ADMINISTRATOR",
   nativeWindowsCheck: "Native Windows check",
 },
+
+
+export default en;
+ 
