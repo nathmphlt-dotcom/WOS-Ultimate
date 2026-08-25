@@ -116,3 +116,19 @@ const en = {
 };
 
 export default en;
+ security: {
+  title: "Security & Access",
+  eyebrow: "WOS SECURITY CORE",
+  description:
+    "Verify system access before any Windows modification.",
+  administratorRequired:
+    "Administrator privileges required",
+  nativeRequired:
+    "Windows optimization requires the native WOS desktop application.",
+  webPreview: "WEB PREVIEW",
+  nativeEnvironment: "NATIVE ENVIRONMENT",
+  nativeCheckRequired: "NATIVE CHECK REQUIRED",
+  adminRequired: "ADMIN REQUIRED",
+  administrator: "ADMINISTRATOR",
+  nativeWindowsCheck: "Native Windows check",
+},
