@@ -16,7 +16,7 @@ const th = {
   navigation: {
     main: "หลัก",
     optimization: "การเพิ่มประสิทธิภาพ",
-    system: "ระบบ",
+    system: "ข้อมูลระบบ",
 
     lobby: "หน้าหลัก",
     dashboard: "แดชบอร์ด",
@@ -35,7 +35,6 @@ const th = {
     restore: "ศูนย์กู้คืน",
     notifications: "การแจ้งเตือน",
     settings: "ตั้งค่า",
-    system: "ข้อมูลระบบ",
     benchmark: "Benchmark",
     logs: "บันทึกระบบ",
   },
